@@ -50,10 +50,10 @@ body, html {
 #bottomPanel {
     display: flex; /* Ustawienie kontenera flex */
     align-items: center; /* Wyrównanie elementów w pionie */
-    justify-content: center;
+    justify-content: space-evenly;
     position: fixed;
     bottom: 0;
-    left: 60px;
+    left: 0px;
     width: 100%;
     height: 12%; /* Ustaw wysokość panelu dolnego */
     background-color: #666;
@@ -72,7 +72,7 @@ body, html {
     left: 60px;
     width: 88%;
     height: 88%; /* Ustaw wysokość panelu dolnego */
-    background-color: #ff5b5b50;
+    background-color: #00000000;
     color: white;
     z-index: 996;
 }
@@ -123,6 +123,7 @@ input[type="range"] {
     border-radius: 10px; /* Zaokrąglamy krawędzie suwaka */
     outline: none; /* Wyłączamy obramowanie suwaka */
     margin: 10px 0; /* Dodajemy odstęp na górze i na dole suwaka */
+    margin-left: 60px;
 }
 
 /* Zmieniamy wygląd "kciuka" suwaka dla przeglądarek Webkit */
@@ -130,8 +131,16 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
     width: 30px; /* Ustawiamy szerokość "kciuka" */
     height: 30px; /* Ustawiamy wysokość "kciuka" */
-    background: #c9d430; /* Ustawiamy kolor "kciuka" */
+    background: rgb(252, 255, 70); /* Ustawiamy kolor "kciuka" */
     border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
     cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
+}
+
+.controlButton
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(252, 255, 70);
 }
 

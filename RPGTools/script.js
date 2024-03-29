@@ -274,6 +274,7 @@ $(document).ready(function() {
     var buttonsArray = ["Fantasy", "Vampire", "Pirate"]; // Tablica nazw przycisków
     var sidePanel = $('#sidePanel');
     var centerPanel = $('#centerPanel');
+    var paused = true;
 
     musicAudioPlayer = $("#audioPlayer");
     var volumeSlider = $("#volume-slider");
@@ -281,6 +282,27 @@ $(document).ready(function() {
     volumeSlider.on("input", function(){
         musicAudioPlayer[0].volume = $(this).val();
         console.log(musicAudioPlayer[0].volume);
+    });
+
+    var playPauseButton = $('#playPauseButton');
+    playPauseButton.click(function() {
+        if(paused)
+        {
+            musicAudioPlayer[0].play();
+            paused = !paused;
+        }
+        else
+        {
+            musicAudioPlayer[0].pause();
+            paused = !paused;
+        }
+    });
+
+    var stopButton = $('#stopButton');
+    stopButton.click(function() {
+        musicAudioPlayer[0].currentTime = 0;
+        musicAudioPlayer[0].pause();
+        paused = true;
     });
 
     // Parsujemy JSON do obiektu JavaScript
@@ -296,6 +318,7 @@ $(document).ready(function() {
             var category = categories[index];
             currentCategory = category;
             playRandomSong(currentCategory, musicAudioPlayer);
+            paused = false;
         });
         centerPanel.append(button); // Dodawanie przycisku do sidePanel
     });
@@ -317,18 +340,11 @@ $(document).ready(function() {
     toggleButton.append(img); // Dodanie obrazka do przycisku
     sidePanel.append(toggleButton);
 
-    // Ustawienie event listenera dla toggleButton
-    $('#toggleButton').click(function() {
-        // Kod do wysuwania/ukrywania panelu
-    });
-
     $('#toggleButton').click(function() {
         if ($('#sidePanel').css('left') === '-250px') {
             $('#sidePanel').css('left', '0'); // Wysuwaj panel
-            $('#bottomPanel').css('left', '310px');
         } else {
             $('#sidePanel').css('left', '-250px'); // Schowaj panel
-            $('#bottomPanel').css('left', '60px');
         }
     });
 
