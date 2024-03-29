@@ -1,8 +1,4 @@
-var folderStructureJSONString = `{
-    "TEST": [
-        "badumts.mp3",
-        "badudu.mp3"
-    ],
+{
     "Action": [
         "19 - The Witcher 2 Score - Easier Said Than Killed (Extended).mp3",
         "30 - The Witcher 2 Score - Violence (Extended).mp3",
@@ -257,80 +253,4 @@ var folderStructureJSONString = `{
         "Sad Violin.mp3",
         "Tchaikovsky - None But The Lonely Hearts.mp3"
     ]
-}`;
-
-var musicMap;
-var currentCategory = "";
-var musicAudioPlayer;
-function playRandomSong(category, musicAudioPlayer)
-{
-    var randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
-    var audioUrl = `Audio/${category}/${musicMap.get(category)[randomIndex]}`;
-    musicAudioPlayer.attr("src", audioUrl);
-    musicAudioPlayer[0].play();
 }
-
-$(document).ready(function() {
-    var buttonsArray = ["Fantasy", "Vampire", "Pirate"]; // Tablica nazw przycisków
-    var sidePanel = $('#sidePanel');
-    var centerPanel = $('#centerPanel');
-
-    musicAudioPlayer = $("#audioPlayer");
-    var volumeSlider = $("#volume-slider");
-
-    volumeSlider.on("input", function(){
-        musicAudioPlayer[0].volume = $(this).val();
-        console.log(musicAudioPlayer[0].volume);
-    });
-
-    // Parsujemy JSON do obiektu JavaScript
-    const data = JSON.parse(folderStructureJSONString);
-    musicMap = new Map(Object.entries(data));
-    const categories = [...musicMap.keys()];
-
-    // Tworzenie przycisków i dodawanie ich do centerPanel
-    $.each(categories, function(index, name) {
-        var button = $('<button>').text(name).attr('class', 'GenreButton'); // Tworzenie przycisku
-        console.log(musicMap.get(categories[index])[0]);
-        button.click(function() {
-            var category = categories[index];
-            currentCategory = category;
-            playRandomSong(currentCategory, musicAudioPlayer);
-        });
-        centerPanel.append(button); // Dodawanie przycisku do sidePanel
-    });
-
-    musicAudioPlayer.on('ended', function() {
-        playRandomSong(currentCategory, musicAudioPlayer);
-    });
-
-    // Tworzenie przycisków i dodawanie ich do sidePanel
-    $.each(buttonsArray, function(index, name) {
-        var button = $('<button>').text(name).attr('class', 'WorldButton'); // Tworzenie przycisku
-        sidePanel.append(button); // Dodawanie przycisku do sidePanel
-    });
-
-    // Dodawanie przycisku toggleButton na koniec sidePanel z obrazkiem
-    var toggleButton = $('<button>').attr('id', 'toggleButton');
-    var img = $('<img>').attr('src', 'worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
-    img.css("width", "60px");
-    toggleButton.append(img); // Dodanie obrazka do przycisku
-    sidePanel.append(toggleButton);
-
-    // Ustawienie event listenera dla toggleButton
-    $('#toggleButton').click(function() {
-        // Kod do wysuwania/ukrywania panelu
-    });
-
-    $('#toggleButton').click(function() {
-        if ($('#sidePanel').css('left') === '-250px') {
-            $('#sidePanel').css('left', '0'); // Wysuwaj panel
-            $('#bottomPanel').css('left', '310px');
-        } else {
-            $('#sidePanel').css('left', '-250px'); // Schowaj panel
-            $('#bottomPanel').css('left', '60px');
-        }
-    });
-
-    
-});
