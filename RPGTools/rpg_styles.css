@@ -60,6 +60,9 @@ body, html {
 }
 
 #centerPanel {
+    display: flex; /* Ustawienie kontenera flex */
+    align-items: center; /* Wyrównanie elementów w pionie */
+    justify-content: center;
     position: fixed;
     bottom: 12%;
     left: 60px;
@@ -80,6 +83,25 @@ body, html {
 	border-color: gray;
 	background-color: #CFCFCF;
 	color: silver;
+	text-shadow: 0.2px 0.6px 2px gray,
+				0.3px 0.6px 2px gray,
+				0.4px 0.6px 2px gray,
+				0.5px 0.6px 2px gray,
+				0.6px 0.6px 2px gray;
+	outline: none;
+	text-decoration: none;
+}
+
+.GenreButton
+{
+    text-align: center;
+	font-size: 20px;
+	width: 120px;
+	height: 80px;
+	border-radius: 20px;
+	border-color: gold;
+	background-color: rgb(252, 255, 70);
+	color: gold;
 	text-shadow: 0.2px 0.6px 2px gray,
 				0.3px 0.6px 2px gray,
 				0.4px 0.6px 2px gray,

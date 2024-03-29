@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var buttonsArray = ["Fantasy", "Vampire", "Pirate"]; // Tablica nazw przycisków
     var sidePanel = $('#sidePanel');
+    var centerPanel = $('#centerPanel');
 
     // Tworzenie przycisków i dodawanie ich do sidePanel
     $.each(buttonsArray, function(index, name) {
@@ -29,5 +30,12 @@ $(document).ready(function() {
             $('#bottomPanel').css('left', '60px');
         }
     });
-    
+
+    var button = $('<button>').text("TEST").attr('class', 'GenreButton').attr('id', 'playButton'); // Tworzenie przycisku
+    button.click(function() {
+        var audioUrl = "MUZYKA/badumts.mp3";
+        $("#audioPlayer").attr("src", audioUrl);
+        $("#audioPlayer")[0].play();
+    });
+    centerPanel.append(button);
 });
