@@ -3,6 +3,14 @@ $(document).ready(function() {
     var sidePanel = $('#sidePanel');
     var centerPanel = $('#centerPanel');
 
+    var button = $('<button>').text("TEST").attr('class', 'GenreButton').attr('id', 'playButton'); // Tworzenie przycisku
+    button.click(function() {
+        var audioUrl = "MUZYKA/badumts.mp3";
+        $("#audioPlayer").attr("src", audioUrl);
+        $("#audioPlayer")[0].play();
+    });
+    centerPanel.append(button);
+
     // Tworzenie przycisków i dodawanie ich do sidePanel
     $.each(buttonsArray, function(index, name) {
         var button = $('<button>').text(name).attr('class', 'WorldButton'); // Tworzenie przycisku
@@ -31,11 +39,5 @@ $(document).ready(function() {
         }
     });
 
-    var button = $('<button>').text("TEST").attr('class', 'GenreButton').attr('id', 'playButton'); // Tworzenie przycisku
-    button.click(function() {
-        var audioUrl = "MUZYKA/badumts.mp3";
-        $("#audioPlayer").attr("src", audioUrl);
-        $("#audioPlayer")[0].play();
-    });
-    centerPanel.append(button);
+    
 });
