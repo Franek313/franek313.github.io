@@ -1,10 +1,33 @@
-const toggleButton = document.getElementById('toggleButton');
-const sidePanel = document.getElementById('sidePanel');
+$(document).ready(function() {
+    var buttonsArray = ["Fantasy", "Vampire", "Pirate"]; // Tablica nazw przycisków
+    var sidePanel = $('#sidePanel');
 
-toggleButton.addEventListener('click', function() {
-    if (sidePanel.style.left === '-250px') {
-        sidePanel.style.left = '0'; // Wysuwaj panel
-    } else {
-        sidePanel.style.left = '-250px'; // Schowaj panel
-    }
+    // Tworzenie przycisków i dodawanie ich do sidePanel
+    $.each(buttonsArray, function(index, name) {
+        var button = $('<button>').text(name).attr('class', 'WorldButton'); // Tworzenie przycisku
+        sidePanel.append(button); // Dodawanie przycisku do sidePanel
+    });
+
+    // Dodawanie przycisku toggleButton na koniec sidePanel z obrazkiem
+    var toggleButton = $('<button>').attr('id', 'toggleButton');
+    var img = $('<img>').attr('src', 'worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    img.css("width", "60px");
+    toggleButton.append(img); // Dodanie obrazka do przycisku
+    sidePanel.append(toggleButton);
+
+    // Ustawienie event listenera dla toggleButton
+    $('#toggleButton').click(function() {
+        // Kod do wysuwania/ukrywania panelu
+    });
+
+    $('#toggleButton').click(function() {
+        if ($('#sidePanel').css('left') === '-250px') {
+            $('#sidePanel').css('left', '0'); // Wysuwaj panel
+            $('#bottomPanel').css('left', '310px');
+        } else {
+            $('#sidePanel').css('left', '-250px'); // Schowaj panel
+            $('#bottomPanel').css('left', '60px');
+        }
+    });
+    
 });
