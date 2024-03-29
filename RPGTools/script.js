@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     var button = $('<button>').text("TEST").attr('class', 'GenreButton').attr('id', 'playButton'); // Tworzenie przycisku
     button.click(function() {
-        var audioUrl = "MUZYKA/badumts.mp3";
+        var audioUrl = "Audio/Action/Baldur's Gate OST - Attacked by Assassins.mp3";
         $("#audioPlayer").attr("src", audioUrl);
         $("#audioPlayer")[0].play();
     });
