@@ -116,7 +116,7 @@ body, html {
 }
 
 input[type="range"] {
-    /* -webkit-appearance: none;  */
+    -webkit-appearance: none; 
     width: 33%; /* Ustawiamy szerokość suwaka */
     height: 20px; /* Ustawiamy wysokość suwaka */
     background: #d3d3d3; /* Ustawiamy kolor tła suwaka */
@@ -127,7 +127,7 @@ input[type="range"] {
 
 /* Zmieniamy wygląd "kciuka" suwaka dla przeglądarek Webkit */
 input[type="range"]::-webkit-slider-thumb {
-    /*-webkit-appearance: none;*/
+    -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
     width: 30px; /* Ustawiamy szerokość "kciuka" */
     height: 30px; /* Ustawiamy wysokość "kciuka" */
     background: #c9d430; /* Ustawiamy kolor "kciuka" */
