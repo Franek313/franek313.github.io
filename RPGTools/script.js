@@ -3,27 +3,50 @@ var currentCategory = "";
 var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var globalVolume = 1.0;
-var fadeDelay = 5000;
+var fadeDelay = 2000;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
-var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate"];
+var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "SPECIAL"];
 
 function playRandomSong(category, musicAudioPlayer)
 {
-    
-    tempMusicAudioPlayer = $("#tempAudioPlayer");
-    tempMusicAudioPlayer.attr("src", musicAudioPlayer.attr("src"));
-    tempMusicAudioPlayer[0].currentTime = musicAudioPlayer[0].currentTime;
-
     var randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
     var audioUrl = `Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
-    musicAudioPlayer.attr("src", audioUrl);
 
-    musicAudioPlayer[0].play();
-    musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    tempMusicAudioPlayer[0].play();
-    tempMusicAudioPlayer.animate({volume:0}, fadeDelay);
+    if(musicAudioPlayer[0].src != "")
+    {
+        tempMusicAudioPlayer[0].src = musicAudioPlayer[0].src;
+        tempMusicAudioPlayer[0].currentTime = musicAudioPlayer[0].currentTime;
+        tempMusicAudioPlayer[0].volume = musicAudioPlayer[0].volume;
+        tempMusicAudioPlayer.stop();
+        tempMusicAudioPlayer[0].play();
+        tempMusicAudioPlayer[0].volume = globalVolume;
+        tempMusicAudioPlayer.animate({volume: 0}, fadeDelay);
+        musicAudioPlayer[0].src = audioUrl;
+        musicAudioPlayer.stop();
+        musicAudioPlayer[0].play();
+        musicAudioPlayer[0].volume = 0;
+        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    }
+    else
+    {        
+        musicAudioPlayer[0].src = audioUrl;
+        musicAudioPlayer[0].play();
+        musicAudioPlayer[0].volume = 0;
+        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    }
+    
+    // tempMusicAudioPlayer.stop();
+    // tempMusicAudioPlayer[0].play();
+    // tempMusicAudioPlayer[0].volume = globalVolume;
+    // tempMusicAudioPlayer.animate({volume: 0}, fadeDelay);
+    
+    // musicAudioPlayer.stop();
+    // musicAudioPlayer[0].play();
+    // musicAudioPlayer[0].volume = 0;
+    // musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
 }
+
 
 function generateGenreButtons(categories)
 {
@@ -32,7 +55,6 @@ function generateGenreButtons(categories)
         if(name.includes(worldPrefix))
         {
             var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton'); // Tworzenie przycisku
-            console.log(musicMap.get(categories[index])[0]);
             button.click(function() { //obsługa zdarzenia onlick
                 var category = categories[index];
                 currentCategory = category;
@@ -49,6 +71,7 @@ $(document).ready(function() {
     worldsPrefixesMap.set('Fantasy', 'f_');
     worldsPrefixesMap.set('Vampire', 'v_');
     worldsPrefixesMap.set('Pirate', 'p_');
+    worldsPrefixesMap.set('SPECIAL', 'S_');
 
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
@@ -88,6 +111,7 @@ $(document).ready(function() {
     //--Audio--//
     var paused = true;
     musicAudioPlayer = $("#audioPlayer");
+    tempMusicAudioPlayer = $("#tempAudioPlayer");
     volumeSlider.on("input", function(){
         musicAudioPlayer[0].volume = $(this).val();
         globalVolume = $(this).val();
@@ -96,18 +120,31 @@ $(document).ready(function() {
     playPauseButton.click(function() {
         if(paused)
         {
+            musicAudioPlayer.stop();
             musicAudioPlayer[0].play();
             paused = !paused;
+            musicAudioPlayer[0].volume = 0;
+            musicAudioPlayer.animate({volume: globalVolume}, fadeDelay); 
         }
         else
         {
-            musicAudioPlayer[0].pause();
+            musicAudioPlayer.stop();
+            musicAudioPlayer[0].volume = globalVolume;
+            musicAudioPlayer.animate({volume: 0}, fadeDelay); 
+            setTimeout(() => {
+                musicAudioPlayer[0].pause();
+            }, fadeDelay);
             paused = !paused;
         }
     });
     stopButton.click(function() {
-        musicAudioPlayer[0].currentTime = 0;
-        musicAudioPlayer[0].pause();
+        musicAudioPlayer.stop();
+        musicAudioPlayer[0].volume = globalVolume;
+        musicAudioPlayer.animate({volume: 0}, fadeDelay); 
+        setTimeout(() => {
+                musicAudioPlayer[0].pause();
+                musicAudioPlayer[0].currentTime = 0;
+        }, fadeDelay);
         paused = true;
     });
     musicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
@@ -116,9 +153,21 @@ $(document).ready(function() {
 });
 
 var folderStructureJSONString = `{
-    "f_TEST": [
+    "TEST": [
         "badumts.mp3",
         "badudu.mp3"
+    ],
+    "S_Kraken": [
+        "kraken_theme.mp3"
+    ],
+    "S_Dagan": [
+        "Tonal Chaos Trailers - Toccata (Dagan Theme).mp3"
+    ],
+    "S_Vordt": [
+        "Dark Souls III OST - Vordt of the Boreal Valley [Phase 2 Extended].mp3"
+    ],
+    "S_Zoltraak": [
+        "Frieren OST — Zoltraak Extended Ver.mp3"
     ],
     "f_Action": [
         "19 - The Witcher 2 Score - Easier Said Than Killed (Extended).mp3",
@@ -162,7 +211,8 @@ var folderStructureJSONString = `{
         "The Hunt is Coming.mp3",
         "The Witcher 2 Assassins of Kings - Battle Music.mp3",
         "The\u00a0Shrieker\u00a0Contract.mp3",
-        "Widow maker.mp3"
+        "Widow maker.mp3",
+        "Sousou no Frieren OST -  Zoltraak  by Evan Call.mp3"
     ],
     "f_Fear": [
         "03 - Dark Discovery - James Horner - Aliens.mp3",
@@ -205,8 +255,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 Living Story Season 2 OST - The World Summit.mp3",
         "Guild Wars 2 OST - 01. Overture.mp3",
         "Guild Wars 2 OST - Dragon Bash Main Theme.mp3",
-        "Guild Wars 2 OST - Sanctum Sprint (Bazaar of the Four Winds).mp3",
-        "The Chronicles of Narnia Soundtrack - 09 - To Aslan's Camp.mp3"
+        "Guild Wars 2 OST - Sanctum Sprint (Bazaar of the Four Winds).mp3"
     ],
     "f_Inn": [
         "Divinity Original Sin 2 OST   18 Amber Ale.mp3",
@@ -232,7 +281,13 @@ var folderStructureJSONString = `{
         "The Witcher OST - Evening in the Tavern (extended).mp3",
         "The Witcher Soundtrack - Tavern at the End of World.mp3",
         "The Wolven Storm (English).mp3",
-        "Warcraft Tavern Songs- Thunderbrew.mp3"
+        "Warcraft Tavern Songs- Thunderbrew.mp3",
+        "Sousou no Frieren A Well-Earned Celebration.mp3",
+        "Sousou no Frieren Grassy Turtles and Seed Rats.mp3",
+        "Sousou no Frieren OST -  A Well-Earned Celebration  by Evan Call.mp3",
+        "Sousou no Frieren OST -  Grassy Turtles and Seed Rats  by Evan Call.mp3",
+        "Sousou no Frieren Time Flows Ever Onward.mp3",
+        "Sousou no Frieren Zoltraak_Tavern.mp3"
     ],
     "f_Mysterious": [
         "Bad News Ahead Full.mp3",
@@ -363,7 +418,14 @@ var folderStructureJSONString = `{
         "The\u00a0Tree\u00a0When\u00a0We\u00a0Sat\u00a0Once.mp3",
         "When\u00a0No\u00a0Man\u00a0Has\u00a0Gone\u00a0Before.mp3",
         "Whispers of Oxenfurt Instrumental.mp3",
-        "Yes, I Do.mp3"
+        "Yes, I Do.mp3",
+        "Sousou no Frieren OST -  Departures  by Evan Call.mp3",
+        "Sousou no Frieren OST -  Farewell, My Friend  by Evan Call.mp3",
+        "Sousou no Frieren OST -  For 1000 Years  by Evan Call.mp3",
+        "Sousou no Frieren OST -  One Last Adventure  by Evan Call.mp3",
+        "Sousou no Frieren OST -  The End of One Journey  by Evan Call.mp3",
+        "Sousou no Frieren OST -  Time Flows Ever Onward  by Evan Call.mp3",
+        "Sousou no Frieren OST -  Where the Blue-Moon Weed Grows  by Evan Call.mp3"
     ],
     "f_Sad": [
         "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
