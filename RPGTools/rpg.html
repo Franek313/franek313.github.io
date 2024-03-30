@@ -10,18 +10,20 @@
 </head>
 <body>
     <div id="main">
-        <div id="sidePanel"></div>
-        <div id="centerPanel"></div>
-        <div id="bottomPanel">
+        <div id="worldsPanel"></div>
+        <div id="genresPanel"></div>
+        <div id="controlsPanel">
             <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
             <div>
                 <button class="controlButton" id="playPauseButton">&#9654</button>
                 <button class="controlButton" id="stopButton">&#9632</button>
                 <button class="controlButton" id="muteButton">MUTE</button>
             </div>
-            
         </div>
         <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="tempAudioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
     </div>

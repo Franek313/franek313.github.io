@@ -15,12 +15,12 @@ body, html {
 }
 
 /* PANELS -------------------------------------------------------------- */
-#sidePanel {
+#worldsPanel {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative; /* Ustawienie kontenera sidePanel jako pozycji względnej */
+    position: relative; /* Ustawienie kontenera worldsPanel jako pozycji względnej */
     top: 0;
     left: -250px;
     width: 250px;
@@ -30,8 +30,8 @@ body, html {
     transition: left 0.3s ease;
     z-index: 998;
 }
-#toggleButton {
-    position: absolute; /* Ustawienie przycisku toggleButton jako absolutnie pozycjonowanego */
+#worldsButton {
+    position: absolute; /* Ustawienie przycisku worldsButton jako absolutnie pozycjonowanego */
     display: flex; /* Ustawienie kontenera flex */
     align-items: center; /* Wyrównanie elementów w pionie */
     justify-content: center; /* Wyrównanie elementów w poziomie */
@@ -47,7 +47,7 @@ body, html {
     z-index: 998;
 }
 
-#bottomPanel {
+#controlsPanel {
     display: flex; /* Ustawienie kontenera flex */
     align-items: center; /* Wyrównanie elementów w pionie */
     justify-content: space-evenly;
@@ -62,7 +62,7 @@ body, html {
     z-index: 997;
 }
 
-#centerPanel {
+#genresPanel {
     display: flex; /* Ustawienie kontenera flex */
     align-items: center; /* Wyrównanie elementów w pionie */
     justify-content: center;
@@ -142,5 +142,11 @@ input[type="range"]::-webkit-slider-thumb {
     height: 50px;
     border-radius: 50%;
     background-color: rgb(252, 255, 70);
+}
+
+#songName
+{
+    position : fixed;
+    text-align: center;
 }
 
