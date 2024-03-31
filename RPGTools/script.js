@@ -11,6 +11,8 @@ var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "SPECIAL"];
 function playRandomSong(category, musicAudioPlayer)
 {
     var randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
+    var songName = $("#songName");
+    songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
     if(musicAudioPlayer[0].src != "")
@@ -35,18 +37,13 @@ function playRandomSong(category, musicAudioPlayer)
         musicAudioPlayer[0].volume = 0;
         musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
     }
-    
-    // tempMusicAudioPlayer.stop();
-    // tempMusicAudioPlayer[0].play();
-    // tempMusicAudioPlayer[0].volume = globalVolume;
-    // tempMusicAudioPlayer.animate({volume: 0}, fadeDelay);
-    
-    // musicAudioPlayer.stop();
-    // musicAudioPlayer[0].play();
-    // musicAudioPlayer[0].volume = 0;
-    // musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
 }
 
+var styleMap = new Map();
+styleMap.set(`f_`, {'border-color': 'gold','background-color': 'rgb(252, 255, 70)','color': 'gold'});
+styleMap.set(`v_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
+styleMap.set(`p_`, {'border-color': '#4390DA','background-color': '#053B6F','color': '#4390DA'});
+styleMap.set(`S_`, {'border-color': 'gray','background-color': '#CFCFCF','color': 'silver'});
 
 function generateGenreButtons(categories)
 {
@@ -55,6 +52,8 @@ function generateGenreButtons(categories)
         if(name.includes(worldPrefix))
         {
             var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton'); // Tworzenie przycisku
+            let styleString = styleMap.get(worldPrefix);
+            button.css(styleString);
             button.click(function() { //obsługa zdarzenia onlick
                 var category = categories[index];
                 currentCategory = category;
@@ -72,6 +71,7 @@ $(document).ready(function() {
     worldsPrefixesMap.set('Vampire', 'v_');
     worldsPrefixesMap.set('Pirate', 'p_');
     worldsPrefixesMap.set('SPECIAL', 'S_');
+
 
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
@@ -98,6 +98,9 @@ $(document).ready(function() {
             worldPrefix = worldsPrefixesMap.get(worldsButtonsArray[index]);
             $('.GenreButton').remove();
             generateGenreButtons(categories);
+            let songName = $("#songName");
+            songName.css(styleMap.get(worldPrefix))
+            songName.css('background-color' , '#00000000');
         });
         worldsPanel.append(button);
     });

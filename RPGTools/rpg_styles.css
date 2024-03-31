@@ -63,29 +63,30 @@ body, html {
 }
 input[type="range"] {
     -webkit-appearance: none; 
-    width: 33%; /* Ustawiamy szerokość suwaka */
-    height: 1rem; /* Ustawiamy wysokość suwaka */
-    background: #d3d3d3; /* Ustawiamy kolor tła suwaka */
+    width: 35vw; /* Ustawiamy szerokość suwaka */
+    height: 1vw; /* Ustawiamy wysokość suwaka */
+    background: gray; /* Ustawiamy kolor tła suwaka */
     border-radius: 10px; /* Zaokrąglamy krawędzie suwaka */
     outline: none; /* Wyłączamy obramowanie suwaka */
     margin: 10px 0; /* Dodajemy odstęp na górze i na dole suwaka */
-    margin-left: 1rem;
+    margin-left: 5vw;
 }
 /* Zmieniamy wygląd "kciuka" suwaka dla przeglądarek Webkit */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
-    width: 30px; /* Ustawiamy szerokość "kciuka" */
-    height: 30px; /* Ustawiamy wysokość "kciuka" */
-    background: rgb(252, 255, 70); /* Ustawiamy kolor "kciuka" */
+    width: 6vw; /* Ustawiamy szerokość "kciuka" */
+    height: 6vw; /* Ustawiamy wysokość "kciuka" */
+    background: silver; /* Ustawiamy kolor "kciuka" */
     border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
     cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
 }
 .controlButton
 {
-    width: 50px;
-    height: 50px;
+    font-size: 2vw;
+    width: 7vw;
+    height: 7vw;
     border-radius: 50%;
-    background-color: rgb(252, 255, 70);
+    background-color: silver;
 }
 #musicControls{
     display: flex; /* Ustawienie kontenera flex */
@@ -97,6 +98,25 @@ input[type="range"]::-webkit-slider-thumb {
     margin-right: 5rem;
 }
 
+#songName
+{
+    color: goldenrod;
+	text-shadow: 0.2px 0.6px 2px black,
+				0.3px 0.6px 2px black,
+				0.4px 0.6px 2px black,
+				0.5px 0.6px 2px black,
+				0.6px 0.6px 2px black;
+	outline: none;
+    font-family: Cinzel;
+    font-weight: bold;
+    font-size: 2vw;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    height: 3vw;
+    text-align: center;
+    left : 2rem;
+}
 #genresPanel {
     display: flex; /* Ustawienie kontenera flex */
     align-items: center; /* Wyrównanie elementów w pionie */
@@ -146,11 +166,11 @@ input[type="range"]::-webkit-slider-thumb {
 	border-color: gold;
 	background-color: rgb(252, 255, 70);
 	color: gold;
-	text-shadow: 0.2px 0.6px 2px gray,
-				0.3px 0.6px 2px gray,
-				0.4px 0.6px 2px gray,
-				0.5px 0.6px 2px gray,
-				0.6px 0.6px 2px gray;
+	text-shadow: 0.2px 0.6px 2px black,
+				0.3px 0.6px 2px black,
+				0.4px 0.6px 2px black,
+				0.5px 0.6px 2px black,
+				0.6px 0.6px 2px black;
 	outline: none;
 	text-decoration: none;
 }
