@@ -32,6 +32,7 @@
             
             // Set the src attribute to the Markdown file name
             zeroMdElement.setAttribute("src", fileNameWithExtension.replace('.html', '.md'));
+            print(zeroMdElement.getAttribute("src"));
 
             // Append the <zero-md> element to the body
             document.body.appendChild(zeroMdElement);
