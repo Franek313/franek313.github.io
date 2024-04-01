@@ -26,7 +26,7 @@ Tekst pomiędzy akapitami.
 
 ### Obrazy
 
-![Obrazek](file:///E:/franek313.github.io/DNDWiki/MapaSwiata.png)
+![loading-ag-110](MapaSwiata.png)
 
 ### Cytaty
 
@@ -38,5 +38,3 @@ Tekst pomiędzy akapitami.
 def hello_world():
     print("Hello, world!")
 ```
-
-
