@@ -7,14 +7,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-    <script>
+    <!-- <script>
         window.ZeroMdConfig = {
           cssUrls: [
             'wikiStyles.css'
           ]
         }
-    </script> 
-    <script>
+    </script>  -->
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Get the pathname of the URL
             var pathName = decodeURI(document.location.pathname);
@@ -51,9 +51,26 @@
 
             // Append the <zero-md> element to the body
             document.body.appendChild(zeroMdElement);
-        });
+        }); -->
     </script>
 </head>
 <body>
+    <zero-md src="Strona_Główna.md">
+        <template data-merge="append">
+          <style>
+            ul {
+              margin: 0;
+              padding: 0;
+              color : red;
+            }
+            li {
+              display: inline;
+              padding: 0;
+              margin: 0;
+              color : green;
+            }
+          </style>
+        </template>
+      </zero-md>
 </body>
 </html>
