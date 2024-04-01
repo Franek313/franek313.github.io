@@ -1,6 +1,6 @@
 # Monarchia Archladii
 
-![loading-ag-80](Monarchia_Archladii.png)
+![](Images/Monarchia_Archladii_Global.png)
 
 Państwo stanowiące niegdyś część Wielkiego Królestwa Ladii, którego rozpad był efektem toczących się od 133 lat wojen Ladijskich.
 
@@ -8,10 +8,12 @@ Państwo stanowiące niegdyś część Wielkiego Królestwa Ladii, którego rozp
 
 Największymi miastami w państwie są:
 
-- Ladia
+- Ladia (stolica)
 - Dan
 - Übel
 - Roniburg
+
+![](Images/Monarchia_Archladii.png)
 
 ## Ustrój
 
@@ -21,4 +23,6 @@ W Monarchii Archladii panuje monarchia absolutna, każdy kto próbuje przeciwsta
 
 Relacje Monarchii Archladii z sąsiadami są złe. Państwo patrzy wrogo na każdego otaczającego sąsiada za wyjątkiem pokojowo nastawionego do wszystkich dookoła państwa Xan.
 
+## Ciekawostki
 
+- To w tym państwie swoje przygody rozpoczęła [Drużyna spod Dan](Drużyna_spod_Dan).
