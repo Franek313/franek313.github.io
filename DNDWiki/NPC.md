@@ -51,7 +51,7 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 - John Arrow, kapitan piratów z Valinoru
 - Loczek
 - Aslan, nieznajomy półelf
-- Kaleki krasnolud żebrak
+- Dwaren, menel z Valinoru
 
 ### Smocza Wyspa
 
