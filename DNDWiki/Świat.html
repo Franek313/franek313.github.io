@@ -8,13 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
     <script>
-        window.ZeroMdConfig = {
-          cssUrls: [
-            'wikiStyles.css'
-          ]
-        }
-    </script>
-    <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Get the pathname of the URL
             var pathName = decodeURI(document.location.pathname);
@@ -40,19 +33,8 @@
             // Set the src attribute to the Markdown file name
             zeroMdElement.setAttribute("src", fileNameWithExtension.replace('.html', '.md'));
 
-            // Create a new <template> element for custom styles
-            var customStyleTemplate = document.createElement("template");
-
-            // Set the content of the template to your custom CSS link
-            customStyleTemplate.innerHTML = `<link rel="stylesheet" href="wikiStyles.css">`;
-
-            // Append the custom style template to the zero-md element
-            zeroMdElement.appendChild(customStyleTemplate.content);
-
             // Append the <zero-md> element to the body
             document.body.appendChild(zeroMdElement);
-
-            $("h1").css("color", "red");
         });
     </script>
 </head>
