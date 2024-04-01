@@ -2,7 +2,7 @@
 
 ![loading-ag-110](Images/MapaSwiata.png)
 
-Świat, w którym rozgrywają się przygody bohaterów jest przez ogół graczy i nawet samego MG jeszcze niezgłębiony. Dotychczasowe wydarzenia odbywają się na terenach [Królestwa Valinoru](Królestwo_Valinoru.html) oraz [Monarchii Archladii](Monarchia_Archladii.html). Wraz z rozwojem fabuły naszych gier wyobraźni 
+Świat, w którym rozgrywają się przygody bohaterów jest przez ogół graczy i nawet samego MG jeszcze niezgłębiony. Dotychczasowe wydarzenia odbywają się na terenach [Królestwa Valinoru](Królestwo_Valinoru.html) oraz [Monarchii Archladii](Monarchia_Archladii.html). Wraz z rozwojem fabuły naszych gier wyobraźni świat będzie coraz lepiej poznany a przygody naszych bohaterów nadadzą mu kształtu i koloru.
 
 
 
