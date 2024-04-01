@@ -1,68 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        window.ZeroMdConfig = {
+          cssUrls: [
+            'wikiStyles.css'
+          ]
+        }
+    </script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
             // Get the pathname of the URL
             var pathName = decodeURI(document.location.pathname);
-
+            
             // Split the pathname by '/' to get an array of segments
             var segments = pathName.split('/');
-
+            
             // Get the last segment which is the file name
             var fileNameWithExtension = segments.pop();
-
+            
             // Remove the extension from the file name and decode URI component
             var fileNameWithoutExtension = decodeURIComponent(fileNameWithExtension.replace(/\.[^/.]+$/, ''));
-
+            
             // Replace underscores with spaces
             fileNameWithoutExtension = fileNameWithoutExtension.replace(/_/g, ' ');
-
+            
             // Set the title to the file name without extension
             document.title = `${fileNameWithoutExtension} | My DnD Wiki`;
-
+            
             // Create a new <zero-md> element
             var zeroMdElement = document.createElement("zero-md");
-
+            
             // Set the src attribute to the Markdown file name
             zeroMdElement.setAttribute("src", fileNameWithExtension.replace('.html', '.md'));
 
-            // Append the <zero-md> element to the body
-            //document.body.appendChild(zeroMdElement);
-
             // Create a new <template> element for custom styles
-            //var customStyleTemplate = document.createElement("template");
+            var customStyleTemplate = document.createElement("template");
 
             // Set the content of the template to your custom CSS link
-            //customStyleTemplate.innerHTML = `<link rel="stylesheet" href="wikiStyles.css" />`;
+            customStyleTemplate.innerHTML = `<link rel="stylesheet" href="wikiStyles.css">`;
 
             // Append the custom style template to the zero-md element
-            //zeroMdElement.appendChild(customStyleTemplate);
+            zeroMdElement.appendChild(customStyleTemplate.content);
+
+            // Append the <zero-md> element to the body
+            document.body.appendChild(zeroMdElement);
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 </head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 <body>
-    <zero-md src="Strona_Główna.md">
-        <!-- Style template prepended before default styles -->
-        <template data-merge="prepend">
-          <link rel="stylesheet" href="/normalize.css" />
-        </template>
-        <!-- Style template appended after default styles -->
-        <template data-merge="append">
-          <style>
-            h1 {
-              color: red;
-            }
-          </style>
-        </template>
-      </zero-md>
 </body>
-
 </html>
