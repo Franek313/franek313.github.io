@@ -7,6 +7,7 @@ var fadeDelay = 2000;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "SPECIAL"];
+var paused = false;
 
 function playRandomSong(category, musicAudioPlayer)
 {
@@ -19,6 +20,7 @@ function playRandomSong(category, musicAudioPlayer)
     {
         tempMusicAudioPlayer[0].src = musicAudioPlayer[0].src;
         tempMusicAudioPlayer[0].currentTime = musicAudioPlayer[0].currentTime;
+        console.log(paused);
         tempMusicAudioPlayer[0].volume = musicAudioPlayer[0].volume;
         tempMusicAudioPlayer.stop();
         tempMusicAudioPlayer[0].play();
@@ -37,6 +39,39 @@ function playRandomSong(category, musicAudioPlayer)
         musicAudioPlayer[0].volume = 0;
         musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
     }
+    // if(musicAudioPlayer[0].src != "")
+    // {
+    //         musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+    //         musicAudioPlayer.stop();
+    //         musicAudioPlayer[0].src = audioUrl;
+    //         musicAudioPlayer[0].play();
+    //         musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    //     });
+    // }
+    // else
+    // {
+    //     musicAudioPlayer[0].src = audioUrl;
+    //     musicAudioPlayer[0].play();
+    //     musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    // }
+
+    // if(musicAudioPlayer[0].paused && tempMusicAudioPlayer[0].paused)
+    // {
+    //     musicAudioPlayer[0].src = audioUrl;
+    //     musicAudioPlayer[0].volume = 0;
+    //     musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    //     musicAudioPlayer[0].play();
+    //     return;
+    // }
+    
+    // tempMusicAudioPlayer[0].src = audioUrl;
+    // tempMusicAudioPlayer[0].play();
+    // musicAudioPlayer.animate({volume: 0}, fadeDelay);
+    // tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+
+    // var temp = musicAudioPlayer[0].attr("id");
+    // musicAudioPlayer[0].attr("id") = tempMusicAudioPlayer[0].attr("id");
+    // tempMusicAudioPlayer[0].attr("id") = temp[0].attr("id");    
 }
 
 var styleMap = new Map();
@@ -57,8 +92,8 @@ function generateGenreButtons(categories)
             button.click(function() { //obsługa zdarzenia onlick
                 var category = categories[index];
                 currentCategory = category;
-                playRandomSong(currentCategory, musicAudioPlayer);
                 paused = false;
+                playRandomSong(currentCategory, musicAudioPlayer);
             });
             genresPanel.append(button);
         }
@@ -71,7 +106,6 @@ $(document).ready(function() {
     worldsPrefixesMap.set('Vampire', 'v_');
     worldsPrefixesMap.set('Pirate', 'p_');
     worldsPrefixesMap.set('SPECIAL', 'S_');
-
 
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
@@ -112,9 +146,10 @@ $(document).ready(function() {
     var stopButton = $('#stopButton');
 
     //--Audio--//
-    var paused = true;
     musicAudioPlayer = $("#audioPlayer");
+    musicAudioPlayer[0].volume = 1;
     tempMusicAudioPlayer = $("#tempAudioPlayer");
+    tempMusicAudioPlayer[0].volume = 1;
     volumeSlider.on("input", function(){
         musicAudioPlayer[0].volume = $(this).val();
         globalVolume = $(this).val();
