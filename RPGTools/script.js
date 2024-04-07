@@ -2,21 +2,21 @@ var musicMap;
 var currentCategory = "";
 var musicAudioPlayer;
 var tempMusicAudioPlayer;
+var currentMusicPlayer;
 var globalVolume = 1.0;
-var fadeDelay = 2000;
+var fadeDelay = 1500;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "SPECIAL"];
-var paused = false;
 
-function playRandomSong(category, musicAudioPlayer)
+function playRandomSong(category)
 {
     var randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
     var songName = $("#songName");
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
-    if(musicAudioPlayer[0].src != "")
+   /* if(musicAudioPlayer[0].src != "")
     {
         tempMusicAudioPlayer[0].src = musicAudioPlayer[0].src;
         tempMusicAudioPlayer[0].currentTime = musicAudioPlayer[0].currentTime;
@@ -39,39 +39,63 @@ function playRandomSong(category, musicAudioPlayer)
         musicAudioPlayer[0].volume = 0;
         musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
     }
-    // if(musicAudioPlayer[0].src != "")
-    // {
-    //         musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
-    //         musicAudioPlayer.stop();
-    //         musicAudioPlayer[0].src = audioUrl;
-    //         musicAudioPlayer[0].play();
-    //         musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    //     });
-    // }
-    // else
-    // {
-    //     musicAudioPlayer[0].src = audioUrl;
-    //     musicAudioPlayer[0].play();
-    //     musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    // }
+    if(musicAudioPlayer[0].src != "")
+    {
+            musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+            musicAudioPlayer.stop();
+            musicAudioPlayer[0].src = audioUrl;
+            musicAudioPlayer[0].play();
+            musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        });
+    }
+    else
+    {
+        musicAudioPlayer[0].src = audioUrl;
+        musicAudioPlayer[0].play();
+        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    }
 
-    // if(musicAudioPlayer[0].paused && tempMusicAudioPlayer[0].paused)
-    // {
-    //     musicAudioPlayer[0].src = audioUrl;
-    //     musicAudioPlayer[0].volume = 0;
-    //     musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    //     musicAudioPlayer[0].play();
-    //     return;
-    // }
+    if(musicAudioPlayer[0].paused && tempMusicAudioPlayer[0].paused)
+    {
+        musicAudioPlayer[0].src = audioUrl;
+        musicAudioPlayer[0].volume = 0;
+        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        musicAudioPlayer[0].play();
+        return;
+    }
     
-    // tempMusicAudioPlayer[0].src = audioUrl;
-    // tempMusicAudioPlayer[0].play();
-    // musicAudioPlayer.animate({volume: 0}, fadeDelay);
-    // tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+    tempMusicAudioPlayer[0].src = audioUrl;
+    tempMusicAudioPlayer[0].play();
+    musicAudioPlayer.animate({volume: 0}, fadeDelay);
+    tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
 
-    // var temp = musicAudioPlayer[0].attr("id");
-    // musicAudioPlayer[0].attr("id") = tempMusicAudioPlayer[0].attr("id");
-    // tempMusicAudioPlayer[0].attr("id") = temp[0].attr("id");    
+    var temp = musicAudioPlayer[0].attr("id");
+    musicAudioPlayer[0].attr("id") = tempMusicAudioPlayer[0].attr("id");
+    tempMusicAudioPlayer[0].attr("id") = temp[0].attr("id");    */
+
+    if(musicAudioPlayer[0].paused){
+        currentMusicPlayer = musicAudioPlayer;
+        tempMusicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+            tempMusicAudioPlayer[0].pause();
+        });
+        musicAudioPlayer[0].src = audioUrl;
+        musicAudioPlayer[0].play();
+        musicAudioPlayer[0].volume = 0;
+        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        return;
+    }
+
+    if(tempMusicAudioPlayer[0].paused){
+        currentMusicPlayer = tempMusicAudioPlayer;
+        musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+            musicAudioPlayer[0].pause();
+        });
+        tempMusicAudioPlayer[0].src = audioUrl;
+        tempMusicAudioPlayer[0].play();
+        tempMusicAudioPlayer[0].volume = 0;
+        tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        return;
+    }
 }
 
 var styleMap = new Map();
@@ -93,7 +117,7 @@ function generateGenreButtons(categories)
                 var category = categories[index];
                 currentCategory = category;
                 paused = false;
-                playRandomSong(currentCategory, musicAudioPlayer);
+                playRandomSong(currentCategory);
             });
             genresPanel.append(button);
         }
@@ -150,43 +174,49 @@ $(document).ready(function() {
     musicAudioPlayer[0].volume = 1;
     tempMusicAudioPlayer = $("#tempAudioPlayer");
     tempMusicAudioPlayer[0].volume = 1;
+    currentMusicPlayer = musicAudioPlayer;
     volumeSlider.on("input", function(){
         musicAudioPlayer[0].volume = $(this).val();
+        tempMusicAudioPlayer[0].volume = $(this).val();
         globalVolume = $(this).val();
         console.log(musicAudioPlayer[0].volume);
     });
     playPauseButton.click(function() {
-        if(paused)
+        if(currentMusicPlayer[0].paused)
         {
-            musicAudioPlayer.stop();
-            musicAudioPlayer[0].play();
-            paused = !paused;
-            musicAudioPlayer[0].volume = 0;
-            musicAudioPlayer.animate({volume: globalVolume}, fadeDelay); 
+            $("#playPauseButton").prop("disabled", true);
+            currentMusicPlayer[0].play();
+            currentMusicPlayer.animate({volume: globalVolume}, fadeDelay, function() {
+                $("#playPauseButton").prop("disabled", false);
+            });
         }
         else
         {
-            musicAudioPlayer.stop();
-            musicAudioPlayer[0].volume = globalVolume;
-            musicAudioPlayer.animate({volume: 0}, fadeDelay); 
-            setTimeout(() => {
-                musicAudioPlayer[0].pause();
-            }, fadeDelay);
-            paused = !paused;
+            $("#playPauseButton").prop("disabled", true);
+            currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+                currentMusicPlayer[0].pause();
+                $("#playPauseButton").prop("disabled", false);
+            });
         }
     });
     stopButton.click(function() {
-        musicAudioPlayer.stop();
-        musicAudioPlayer[0].volume = globalVolume;
-        musicAudioPlayer.animate({volume: 0}, fadeDelay); 
-        setTimeout(() => {
-                musicAudioPlayer[0].pause();
-                musicAudioPlayer[0].currentTime = 0;
-        }, fadeDelay);
-        paused = true;
+        $("#playPauseButton").prop("disabled", true);
+        $("#stopButton").prop("disabled", true);
+        currentMusicPlayer.stop();
+        currentMusicPlayer[0].volume = globalVolume;
+        currentMusicPlayer.animate({volume: 0}, fadeDelay); 
+        currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+            currentMusicPlayer[0].pause();
+            currentMusicPlayer[0].currentTime = 0;
+            $("#playPauseButton").prop("disabled", false);
+            $("#stopButton").prop("disabled", false);
+        });
     });
     musicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
         playRandomSong(currentCategory, musicAudioPlayer);
+    });
+    tempMusicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
+        playRandomSong(currentCategory, tempMusicAudioPlayer);
     });
 });
 
