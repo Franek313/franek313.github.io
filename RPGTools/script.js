@@ -10,68 +10,21 @@ var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "SPECIAL"];
 
 function playRandomSong(category)
-{
-    var randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
+{   
+    var newSongName;
+    var randomIndex;
     var songName = $("#songName");
+    do
+    {
+        console.log("Same!");
+        console.log(songName.text());
+        randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
+        newSongName = (musicMap.get(category)[randomIndex]).replace('.mp3', '');
+        if (musicMap.get(category).length == 1) break;
+    } while(songName.text() == newSongName);
+
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
-
-   /* if(musicAudioPlayer[0].src != "")
-    {
-        tempMusicAudioPlayer[0].src = musicAudioPlayer[0].src;
-        tempMusicAudioPlayer[0].currentTime = musicAudioPlayer[0].currentTime;
-        console.log(paused);
-        tempMusicAudioPlayer[0].volume = musicAudioPlayer[0].volume;
-        tempMusicAudioPlayer.stop();
-        tempMusicAudioPlayer[0].play();
-        tempMusicAudioPlayer[0].volume = globalVolume;
-        tempMusicAudioPlayer.animate({volume: 0}, fadeDelay);
-        musicAudioPlayer[0].src = audioUrl;
-        musicAudioPlayer.stop();
-        musicAudioPlayer[0].play();
-        musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    }
-    else
-    {        
-        musicAudioPlayer[0].src = audioUrl;
-        musicAudioPlayer[0].play();
-        musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    }
-    if(musicAudioPlayer[0].src != "")
-    {
-            musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
-            musicAudioPlayer.stop();
-            musicAudioPlayer[0].src = audioUrl;
-            musicAudioPlayer[0].play();
-            musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-        });
-    }
-    else
-    {
-        musicAudioPlayer[0].src = audioUrl;
-        musicAudioPlayer[0].play();
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-    }
-
-    if(musicAudioPlayer[0].paused && tempMusicAudioPlayer[0].paused)
-    {
-        musicAudioPlayer[0].src = audioUrl;
-        musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-        musicAudioPlayer[0].play();
-        return;
-    }
-    
-    tempMusicAudioPlayer[0].src = audioUrl;
-    tempMusicAudioPlayer[0].play();
-    musicAudioPlayer.animate({volume: 0}, fadeDelay);
-    tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
-
-    var temp = musicAudioPlayer[0].attr("id");
-    musicAudioPlayer[0].attr("id") = tempMusicAudioPlayer[0].attr("id");
-    tempMusicAudioPlayer[0].attr("id") = temp[0].attr("id");    */
 
     if(musicAudioPlayer[0].paused){
         currentMusicPlayer = musicAudioPlayer;
