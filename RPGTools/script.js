@@ -190,9 +190,12 @@ var folderStructureJSONString = `{
     "S_Zoltraak": [
         "Frieren OST — Zoltraak Extended Ver.mp3"
     ],
-    "S_Dominica": [
+    "S_Utena": [
         "GOMG - Kakattekinasai - Extended Ver.mp3",
         "GOMG - Nyanyashichau.mp3"
+    ],
+    "S_Zepelli": [
+        "JJBA Phantom Blood - Zepelli Theme.mp3"
     ],
     "f_Action": [
         "19 - The Witcher 2 Score - Easier Said Than Killed (Extended).mp3",
