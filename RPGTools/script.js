@@ -197,6 +197,9 @@ var folderStructureJSONString = `{
     "S_Zepelli": [
         "JJBA Phantom Blood - Zepelli Theme.mp3"
     ],
+    "S_Pucci": [
+        "JJBA Pucci Theme - Epic.mp3"
+    ],
     "f_Action": [
         "19 - The Witcher 2 Score - Easier Said Than Killed (Extended).mp3",
         "30 - The Witcher 2 Score - Violence (Extended).mp3",
