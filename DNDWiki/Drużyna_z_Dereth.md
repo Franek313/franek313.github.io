@@ -350,9 +350,9 @@ Drużyna kazała więźniowi zaprowadzić się do obozowiska, gdzie przetrzymywa
 
 Drużyna po przeszukaniu Piotrusiowego domku na drzewie udaje się w głąb lasu, gdzie spostrzega po jakimś czasie na zielonej polanie ogromnego zielonego smoka śpiącego, aczkolwiek i tak wyglądającego groźnie. Decydują się ominąć go szerokim łukiem i tak docierają na rozdroże z dwoma odnogami prowadzącymi do Smoczej Utopii oraz Świątyni Avandry i Corellona.
 
-Bohaterowie decydują się z początku udać się na modły przed dalszym wyruszeniem w drogę ku przygodzie. Wizyta w świątyni okazuje się być zaskakująco pozytywnym przeżyciem. Kapłani świątyni, [Dravanna i Rellocon](Dravanna_i_Rellocon.html) pomagają drużynie powrócić z postaci drakonów do swoich pierwotnych ras, zdejmując klątwę artefaktów. Część artefaktów zostaje jednak złożona bogom w ofierze.
+Bohaterowie decydują się z początku udać się na modły przed dalszym wyruszeniem w drogę ku przygodzie. Wizyta w świątyni okazuje się być zaskakująco pozytywnym przeżyciem. Kapłani świątyni, [Dravanna i Rellocon](Dravanna_i_Rellocon.html) pomagają drużynie powrócić z postaci drakonów do swoich pierwotnych ras, zdejmując klątwę artefaktów. Część artefaktów zostaje jednak złożona bogom w ofierze, za co bogowie poprzysięgli Baldwinowi i Ariel że nie stracą życia w murach Smoczej Utopii.
 
-Po wizycie w świątyni kapłani proponują drużynie wzajemną pomoc i obiecują stawić się na wezwanie, gdy tylko drużyna potrzebuje otrzymane od nich pierścienie. W zamian za to drużyna ma im pomóc również w razie niebezpieczeństwa.
+Po wizycie w świątyni ponadto kapłani proponują drużynie wzajemną pomoc i obiecują stawić się na wezwanie, gdy tylko drużyna potrze otrzymane od nich pierścienie. W zamian za to drużyna ma im pomóc również w razie niebezpieczeństwa.
 
 Tak to bohaterowie ruszają kolejną odnogą, tym razem w stronę Smoczego Miasta...
 
@@ -366,15 +366,17 @@ Tak to bohaterowie ruszają kolejną odnogą, tym razem w stronę Smoczego Miast
 
 ![](Images/tajemniczy_jegomosc.png)
 
-Sen Wulfharta i Ariel w którym natknęli się na ponurego przewodnika po koszmarze. Oboje obudzili się w karczmie w Vederoth w tym samym czasie,  w którym toczyła się gra o duszę, która przegrała uprzednio z Darbim Hazardzistą. Tajemniczy ponury jegomość przeprowadził bohaterów przez mroczne pokoje w których musieli oprzeć się błaganiom topiącej się w beczce dziewczynki, zaszlachtować niewinnego małego kucyka oraz ostatecznie dojść do pokoju w którym znajdowała się szachownica z trzema pionkami i jednym królem z tyłu. Wszystkie figury były czarne, a jedynie jeden pionek był nieudolnie przemalowany z czarnego na biały. Za bohaterami znajdowało się troje drzwi w analogicznym zabarwieniu do pionków. Po przyjrzeniu się scenerii pokoju bohaterowie zauważyli że mroczny jegomość wyjął za ich plecami narzędzie mordu po czym powiedział "Uciekajcie stąd inaczej was zabiję". Ariel i Wulfhart przebiegli szybko przez biało-czarne drzwi po czym się obudzili...
+Sen Wulfharta i Ariel w którym natknęli się na ponurego przewodnika po koszmarze. Oboje obudzili się w karczmie w Vederoth w tym samym czasie,  w którym toczyła się gra o duszę Ariel, która przegrała uprzednio z Darbim Hazardzistą. Tajemniczy ponury jegomość przeprowadził bohaterów przez mroczne pokoje w których musieli oprzeć się błaganiom topiącej się w beczce dziewczynki, zaszlachtować niewinnego małego kucyka oraz ostatecznie dojść do pokoju w którym znajdowała się szachownica z trzema pionkami i jednym królem z tyłu. Wszystkie figury były czarne, a jedynie jeden pionek był nieudolnie przemalowany z czarnego na biały. Za bohaterami znajdowało się troje drzwi w analogicznym zabarwieniu do pionków. Po przyjrzeniu się scenerii pokoju bohaterowie zauważyli że mroczny jegomość wyjął za ich plecami narzędzie mordu po czym powiedział "Uciekajcie stąd inaczej was zabiję". Ariel i Wulfhart przebiegli szybko przez biało-czarne drzwi po czym się obudzili...
 
-#### 
+
 
 #### Sesja 15
 
 ##### *"STARY SMOK MOCNO ŚPI"*
 
 ###### *Krasnoludzka kołysanka*
+
+![](Images/spiacy_smok_wyspa.png)
 
 Po dotarciu w pobliże Smoczego Miasta oczom bohaterów ukazała się magiczna mroczna mgła. Jedynie Baldwin był w stanie ją przeszyć wzrokiem, ze względu na podpisanie paktu i zostanie Czarownikiem. Drużyna, omijając mgłę dzięki zaklęciu "Przejścia bez śladu" rzuconemu przez Ariel, przedarła się przez wyrwę w murze i dotarła na centralny plac smoczej twierdzy.
 
@@ -398,6 +400,16 @@ Do bohaterów podleciał pradawny Biały Smok i kazał im szybko wsiąść na sw
 
 ##### *"BOGOWIE SĄ Z NAMI"*
 
-###### "Każdy dowódca niezależnie od strony konfliktu"
+###### *Każdy dowódca niezależnie od strony konfliktu*
 
-...
+![](Images/gekon_baldwin.png)
+
+Po pokonaniu nekromanty Merendira pradawne smoki poprosiły naszych bohaterów o opuszczenie Smoczej Utopii gdyż chciały zająć się jej odbudową oraz wprowadzić na najbliższe 300 lat regułę zakazu wstępu jakichkolwiek obcych. Jendak zanim bohaterowie opuścili smoczą twierdzę zobowiązali się jeszcze do oczyszczenia korytarzy z wszelkich szkielecich niedobitków. W trakcie tejże inspekcji natknęli się na uwięzioną w lochu młodą drakonią zaklinaczkę o imieniu Nemmonis Akra.
+
+Następnie zapewne bohaterowie opuścili by już mury miasta gdyby nie to, że Baldwin uparł się aby przeszukać kolejny pokój zabezpieczony...kolejnymi złotymi magicznymi drzwiami. Wulfhart natomiast postanowił zejść na dziedziniec wraz z Ariel aby przeszukać pole bitwy. Odnalazł ciało nekromanty Merendira, co okazało się kluczowe, ponieważ czarnoksiężnik posiadał przy sobie fiolkę wszkrzeszenia, która przywróciła by go do życia po 3 dniach, gdyby tylko Wulfhart nie przywłaszczył jej dla siebie.
+
+Z pomocą czaru zmniejszenia Nemmonis Akry Baldwinowi udało się przeskoczyć i wejść poprzez małe okienko do środka zabezpieczonego pokoju. Znalazł tam niewiele przydatnych rzeczy, zrabował zatem co się dało, w tym podejrzane czarne płaszcze nekromantów. Nie myśląc za wiele zarzucił jeden na siebie i teleportował się za pomocą magii czarownika pod mury. W ramach dowcipu postanowił zgromadzonym już na górze towarzyszom spłatać figla, toteż zaczął udawać nekromantę...nie wiedząc o pobocznym efekcie swojego płaszcza jakim było upodobnienie go do zionącej śmiercią nekromanckiej postaci.
+
+Nie zastanawiając się wiele drużyna rozpoczęła atak. Baldwin nawet teleportował się do nich na górę przekonując ich po zdjęciu płaszcza, że to przecież on i tylko żartował, drużyna jednak po ostatniej akcji kiedy to nekromanta przejął nad nim kontrolę nie dawała za wygraną. Kiedy to drużyna miała już zadać Baldwinowi śmiertelne obrażenia nagle znikąd pojawili się Dravanna i Rellocon i powstrzymali towarzyszy przed zadaniem ciosu.
+
+Okazało się, że są oni nie kim innym jak wcieleniem samych bogów, Avandry i Corellona. Zganili oni Baldwina za tak lekkomyślne korzystanie z ich przysięgi i dla kształtowania pokory zmienili go w gekona dopóki nie poświęci się bezinteresownie dla swoich towarzyszy.
