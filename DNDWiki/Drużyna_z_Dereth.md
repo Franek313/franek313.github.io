@@ -50,7 +50,7 @@ Wulfhart, krasnolud, łowca. Jego rodzina została zabita przez potężnego nekr
 
 ###### *Bard Olivier z Dereth*
 
-![](Images/blokus_i_zywiolak.png)
+![](Images/blokus_i_zywiolak.png)x
 
 Na pierwszej sesji Blokus odbył starcie z żywiołakiem światła w miejskich kanałach. Przy okazji poznał czarodzieja Merendira.
 
