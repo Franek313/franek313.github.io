@@ -234,6 +234,8 @@ Ariel natomiast zdecydowała, że do zrealizowania swoich celów postać drakona
 
 ###### *Łacińskie przysłowie*
 
+![](Images/nekromatron_niedaleko_valinoru.png)
+
 Po niebezpiecznej przygodzie w podziemiach cmentarzyska w Vederoth, nasi bohaterowie wyruszyli z miasta wraz z załogą piratów.
 
 Podczas podróży zostali poproszeni o zorganizowanie jakiegoś prowiantu z pobliskiego lasu. Baldwin, jak to miał zwykle w zwyczaju, wyruszył skradając się między drzewami, a elf... drakonka Ariel i krasnolud Wulfhart wyruszyli tropić zwierzynę, polegając na swoich talentach łowcy.
@@ -250,7 +252,9 @@ Jadąc od paru dobrych godzin, konwój nie natrafił na żadnego smoka, ku wielk
 
 ##### *"GDZIE JEST MÓJ GARNIZON NIEUMARŁYCH DO K![💀](https://static.xx.fbcdn.net/images/emoji.php/v9/te3/2/16/1f480.png)Y NĘDZY!?"*
 
-###### *Relodor Tlintaryd, generał drowiej armii*
+###### *Relodora Tlintaryd, generał drowiej armii*
+
+![](Images/drowy_kolo_nekromatronu.png)
 
 Zwycięstwo! Nasi bohaterowie odnieśli triumf! Słychać radosne krzyki piratów, dźwięki łamanych szkieletowych kości i... kroki 30 000 armii drowów zmierzającej w naszym kierunku.
 
@@ -271,6 +275,8 @@ Oprócz tego bohaterowie udali się również na zakupy. Baldwin zakupił parę 
 ##### *"NIE WIEM CO ZA SZALENIEC WYMYŚLIŁ BAJKĘ O MAŁEJ SYRENCE"*
 
 ###### *Dwaren, krasnoludzki menel z Valinoru*
+
+![](Images/statek_syreny.png)
 
 Po udanych zakupach, nasi bohaterowie wrócili do siedziby piratów, gdzie zastali, bez większego zdziwienia, zakrapianą biesiadę. Kapitan wraz ze swoim bratem dyskutowali na temat przejęcia pirackiej wyspy przez smoki i planu odzyskania należących im się ziem. W rozmowie tej czynny udział brał oczywiście Wulfhart, który awansował na asystenta bosmana.
 
@@ -296,6 +302,8 @@ Po walce z syrenami, naszych bohaterów zaskoczył sztorm, który wyrzucił ich 
 
 ###### *Tubylec z wyspy skazańców*
 
+![](Images/dzulgla.png)
+
 Na wyspie skazańców, bohaterowie zaczęli zastanawiać się, jak naprawić rozbity statek. W tym celu udali się w głąb dżungli. Po zauważeniu smakowicie wyglądającej pieczonej świni, postanowili ją zabrać, w skutek czego wpadli w pułapkę miejscowych kanibali. Udało im się jednak po krótkim starciu wyswobodzić, po czym zmusili jednego z tubylców do zaprowadzenia ich do osady pierwotnych istot.
 
 Po przeszukaniu osady okazało się, że tubylcy są pod kontrolą Laurindie i jej zaklętego w drakona ukochanego. Ukochany Laurindie, z pomocą tubylców pod dowódctwem Blokusa Maximusa, podstępem pochwycił część załogi piratów i chciał ich złożyć w ofierze bogom wulkanu, ku uciesze szamana tubylców.
@@ -311,6 +319,8 @@ Uciekając, ukochany Laurindie porzucił ją na pewną śmierć, przez co zniena
 ##### *"STRZELAĆ BEZ ROZKAZU!"*
 
 ###### *Trzeci już kapitan piratów w tej historii*
+
+![](Images/bitwa_morska.png)
 
 Na otwartym morzu, naszych bohaterów obudził jazgot spowodowany przez Baldwina, który usiłując oddać płyny, wypadł za burtę wprost na czyszczącego kadłub Loczka.
 
@@ -332,6 +342,8 @@ Podczas podróży załoga musiała się na chwilę zatrzymać, aby upolować nie
 
 ###### *Podopieczni Piotrusia*
 
+![](Images/avandra_corellon.png)
+
 Podczas rozmowy drużyny z Piotrusiem wyszło, że ten coś ukrywa, a przynajmniej tak wyczuł to Baldwin, w skutek czego zaatakował tajemniczego przybysza. Atak nie wyszedł najlepiej, aczkolwiek Wulfhart użył swojego gargulca do pojmania Piotrusia.
 
 Drużyna kazała więźniowi zaprowadzić się do obozowiska, gdzie przetrzymywał on małych chłopców, którzy, jak się okazało, byli do niego przywiązani niczym do wodza, aczkolwiek totalnie nieświadomi, że ich poprzedni koledzy, którzy znikają co jakiś czas, nie idą do "lepszego miejsca". Po wyciągnięciu od Piotrusia szczątkowych informacji Baldwin zabija go i ku przerażeniu grupy dzieci wiesza na gałęzi.
@@ -351,6 +363,8 @@ Tak to bohaterowie ruszają kolejną odnogą, tym razem w stronę Smoczego Miast
 ##### *"..."*
 
 ###### *Cisza*
+
+![](Images/tajemniczy_jegomosc.png)
 
 Sen Wulfharta i Ariel w którym natknęli się na ponurego przewodnika po koszmarze. Oboje obudzili się w karczmie w Vederoth w tym samym czasie,  w którym toczyła się gra o duszę, która przegrała uprzednio z Darbim Hazardzistą. Tajemniczy ponury jegomość przeprowadził bohaterów przez mroczne pokoje w których musieli oprzeć się błaganiom topiącej się w beczce dziewczynki, zaszlachtować niewinnego małego kucyka oraz ostatecznie dojść do pokoju w którym znajdowała się szachownica z trzema pionkami i jednym królem z tyłu. Wszystkie figury były czarne, a jedynie jeden pionek był nieudolnie przemalowany z czarnego na biały. Za bohaterami znajdowało się troje drzwi w analogicznym zabarwieniu do pionków. Po przyjrzeniu się scenerii pokoju bohaterowie zauważyli że mroczny jegomość wyjął za ich plecami narzędzie mordu po czym powiedział "Uciekajcie stąd inaczej was zabiję". Ariel i Wulfhart przebiegli szybko przez biało-czarne drzwi po czym się obudzili...
 
