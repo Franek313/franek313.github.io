@@ -224,7 +224,7 @@ Po niefortunnym spotkaniu z wilkołakiem, nasi bohaterowie pozostali w rozdziele
 
 Wulfhart i Dagan postanowili udać się do wieży miejskiego czarodzieja, aby posunąć naprzód sprawę rozwiązania zagadki mroku spowijającego miasto. Gdy dotarli do wieży, stoczyli walkę z dwoma wampirami, które Dagan pod postacią nietoperza szybko wykończył. Wejście do kwatery maga było chronione przez iluzoryczną zaporę, którą jednak udało się bohaterom szybko sforsować. Za magicznymi drzwiami ich oczom ukazał się mroczny labirynt, który jednak nie dostarczył krasnoludowi i dhampirowi szczególnych wrażeń. Znaleźli oni bez problemu wejście do sali głównej mieszkania czarodzieja. Nie spotkali tam nikogo za wyjątkiem małego golema od herbaty siedzącego w kuble na śmieci, który niestety nie udzielił im zbyt wielu wyjaśnień. Nagle odkrywcy usłyszeli hałas otwieranego magicznego portalu i z ukrycia byli świadkami sceny rozmowy trzech mrocznie wyglądających czarodziejów. Niestety z ich rozmowy niewiele wynikało, a z racji odległości nawet wyczulony na dźwięki Dagan nie zrozumiał zbyt wiele.
 
-W tym czasie Blokus, nie wykazując się ogładnym myśleniem, zamknął powołane przez siebie do życia zombie w szalecie nieopodal karczmy. W karczmie został zaczepiony przez Dredzika. Elfka zaproponowała mu "spacer" do pirackiego dyliżansu. Kapitan piratów akurat przechadzał się nieopodal i usłyszał odgłosy "spaceru", zbulwersowany zapytał o co chodzi. Blokusowi jednak udało się go przekonać, że uprawia z jego córką zwykły hazard.
+W tym czasie Blokus, nie wykazując się ogładnym myśleniem, zamknął powołane przez siebie do życia zombie w szalecie nieopodal karczmy. W karczmie został zaczepiony przez Dredzika. Elfka zaproponowała mu "spacer" do pirackiego dyliżansu. Kapitan piratów akurat przechadzał się nieopodal i usłyszał odgłosy żekomego "spaceru" oraz zbulwersowany zapytał o co chodzi. Blokusowi jednak udało się go przekonać, że uprawia z jego córką zwykły hazard.
 
 Gdy wszyscy bohaterowie wrócili do karczmy, postanowili za namową Ariel sprawdzić pokój czarodzieja Merendira, którego powoli zaczynali podejrzewać o konszachty z ciemnymi mocami. Za pomocą języka zwierząt Ariel wypytała miejscowego szczura, czy nie widział czegoś podejrzanego. Szczur opisał w miarę swoich możliwości straszne hałasy docierające niekiedy z pokoju.
 
@@ -245,7 +245,7 @@ Podczas przeszukiwania pokoju nagle otworzył się magiczny portal, z którego w
   Twoja przeglądarka nie obsługuje elementu audio.
 </audio>
 
-Wulfhart i Baldwin spędzili miło czas, grając w pokera o własne dusze oraz dusze swoich towarzyszy z Darbim Hazardzistą. Początkowo prawie stawili czoła śmierci, lecz po paru rzutach i z małą pomocą Dagana udało im się nie tylko odzyskać rozczłonkowane fragmenty swoich dusz, ale także uratować z pułapki Blokusa i Ariel...
+Wulfhart i Baldwin spędzili miło czas, grając w pokera o własne dusze oraz dusze swoich towarzyszy z Darbim Hazardzistą. Początkowo prawie stawili czoła śmierci, lecz po paru rzutach i z małą pomocą Dagana udało im się nie tylko odzyskać rozczłonkowane fragmenty swoich dusz, ale także uratować z pułapki Blokusa i Ariel. Następnie pokonali również w turnieju łuczniczym Darbiego Łucznika zyskując tym samym nieco złota. Dusza Darbiego Hazardzisty została przez nich zawłaszczona i od tej pory pozyskali pokerzystę jako swojego niewolnika. Historia ta jednak nie kończy się w tym miejscu...
 
 
 
@@ -262,7 +262,7 @@ Wulfhart i Baldwin spędzili miło czas, grając w pokera o własne dusze oraz d
   Twoja przeglądarka nie obsługuje elementu audio.
 </audio>
 
-Gdy Wulfhart, Baldwin i Dagan schowali nowo nabyte żetony do kieszeni, od razu ruszyli na górę, żeby sprawdzić, czy dusze ich przyjaciół powróciły do ciał. Ariel siedziała na łóżku, wyspana jak nigdy, a Blokus natomiast zniknął. Zniknęło nie tylko jego dusza, ale i ciało. Drużyna postanowiła na razie olać sprawę i udać się na dół.
+Gdy Wulfhart, Baldwin i Dagan schowali nowo nabyte żetony do kieszeni, od razu ruszyli na górę, żeby sprawdzić, czy dusze ich przyjaciół powróciły do ciał. Ariel siedziała na łóżku, wyspana jak nigdy, a Blokus natomiast zniknął. Zniknęła nie tylko jego dusza, ale i ciało. Drużyna postanowiła na razie olać sprawę i udać się na dół.
 
 Tam spotkali małą, sympatyczną elfią bardkę, Laurindie, która zaproponowała, że wychyli z Ariel kielicha. Tak się złożyło, że w pobliżu siedział Dredzik, i na piękną elfią buzię wtrącił się do picia. Ariel i Dredzik sponiewierali się mocno, Laurindie natomiast dzięki sobie znanym sposobom pozostała trzeźwa. Opowiedziała pijanym elfkom o medalionie smoczych emocji, artefakcie mogącym wpływać na zachowanie smoków, który ukryty jest w podziemiach miasta. Dodała również, że jest w posiadaniu mapy, która pozwoli im tam dotrzeć. Niestety ona sama się boi iść, zatem szuka ekipy poszukiwawczej. Jej opowieści przysłuchiwał się potajemnie Baldwin, zaznaczył że jej propozycja jest nieco podejrzana, ale pijane elfki stwierdziły, że wchodzą w tą przygodę na 100%.
 
@@ -293,13 +293,13 @@ Ariel natomiast zdecydowała, że do zrealizowania swoich celów postać drakona
 
 Po niebezpiecznej przygodzie w podziemiach cmentarzyska w Vederoth, nasi bohaterowie wyruszyli z miasta wraz z załogą piratów.
 
-Podczas podróży zostali poproszeni o zorganizowanie jakiegoś prowiantu z pobliskiego lasu. Baldwin, jak to miał zwykle w zwyczaju, wyruszył skradając się między drzewami, a elf... drakonka Ariel i krasnolud Wulfhart wyruszyli tropić zwierzynę, polegając na swoich talentach łowcy.
+Podczas podróży zostali poproszeni o zorganizowanie jakiegoś prowiantu z pobliskiego lasu. Baldwin, jak to miał zwykle w zwyczaju, wyruszył skradając się między drzewami, a elfka, to znaczy teraz drakonka Ariel i krasnolud Wulfhart wyruszyli tropić zwierzynę, polegając na swoich talentach łowcy.
 
 Gdy para łowców namierzyła wspaniałe stado saren i towarzyszącego im w żerowaniu tłustego dzika, wydawało się, że kolacja szykuje się przednia. Niestety Baldwin zgubił w lesie drogę i nic nie znalazłszy zaczął wołać głośno towarzyszy, płosząc tym samym zwierzynę. Ostatecznie naszej trójce udało się upolować jedynie dzika. Gdy wrócili do obozu po 3 godzinach, okazało się, że uczta trwa już w najlepsze, gdyż Dagan natknął się podczas poszukiwań swojego posiłku na spłoszone stado saren.
 
 Po tygodniu monotonnej drogi karawana dotarła wreszcie do granicy Smoczych Wzgórz. Drużyna była podzielona odnośnie tego, czy wyruszyć skrótem przez Smocze Wzgórza do Valinoru, ryzykując niebezpieczne spotkanie ze smokami, czy też nadłożyć 3 dni drogi zmierzając okrężną trasą. Bosman wyraził stanowczy sprzeciw odnośnie skracania trasy, ale Baldwin wyjaśnił go wygrywając z nim walkę na pięści. Ostatecznie decyzja została podjęta, bohaterowie przeprawią się przez smoczą krainę.
 
-Jadąc od paru dobrych godzin, konwój nie natrafił na żadnego smoka, ku wielkiej radości kapitana Arrowa. Na horyzoncie, za wzgórzem, dało się jednak dojrzeć trupiobladą poświatę. Po pokonaniu wzgórza, oczom bohaterów ukazał się ogromny, zakopany do połowy w ziemi szkielet smoka oraz strzelista wieża z trupiobladym trzpieniem zakończonym oszlifowanym kryształem. Był to nekromatron, urządzenie służące do wskrzeszania wiecznego cmentarzyska podobnego do tego, które otaczało niegdyś Vederoth. Trójka naszych bohaterów wraz z Daganem postanowili przyjrzeć się bliżej budowli. Okazało się, że jest ona otoczona garnizonem szkieletów, zjaw i ożywieńców. Załoga wszczęła walkę z nieumarłymi, która zakończyła się zwycięstwem, głównie za sprawą noszonego przez Wulfharta antynieumarłego Hełmu Blasku, artefaktu z drakońskiej pieczary z cmentarzyska Vederoth...
+Jadąc od paru dobrych godzin, konwój nie natrafił na żadnego smoka, ku wielkiej radości kapitana Arrowa. Na horyzoncie, za wzgórzem, dało się jednak dojrzeć trupiobladą poświatę. Po pokonaniu wzgórza, oczom bohaterów ukazał się ogromny, zakopany do połowy w ziemi szkielet smoka oraz strzelista wieża z trupiobladym trzpieniem zakończonym oszlifowanym kryształem. Był to nekromatron, urządzenie służące do wskrzeszania wiecznego cmentarzyska podobnego do tego, które otaczało niegdyś Vederoth. Trójka naszych bohaterów wraz z Daganem postanowili przyjrzeć się bliżej budowli. Okazało się, że jest ona otoczona garnizonem szkieletów, zjaw i ożywieńców. Załoga wszczęła walkę z nieumarłymi, która zakończyła się zwycięstwem, głównie za sprawą noszonego przez Wulfharta antynieumarłego Hełmu Blasku, artefaktu z drakońskiej pieczary z cmentarzyska w Vederoth...
 
 
 
@@ -545,7 +545,3 @@ Idąc przez las towarzysze zauważyli szlak powalonych małych drzew i zdeptanyc
 Drużyna zaczęła się skradać w kierunku bestii, gdy wtem usłyszeli za swoimi plecami cichy szept, była to Dimidia, młoda adeptka magii, która zaoferowała drużynie swoją pomoc w ubiciu potwora. Po udanej zasadzce na bestię Dimidia zaprowadziła bohaterów do wioski w której obozował Ser Roland. Wyjaśnił on drużynie, że to wiedźma jest odpowiedzialna za inwazję bestii na tym obszarze i że jej zabicie wyeliminuje problem. Drużyna postanowiła wyruszyć nazajutrz aby odnaleźć wiedźmę.
 
 Następnego dnia po przedarciu się przez gęstwinę drużyna wyprzedziła ekipę Ser Rolanda aby zbadać teren. Natrafili na skalną ścianę po której wspieli się na górę, gdzie jak się okazało znajdowała się siedziba leśniej wiedźmy. Okazało się, że wiedźma taka straszna wcale nie jest i że Ser Roland nieustannie się jej naprzyksza podczas gdy ona troszczy się jedynie o ekosystem tego lasu. Bohaterowie byli jednak w stosunku do niej nieufni, toteż pragnęli więcej informacji, wiedźma jednak nie była skora do udzielania wyjaśnień, aczkolwiek zaproponowała drużynie małe zlecenie. Mieli odnaleźć dla niej trzeci fragment tajemniczej mapy, której fragment Nemmonis Akra znalazła w sklepie z szatami.
-
-
-
-
