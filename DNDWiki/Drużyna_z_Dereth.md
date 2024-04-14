@@ -32,6 +32,11 @@ Drużyna bohaterów, którzy począwszy od walki z królikołakiem, a obecnie na
 
 ![loading-ag-12300](Images/inn_inside.png)
 
+<audio controls>
+  <source src="Audio/Sesja_0.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Rozpoczęliśmy niedawno kampanię w uniwersum fantasy na systemie Dungeons & Dragons. Naszymi bohaterami są czterej śmiałkowie:
 
 Blokus Maximus, były gladiator i upadły paladyn, próbuje zgromadzić wiedzę na temat nekromancji w celu wskrzeszenia swojego ojca.
@@ -51,6 +56,11 @@ Wulfhart, krasnolud, łowca. Jego rodzina została zabita przez potężnego nekr
 ###### *Bard Olivier z Dereth*
 
 ![](Images/blokus_i_zywiolak.png)x
+
+<audio controls>
+  <source src="Audio/Sesja_1.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Na pierwszej sesji Blokus odbył starcie z żywiołakiem światła w miejskich kanałach. Przy okazji poznał czarodzieja Merendira.
 
@@ -72,6 +82,11 @@ Bohaterów połączył cel pokonania królikołaka, bestii, którą Ariel namier
 
 ![](Images/krolikolak.png)
 
+<audio controls>
+  <source src="Audio/Sesja_2.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Po pokonaniu królikołaka drużyna odkryła straszną prawdę. Poszukiwane dziecko zostało pożarte przez potwora. Gildia Elfów zorganizowała stypę, na której Blokus oraz Wulfhart nieźle się napili.
 
 Baldwin oraz Ariel wyszli bez szwanku z popijawy. Ariel została wezwana do gildii na rozmowę wraz z Baldwinem. Szef gildii elfów wyrzucił ją z organizacji wściekły, że elfie dziecko zginęło. Zaoferował Baldwinowi, że odsprzeda mu prawa członkowskie Ariel, czyli de facto ją sprzedał. Baldwin ją kupił, co postawiło Ariel w pozycji sługi i finansowego dłużnika złodzieja.
@@ -89,6 +104,11 @@ Wulfhart obudził się w lesie po upojnej nocy z [Dredzikiem](Dredzik.html), elf
 ###### *Roland, strażnik miejski*
 
 ![](Images/blokus_duch_wuja_straznicy.png)
+
+<audio controls>
+  <source src="Audio/Sesja_3.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Na trzeciej sesji Blokus powrócił do swojego mieszkania i zastał je całkowicie zdemolowane, a miecz jego zmarłego wujka został skradziony. Dodatkowo sąsiad, zastępca burmistrza, zaczął znów grać na tych irytujących dudach. Blokus poszedł do niego i wyraził swoje niezadowolenie. Dodatkowo, unikając przyczajonego snipera miejskiego oraz walcząc ze strażnikami, którzy jednak zadali mu niesamowicie duże obrażenia, prawie umarł, wchodząc w sferę astralną, gdzie spotkał swoją rodzinę i wezwał ducha swojego wuja do walki ze strażą. Strażnicy tak się przestraszyli po tym, jak duch zaszlachtował jednego z nich, że uciekli w popłochu.
 
@@ -110,6 +130,11 @@ Bohaterowie udali się na sztukę Blokusa, podczas której po wspaniałej grze a
 
 ![](Images/gargulec.png)
 
+<audio controls>
+  <source src="Audio/Sesja_4.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Na czwartej sesji czarodziej Merendir dogadał się z kapitanem piratów odnośnie swojego udziału w wyprawie przeciwko nekromancie, który zniszczył statek piratów. Drużyna postanowiła dołączyć do wyprawy i opuścić miasto Dereth, aby wyruszyć za Czternaste Wzgórze, gdzie znajduje się port, w którym reszta załogi piratów czeka na sprowadzenie potężnego maga. Blokus ma nadzieję na ograbienie nekromanty z wiedzy magicznej, Baldwin z pieniędzy, a Ariel musi jechać z Baldwinem, ale skrycie ma nadzieję na spotkanie po drodze smoków i nawiązanie z nimi kontaktu.
 
 Podczas postoju w lesie bosman zaczął się skarżyć na ból w nodze, czarodziej zaś zaoferował mu swoją pomoc, a Wulfhart postanowił się zgłosić jako towarzysz maga. Wulfhart i Merendir udali się do lasu, gdzie rozdzielili się w poszukiwaniu ziół na maść przeciwbólową.
@@ -130,17 +155,22 @@ Po powrocie do obozu Baldwin wypytywał czarodzieja o wypalony ślad w trawie, j
 
 ![](Images/vederoth.png)
 
-Po przygodach w lesie nasi bohaterowie stanęli u bram Vederoth, miasta znanego przede wszystkim ze swojego strzelistego budownictwa oraz niezliczonej ilości kamiennych mostów łączących kamienice mieszkalne. Wielu mieszkańców wola tam przechadzać się mostami niż przemieszczać się po zatłoczonych ulicach. Oczom bohaterów ukazała się piękna brama miejska, przez którą wjeżdżały i wyjeżdżały bogate powozy i szykowni kupcy. Po wjeździe do miasta okazało się jednak, że brama wjazdowa rozpłynęła się w powietrzu, a miasto spowite jest wieczną nocą, rozświetlaną jedynie przez przemykający między chmurami księżyc i uliczne latarnie, nerwowo zapalane przez latarników. Ulice były w większości puste. Od przypadkowych przechodniów oraz komendanta straży miejskiej Vincenta Meisa bohaterowie dowiedzieli się, że miasto od 5 lat spowija ciągły mrok, mury nie pozwalają nikomu wejść ani wyjść z miasta, a dookoła murów znajduje się tzw. "żywe cmentarzysko" pełne ożywieńców. Ponadto Meis nadmienił jeszcze, że metropolia nękana jest przez plagę wąpierzy. Kapitan straży miejskiej poprosił Baldwina, aby bohaterowie złożyli mu jutro wizytę wraz ze swoim magiem...
+<audio controls>
+  <source src="Audio/Sesja_5.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
+Po przygodach w lesie nasi bohaterowie stanęli u bram Vederoth, miasta znanego przede wszystkim ze swojego strzelistego budownictwa oraz niezliczonej ilości kamiennych mostów łączących kamienice mieszkalne. Wielu mieszkańców woli tam przechadzać się mostami niż przemieszczać się po zatłoczonych ulicach. Oczom bohaterów ukazała się piękna brama miejska, przez którą wjeżdżały i wyjeżdżały bogate powozy i szykowni kupcy. Po wjeździe do miasta okazało się jednak, że brama wjazdowa rozpłynęła się w powietrzu, a miasto spowite jest wieczną nocą, rozświetlaną jedynie przez przemykający między chmurami księżyc i uliczne latarnie, nerwowo zapalane przez latarników. Ulice były w większości puste. Od przypadkowych przechodniów oraz komendanta straży miejskiej Vincenta Meisa bohaterowie dowiedzieli się, że miasto od 5 lat spowija ciągły mrok, mury nie pozwalają nikomu wejść ani wyjść z miasta, a dookoła murów znajduje się tzw. "żywe cmentarzysko" pełne ożywieńców. Ponadto Meis nadmienił jeszcze, że metropolia nękana jest przez plagę wąpierzy. Kapitan straży miejskiej poprosił Baldwina, aby bohaterowie złożyli mu jutro wizytę wraz ze swoim magiem...
 
 Nie wiedząc co o tym myśleć, bohaterowie udali się do pobliskiej karczmy, gdzie zasięgnęli języka u karczmarza oraz wynajęli pokoje w celu odetchnięcia. Kapitan Piratów postanowił jednak, że zorganizuje biesiadę w powozie, gdyż nie wierzy w wampiry i inne plugastwo. Wolfhard poprosił go jednak, aby zorganizował warty, tak na wszelki wypadek. Krasnolud stanął na pierwszej warcie. Wszystko wydawało się spokojne, gdy nagle zza rogu ulicy wyskoczył wąpierz. Kapitan w akcie paniki kazał wszystkim wskakiwać do wozu i zabić go od środka. Wąpierz nie dał jednak za wygraną i próbował otworzyć krwistą puszeczkę.
 
 Z dachu całą akcję obserwował Baldwin, który postanowił rzucić się na wąpierza. Po epickiej walce półelf rozpłatał potwora na pół, ku wielkiemu zdziwieniu straży miejskiej. Wulfhard z całego serca chciał pomóc przyjacielowi, jednak gdy udało mu się odłupać dwie deski i wydostać na zewnątrz, już dawno było po walce. Kapitan zganił go ostro za ten czyn i zagroził wyrzuceniem z załogi, jeśli takie akcje powtórzą się w przyszłości... Zaczynało być jasne, że piraci, choć z pewnością nieustraszeni na morzu, w obecnej sytuacji sparaliżowani są strachem...
 
-Kapitan piratów zarządził postój w karczmie, karząc jednocześnie Wulfharta spać na dole wraz z biedakami przy kominku. Ariel wpadła na pomysł, aby odwiedzić Dredzika w celu udania się na babskie pogaduchy, jednak jedyne, co znalazła, to libacja, hazard i pijackie podrywy bosmana. Nie spodziewała się nigdy, że ma tak mocną głowę...
+Kapitan piratów zarządził postój w karczmie, karząc jednocześnie Wulfharta spać na dole wraz z biedakami przy kominku. Ariel wpadła na pomysł, aby odwiedzić Dredzika w celu udania się na babskie pogaduchy, jednak jedyne, co tam znalazła, to libacja, hazard i pijackie podrywy bosmana. Nie spodziewała się nigdy, że ma tak mocną głowę...
 
 Zgodnie z wcześniejszą umową z kapitanem straży, Baldwin, Ariel i czarodziej Merendir udali się do koszarów na rozmowę z kapitanem Vincentem. Ku ich zdziwieniu czarodziej zażądał rozmowy prywatnej z kapitanem, a po fakcie szybko opuścił Ariel i Baldwina, tłumacząc się sprawami czarodziejów. Po własnej rozmowie z kapitanem półelfio-elfia drużyna dowiedziała się co nieco o sytuacji w mieście i została poproszona przez kapitana o zinwigilowanie pewnego miejskiego przyjęcia zwanego "maskaradą", przewodzonego przez niejakiego "mistrza ceremonii" na najwyższym piętrze najwyższego budynku w mieście, zwanego Wieżą Arystokratów. Meis obiecał bohaterom sowitą nagrodę za wszelkie pożyteczne informacje. Baldwin i Ariel podjęli się zadania...
 
-Jakiś czas później Blokus Maximus postanowił po odbytej medytacji zamienić słowo z Merendirem, jednak jedyne, co zastał w jego pokoju, to małego golema od herbaty i otwarty magiczny portal. Nie zdecydował się jednak przekraczać świetlistej bramy i udał się na dół, gdzie spotkał przy stoliku tajemniczego Dagana, który zaproponował jemu i Wolfhartowi udanie się na przyjęcie zwanie "maskaradą", obiecując jadło, napitki, kobiety i tańce. Nie namyślając się długo Blokus i Wolfhart wsiedli z tajemniczym jegomościem do mahoniowej karety i ruszyli w kierunku Wieży Arystokratów...
+Jakiś czas później Blokus Maximus postanowił po odbytej medytacji zamienić słowo z Merendirem, jednak jedyne, co zastał w jego pokoju, to małego golema od herbaty i otwarty magiczny portal. Nie zdecydował się jednak przekraczać świetlistej bramy i udał się na dół, gdzie spotkał przy stoliku tajemniczego Dagana, który zaproponował jemu i Wolfhartowi udanie się na przyjęcie zwane "maskaradą", obiecując jadło, napitki, kobiety i tańce. Nie namyślając się długo Blokus i Wolfhart wsiedli z tajemniczym jegomościem do mahoniowej karety i ruszyli w kierunku Wieży Arystokratów...
 
 
 

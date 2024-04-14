@@ -8,9 +8,4 @@
 - [Postacie graczy](Postacie_graczy.html)
 - [NPC](NPC.html)
 
-<audio controls>
-  <source src="Audio/Sesja_0.mp3" type="audio/mpeg">
-  Twoja przeglądarka nie obsługuje elementu audio.
-</audio>
-
 
