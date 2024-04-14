@@ -182,6 +182,11 @@ Jakiś czas później Blokus Maximus postanowił po odbytej medytacji zamienić 
 
 ![](Images/werewolf_vederoth.png)
 
+<audio controls>
+  <source src="Audio/Sesja_6.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Po dotarciu do Wieży Arystokratów i wdrapaniu się na najwyższe piętro, oczom Blokusa i Wolfharta ukazała się wielka sala zapełniona zamaskowanymi biesiadnikami w szykownych strojach. Dagan od razu wytknął im fakt noszenia przez nich nieodpowiedniego ubioru i zalecił skierowanie się w kierunku szatni, gdzie Palladyn i Krasnolud wybrali sobie arystokratyczną odzież oraz skorzystali z usług golibrody. Po powrocie na salę Dagan stwierdził, że musi załatwić pewną sprawę i wyszedł z sali. Bohaterowie zauważyli, że choć wszyscy goście noszą maski, to niektórzy z nich mają je przyozdobione charakterystycznym kanciastym wzorem przypominającym drzewo błyskawic. Po powrocie Dagan przedstawił nowych przyjaciół swojemu bratu Wiktorowi i zaproponował partyjkę w kości. Początkowo naszym bohaterom szło nieźle, ale w ostatniej rundzie Dagan sprytnie podbił stawkę, a Wiktor dokończył dzieła wyrzucając królewskiego pokera, pozostawiając tym samym Blokusa i Wolfharta z paroma setkami w plecy.
 
 W tym samym czasie Ariel i Baldwin postanowili rozejrzeć się po garnizonie oraz kupić wyposażenie przed wybraniem się na przeszpiegi do Wieży Arystokratów. Ariel sprzedała jednego z młodych toksycznego jaszczura, w skutek czego mogła wykupić się z długu finansowego względem Baldwina. Następnie znienacka pojawił się mag Merendir, pytając, czy bohaterowie dowiedzieli się czegoś na temat mistrza Nikoli oraz miejscowego czarodzieja, oraz zaoferował swoją pomoc w wyprawie na maskaradę, ale Baldwin stanowczo odrzucił jego pomoc. Bohaterowie ruszyli następnie po dachach w kierunku wieży, aby potem wspiąć się na jej czwarte piętro. Po wejściu do ciemnego korytarza stoczyli walkę z przyczajonym tam wąpierzem.
@@ -210,6 +215,11 @@ Wolfhart i Dagan zajechali powozem do wieży mistrza Nikoli, wynalazcy i geniusz
 
 ![](Images/golem_od_herbaty.png)
 
+<audio controls>
+  <source src="Audio/Sesja_7.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Po niefortunnym spotkaniu z wilkołakiem, nasi bohaterowie pozostali w rozdzieleniu. Baldwin był wściekły, że Ariel nie pozwoliła mu wykończyć potwora, ale ponieważ ta już się wykupiła, nie miał nic do gadania.
 
 Wulfhart i Dagan postanowili udać się do wieży miejskiego czarodzieja, aby posunąć naprzód sprawę rozwiązania zagadki mroku spowijającego miasto. Gdy dotarli do wieży, stoczyli walkę z dwoma wampirami, które Dagan pod postacią nietoperza szybko wykończył. Wejście do kwatery maga było chronione przez iluzoryczną zaporę, którą jednak udało się bohaterom szybko sforsować. Za magicznymi drzwiami ich oczom ukazał się mroczny labirynt, który jednak nie dostarczył krasnoludowi i dhampirowi szczególnych wrażeń. Znaleźli oni bez problemu wejście do sali głównej mieszkania czarodzieja. Nie spotkali tam nikogo za wyjątkiem małego golema od herbaty siedzącego w kuble na śmieci, który niestety nie udzielił im zbyt wielu wyjaśnień. Nagle odkrywcy usłyszeli hałas otwieranego magicznego portalu i z ukrycia byli świadkami sceny rozmowy trzech mrocznych wyglądających czarodziejów. Niestety z ich rozmowy niewiele wynikało, a z racji odległości nawet wyczulony na dźwięki Dagan nie zrozumiał zbyt wiele.
@@ -230,6 +240,11 @@ Podczas przeszukiwania pokoju nagle otworzył się magiczny portal, z którego w
 
 ![](Images/darby.png)
 
+<audio controls>
+  <source src="Audio/Sesja_7P.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Wulfhart i Baldwin spędzili miło czas, grając w pokera o własne dusze oraz dusze swoich towarzyszy z Darbim Hazardzistą. Początkowo prawie stawili czoła śmierci, lecz po paru rzutach i z małą pomocą Dagana udało im się nie tylko odzyskać rozczłonkowane fragmenty swoich dusz, ale także uratować z pułapki Blokusa i Ariel...
 
 
@@ -241,6 +256,11 @@ Wulfhart i Baldwin spędzili miło czas, grając w pokera o własne dusze oraz d
 ###### *"Kronika pieśni" barda Oliviera z Dereth, tytuł rozdziału V*
 
 ![](Images/laurindie.png)
+
+<audio controls>
+  <source src="Audio/Sesja_8.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Gdy Wulfhart, Baldwin i Dagan schowali nowo nabyte żetony do kieszeni, od razu ruszyli na górę, żeby sprawdzić, czy dusze ich przyjaciół powróciły do ciał. Ariel siedziała na łóżku, wyspana jak nigdy, a Blokus natomiast zniknął. Zniknęło nie tylko jego dusza, ale i ciało. Drużyna postanowiła na razie olać sprawę i udać się na dół.
 
@@ -266,6 +286,11 @@ Ariel natomiast zdecydowała, że do zrealizowania swoich celów postać drakona
 
 ![](Images/nekromatron_niedaleko_valinoru.png)
 
+<audio controls>
+  <source src="Audio/Sesja_9.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Po niebezpiecznej przygodzie w podziemiach cmentarzyska w Vederoth, nasi bohaterowie wyruszyli z miasta wraz z załogą piratów.
 
 Podczas podróży zostali poproszeni o zorganizowanie jakiegoś prowiantu z pobliskiego lasu. Baldwin, jak to miał zwykle w zwyczaju, wyruszył skradając się między drzewami, a elf... drakonka Ariel i krasnolud Wulfhart wyruszyli tropić zwierzynę, polegając na swoich talentach łowcy.
@@ -285,6 +310,11 @@ Jadąc od paru dobrych godzin, konwój nie natrafił na żadnego smoka, ku wielk
 ###### *Relodora Tlintaryd, generał drowiej armii*
 
 ![](Images/drowy_kolo_nekromatronu.png)
+
+<audio controls>
+  <source src="Audio/Sesja_10.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Zwycięstwo! Nasi bohaterowie odnieśli triumf! Słychać radosne krzyki piratów, dźwięki łamanych szkieletowych kości i... kroki 30 000 armii drowów zmierzającej w naszym kierunku.
 
@@ -307,6 +337,11 @@ Oprócz tego bohaterowie udali się również na zakupy. Baldwin zakupił parę 
 ###### *Dwaren, krasnoludzki menel z Valinoru*
 
 ![](Images/statek_syreny.png)
+
+<audio controls>
+  <source src="Audio/Sesja_11.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Po udanych zakupach, nasi bohaterowie wrócili do siedziby piratów, gdzie zastali, bez większego zdziwienia, zakrapianą biesiadę. Kapitan wraz ze swoim bratem dyskutowali na temat przejęcia pirackiej wyspy przez smoki i planu odzyskania należących im się ziem. W rozmowie tej czynny udział brał oczywiście Wulfhart, który awansował na asystenta bosmana.
 
@@ -334,6 +369,11 @@ Po walce z syrenami, naszych bohaterów zaskoczył sztorm, który wyrzucił ich 
 
 ![](Images/dzulgla.png)
 
+<audio controls>
+  <source src="Audio/Sesja_12.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Na wyspie skazańców, bohaterowie zaczęli zastanawiać się, jak naprawić rozbity statek. W tym celu udali się w głąb dżungli. Po zauważeniu smakowicie wyglądającej pieczonej świni, postanowili ją zabrać, w skutek czego wpadli w pułapkę miejscowych kanibali. Udało im się jednak po krótkim starciu wyswobodzić, po czym zmusili jednego z tubylców do zaprowadzenia ich do osady pierwotnych istot.
 
 Po przeszukaniu osady okazało się, że tubylcy są pod kontrolą Laurindie i jej zaklętego w drakona ukochanego. Ukochany Laurindie, z pomocą tubylców pod dowódctwem Blokusa Maximusa, podstępem pochwycił część załogi piratów i chciał ich złożyć w ofierze bogom wulkanu, ku uciesze szamana tubylców.
@@ -351,6 +391,11 @@ Uciekając, ukochany Laurindie porzucił ją na pewną śmierć, przez co zniena
 ###### *Trzeci już kapitan piratów w tej historii*
 
 ![](Images/bitwa_morska.png)
+
+<audio controls>
+  <source src="Audio/Sesja_13.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Na otwartym morzu, naszych bohaterów obudził jazgot spowodowany przez Baldwina, który usiłując oddać płyny, wypadł za burtę wprost na czyszczącego kadłub Loczka.
 
@@ -374,6 +419,11 @@ Podczas podróży załoga musiała się na chwilę zatrzymać, aby upolować nie
 
 ![](Images/avandra_corellon.png)
 
+<audio controls>
+  <source src="Audio/Sesja_14.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Podczas rozmowy drużyny z Piotrusiem wyszło, że ten coś ukrywa, a przynajmniej tak wyczuł to Baldwin, w skutek czego zaatakował tajemniczego przybysza. Atak nie wyszedł najlepiej, aczkolwiek Wulfhart użył swojego gargulca do pojmania Piotrusia.
 
 Drużyna kazała więźniowi zaprowadzić się do obozowiska, gdzie przetrzymywał on małych chłopców, którzy, jak się okazało, byli do niego przywiązani niczym do wodza, aczkolwiek totalnie nieświadomi, że ich poprzedni koledzy, którzy znikają co jakiś czas, nie idą do "lepszego miejsca". Po wyciągnięciu od Piotrusia szczątkowych informacji Baldwin zabija go i ku przerażeniu grupy dzieci wiesza na gałęzi.
@@ -396,6 +446,11 @@ Tak to bohaterowie ruszają kolejną odnogą, tym razem w stronę Smoczego Miast
 
 ![](Images/tajemniczy_jegomosc.png)
 
+<audio controls>
+  <source src="Audio/Sesja_14P.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
 Sen Wulfharta i Ariel w którym natknęli się na ponurego przewodnika po koszmarze. Oboje obudzili się w karczmie w Vederoth w tym samym czasie,  w którym toczyła się gra o duszę Ariel, która przegrała uprzednio z Darbim Hazardzistą. Tajemniczy ponury jegomość przeprowadził bohaterów przez mroczne pokoje w których musieli oprzeć się błaganiom topiącej się w beczce dziewczynki, zaszlachtować niewinnego małego kucyka oraz ostatecznie dojść do pokoju w którym znajdowała się szachownica z trzema pionkami i jednym królem z tyłu. Wszystkie figury były czarne, a jedynie jeden pionek był nieudolnie przemalowany z czarnego na biały. Za bohaterami znajdowało się troje drzwi w analogicznym zabarwieniu do pionków. Po przyjrzeniu się scenerii pokoju bohaterowie zauważyli że mroczny jegomość wyjął za ich plecami narzędzie mordu po czym powiedział "Uciekajcie stąd inaczej was zabiję". Ariel i Wulfhart przebiegli szybko przez biało-czarne drzwi po czym się obudzili...
 
 
@@ -407,6 +462,11 @@ Sen Wulfharta i Ariel w którym natknęli się na ponurego przewodnika po koszma
 ###### *Krasnoludzka kołysanka*
 
 ![](Images/spiacy_smok_wyspa.png)
+
+<audio controls>
+  <source src="Audio/Sesja_15.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
 Po dotarciu w pobliże Smoczego Miasta oczom bohaterów ukazała się magiczna mroczna mgła. Jedynie Baldwin był w stanie ją przeszyć wzrokiem, ze względu na podpisanie paktu i zostanie Czarownikiem. Drużyna, omijając mgłę dzięki zaklęciu "Przejścia bez śladu" rzuconemu przez Ariel, przedarła się przez wyrwę w murze i dotarła na centralny plac smoczej twierdzy.
 
@@ -434,12 +494,38 @@ Do bohaterów podleciał pradawny Biały Smok i kazał im szybko wsiąść na sw
 
 ![](Images/gekon_baldwin.png)
 
-Po pokonaniu nekromanty Merendira pradawne smoki poprosiły naszych bohaterów o opuszczenie Smoczej Utopii gdyż chciały zająć się jej odbudową oraz wprowadzić na najbliższe 300 lat regułę zakazu wstępu jakichkolwiek obcych. Jendak zanim bohaterowie opuścili smoczą twierdzę zobowiązali się jeszcze do oczyszczenia korytarzy z wszelkich szkielecich niedobitków. W trakcie tejże inspekcji natknęli się na uwięzioną w lochu młodą drakonią zaklinaczkę o imieniu Nemmonis Akra.
+<audio controls>
+  <source src="Audio/Sesja_16.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
 
-Następnie zapewne bohaterowie opuścili by już mury miasta gdyby nie to, że Baldwin uparł się aby przeszukać kolejny pokój zabezpieczony...kolejnymi złotymi magicznymi drzwiami. Wulfhart natomiast postanowił zejść na dziedziniec wraz z Ariel aby przeszukać pole bitwy. Odnalazł ciało nekromanty Merendira, co okazało się kluczowe, ponieważ czarnoksiężnik posiadał przy sobie fiolkę wszkrzeszenia, która przywróciła by go do życia po 3 dniach, gdyby tylko Wulfhart nie przywłaszczył jej dla siebie.
+Po pokonaniu nekromanty Merendira, pradawne smoki poprosiły naszych bohaterów o opuszczenie Smoczej Utopii, gdyż chciały zająć się jej odbudową oraz wprowadzić na najbliższe 300 lat regułę zakazu wstępu jakichkolwiek obcych. Jednak zanim bohaterowie opuścili smoczą twierdzę, zobowiązali się jeszcze do oczyszczenia korytarzy z wszelkich szkielecich niedobitków. W trakcie tejże inspekcji natknęli się na uwięzioną w lochu młodą drakonią zaklinaczkę o imieniu Nemmonis Akra.
 
-Z pomocą czaru zmniejszenia Nemmonis Akry Baldwinowi udało się przeskoczyć i wejść poprzez małe okienko do środka zabezpieczonego pokoju. Znalazł tam niewiele przydatnych rzeczy, zrabował zatem co się dało, w tym podejrzane czarne płaszcze nekromantów. Nie myśląc za wiele zarzucił jeden na siebie i teleportował się za pomocą magii czarownika pod mury. W ramach dowcipu postanowił zgromadzonym już na górze towarzyszom spłatać figla, toteż zaczął udawać nekromantę...nie wiedząc o pobocznym efekcie swojego płaszcza jakim było upodobnienie go do zionącej śmiercią nekromanckiej postaci.
+Następnie, zapewne bohaterowie opuścili by już mury miasta, gdyby nie to, że Baldwin uparł się, aby przeszukać kolejny pokój zabezpieczony... kolejnymi złotymi magicznymi drzwiami. Wulfhart natomiast postanowił zejść na dziedziniec wraz z Ariel, aby przeszukać pole bitwy. Odnalazł ciało nekromanty Merendira, co okazało się kluczowe, ponieważ czarnoksiężnik posiadał przy sobie fiolkę wszkrzeszenia, która przywróciła by go do życia po 3 dniach, gdyby tylko Wulfhart nie przywłaszczył jej dla siebie.
 
-Nie zastanawiając się wiele drużyna rozpoczęła atak. Baldwin nawet teleportował się do nich na górę przekonując ich po zdjęciu płaszcza, że to przecież on i tylko żartował, drużyna jednak po ostatniej akcji kiedy to nekromanta przejął nad nim kontrolę nie dawała za wygraną. Kiedy to drużyna miała już zadać Baldwinowi śmiertelne obrażenia nagle znikąd pojawili się Dravanna i Rellocon i powstrzymali towarzyszy przed zadaniem ciosu.
+Z pomocą czaru zmniejszenia Nemmonis Akry Baldwinowi udało się przeskoczyć i wejść poprzez małe okienko do środka zabezpieczonego pokoju. Znalazł tam niewiele przydatnych rzeczy, zrabował zatem co się dało, w tym podejrzane czarne płaszcze nekromantów. Nie myśląc za wiele zarzucił jeden na siebie i teleportował się za pomocą magii czarownika pod mury. W ramach dowcipu postanowił zgromadzonym już na górze towarzyszom spłatać figla, toteż zaczął udawać nekromantę... nie wiedząc o pobocznym efekcie swojego płaszcza, jakim było upodobnienie go do zionącej śmiercią nekromanckiej postaci.
 
-Okazało się, że są oni nie kim innym jak wcieleniem samych bogów, Avandry i Corellona. Zganili oni Baldwina za tak lekkomyślne korzystanie z ich przysięgi i dla kształtowania pokory zmienili go w gekona dopóki nie poświęci się bezinteresownie dla swoich towarzyszy.
+Nie zastanawiając się wiele, drużyna rozpoczęła atak. Baldwin nawet teleportował się do nich na górę, przekonując ich po zdjęciu płaszcza, że to przecież on i tylko żartował, drużyna jednak po ostatniej akcji, kiedy to nekromanta przejął nad nim kontrolę, nie dawała za wygraną. Kiedy to drużyna miała już zadać Baldwinowi śmiertelne obrażenia, nagle znikąd pojawili się Dravanna i Rellocon i powstrzymali towarzyszy przed zadaniem ciosu.
+
+Okazało się, że są oni nie kim innym, jak wcieleniem samych bogów, Avandry i Corellona. Zganili oni Baldwina za tak lekkomyślne korzystanie z ich przysięgi i dla kształtowania pokory zmienili go w gekona, dopóki nie poświęci się bezinteresownie dla swoich towarzyszy.
+
+
+
+#### Sesja 17
+
+##### *"BARBARZYŃCY, DRANIE I OKRUTNICY!"*
+
+###### *Żebrak *
+
+<audio controls>
+  <source src="Audio/Sesja_17.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
+Na plaży w północnej części Smoczej Wyspy nasi bohaterowie uwolnili magiczną papugę Wulfharta, aby sprowadziła statek na to miejsce. Bosman Dredzik z dumą opowiedział towarzyszom o tym ile to łupu udało im się zdobyć podczas plądrowania napotkanych statków i małych wysepek. Łup jednak należało spieniężyć, toteż Dredzik zarządził rejs w kierunku portowego miasta Dath na północy Valinoru. Dla odmiany do poprzednich rejs upłynął spokojnie i już niebawem oczom załogi ukazał się malowniczy port w Dath.
+
+Po przybiciu do brzegu bohaterowie postanowili zacząć od zaopatrzenia się w nową broń oraz uzupełnienie zapasów. Ariel i Nemmonis Akra udały się do miejscowego ciuchlandu w celu zaopatrzenia się w odzież. Znalazły tam skrawek tajemniczo wyglądającej mapy, oprawionej w ramkę. Nemmonis przypadkowo zbiła ramkę co spowodowało złość właściciela, który nalegał nachalnie, aby teraz kupiły zniszczony przedmiot.
+
+Nemmonis zgodziła się i po zakończeniu dalszych zakupów obie bohaterki wyszły ze sklepu wyposażone w ów skrawek mapy, pierścień iluzji zmiennokształtnego, oraz suknię kamuflującą. Przy wyjściu spotkały Dagana, który poinformował je, że znalazł sklep z bronią ulicę dalej. Dagan użył swoich dampirzych zdolności aby przekonać sprzedawcę do sprzedarzy broni po zaniżonej cenie. 
+
+W tym samym czasie 
