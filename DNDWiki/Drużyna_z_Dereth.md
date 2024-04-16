@@ -351,7 +351,7 @@ Wulfhart miał już nadwyraz dość elfiego jadła, dlatego zaproponował Ariel 
 
 Gdy bohaterowie przeszukiwali pobitego półelfa, przemknął pomiędzy nimi osobnik w czarnym kapturze. Baldwin od razu domyślił się, kim ów jegomość mógł być, i ruszył za nim ukradkiem. Wulfhart i Ariel natomiast dopiero po paru minutach zauważyli, że zostali okradzeni z cennych artefaktów.
 
-Baldwin dał się przechytrzyć obcemu złodziejowi i siłą odebrał mu hełm blasku, co poskutkowało dla niego zamianą w drakona, podobnie jak Ariel.
+Baldwin dogonił obcego złodzieja i siłą odebrał mu hełm blasku, co poskutkowało dla niego zamianą w drakona, podobnie jak Ariel.
 
 W tym samym czasie Wulfhart i Ariel wrócili do piratów i wyruszyli z kapitanami na tajną misję "pożyczenia" z przystani niepilnowanego okrętu. Okazało się, że ów okręt nie dość, że był niepilnowany, to jeszcze należał do Valinorskiej gildii złodziei, a spotkany uprzednio przez Baldwina jegomość był jej członkiem. Ich to właśnie obezwładnili na statku, zmuszając do wypłynięcia z nimi na pełne morze, uprzednio sprowadzając całą załogę piratów i krasnoludzkiego menela, którego Baldwin postanowił wykorzystać do krwiożerczego rytuału przemiany.
 
