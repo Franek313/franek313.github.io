@@ -351,7 +351,9 @@ var folderStructureJSONString = `{
         "Pillars of Eternity Soundtrack 15 - Od Nua A (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 16 - Od Nua B (Justin Bell).mp3",
         "The Chronicles of Narnia Soundtrack - 06 - The White Witch.mp3",
-        "Witch Hunters.mp3"
+        "Witch Hunters.mp3",
+        "Zetsuen no Tempest - Okan.mp3",
+        "Zetsuen no Tempest - Kotsuzen.mp3"
     ],
     "f_Mystic": [
         "Baldur's Gate OST - The Lady's House.mp3",
@@ -439,7 +441,6 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Ancient Stones.mp3",
         "TES V Skyrim Soundtrack - From Past to Present.mp3",
         "The Banks of the Sansretour.mp3",
-        "The Chronicles of Narnia Soundtrack - 02 - Evacuating London.mp3",
         "The Chronicles of Narnia Soundtrack - 03 - The Wardrobe.mp3",
         "The Chronicles of Narnia Soundtrack - 07 - From Western Wood To Beaversdam.mp3",
         "The Fields of Ard Skellig.mp3",
@@ -456,15 +457,17 @@ var folderStructureJSONString = `{
         "Sousou no Frieren OST -  One Last Adventure  by Evan Call.mp3",
         "Sousou no Frieren OST -  The End of One Journey  by Evan Call.mp3",
         "Sousou no Frieren OST -  Time Flows Ever Onward  by Evan Call.mp3",
-        "Sousou no Frieren OST -  Where the Blue-Moon Weed Grows  by Evan Call.mp3"
+        "Sousou no Frieren OST -  Where the Blue-Moon Weed Grows  by Evan Call.mp3",
+        "Zetsuen no Tempest - Tsuioku.mp3"
     ],
     "f_Sad": [
         "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
-        "Sad Violin.mp3",
-        "Tchaikovsky - None But The Lonely Hearts.mp3"
+        "Zetsuen no Tempest - Zetsuen.mp3",
+        "Tchaikovsky - None But The Lonely Hearts.mp3",
+        "Zetsuen no Tempest - Defeat.mp3"
     ],
     "v_Action": [
         "19 - The Witcher 2 Score - Easier Said Than Killed (Extended).mp3",
@@ -508,7 +511,8 @@ var folderStructureJSONString = `{
         "The Hunt is Coming.mp3",
         "The Witcher 2 Assassins of Kings - Battle Music.mp3",
         "The\u00a0Shrieker\u00a0Contract.mp3",
-        "Widow maker.mp3"
+        "Widow maker.mp3",
+        "Zetsuen no Tempest - Shoutotsu.mp3"
     ],
     "v_Fear": [
         "03 - Dark Discovery - James Horner - Aliens.mp3",
@@ -587,7 +591,10 @@ var folderStructureJSONString = `{
         "Vampire Calm.mp3",
         "Vampire Calm2.mp3",
         "Vampire Mystery.mp3",
-        "Witch Hunters.mp3"
+        "Witch Hunters.mp3",
+        "Zetsuen no Tempest - Okan.mp3",
+        "Zetsuen no Tempest - Torihiki.mp3",
+        "Zetsuen no Tempest - Kotsuzen.mp3"
     ],
     "v_Mystic": [
         "Baldur's Gate OST - The Lady's House.mp3",
@@ -686,15 +693,18 @@ var folderStructureJSONString = `{
         "The\u00a0Tree\u00a0When\u00a0We\u00a0Sat\u00a0Once.mp3",
         "When\u00a0No\u00a0Man\u00a0Has\u00a0Gone\u00a0Before.mp3",
         "Whispers of Oxenfurt Instrumental.mp3",
-        "Yes, I Do.mp3"
+        "Yes, I Do.mp3",
+        "Zetsuen no Tempest - Tsuioku.mp3",
+        "Zetsuen no Tempest - Houkai.mp3"
     ],
     "v_Sad": [
         "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
-        "Sad Violin.mp3",
-        "Tchaikovsky - None But The Lonely Hearts.mp3"
+        "Zetsuen no Tempest - Zetsuen.mp3",
+        "Tchaikovsky - None But The Lonely Hearts.mp3",
+        "Zetsuen no Tempest - Defeat.mp3"
     ],
     "p_Action": [
         "Assassin's Creed IV Black Flag Main Theme Epic.mp3",
@@ -748,7 +758,9 @@ var folderStructureJSONString = `{
         "Divinity Original Sin 2 OST  13 Dancing with the Source Oud.mp3",
         "LEGO Pirates of the Caribbean Music - Shipwreck Cove.mp3",
         "LEGO Pirates of the Caribbean Music - The Locker.mp3",
-        "LEGO Pirates of the Caribbean Music - White Cap.mp3"
+        "LEGO Pirates of the Caribbean Music - White Cap.mp3",
+        "Zetsuen no Tempest - Okan.mp3",
+        "Zetsuen no Tempest - Kotsuzen.mp3"
     ],
     "p_Mystic": [
         "Tribal Instrumental Music-01.mp3",
@@ -800,7 +812,8 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
-        "Sad Violin.mp3",
-        "Tchaikovsky - None But The Lonely Hearts.mp3"
+        "Zetsuen no Tempest - Zetsuen.mp3",
+        "Tchaikovsky - None But The Lonely Hearts.mp3",
+        "Zetsuen no Tempest - Defeat.mp3"
     ]
 }`;
