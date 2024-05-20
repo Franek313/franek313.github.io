@@ -37,6 +37,4 @@ Państwo utrzymuje przyjazne stosunki w zasadzie ze wszystkimi sąsiadami poprze
 
 - Na niektórych mapach królestwa Valinoru nie uwzględnione są południowe wyspy. Jest to spowodowane tym, że są one do tego stopnia opanowane przez piratów, że niektórzy kartografowie nie uwzględniają ich w swoich mapach.
 
-- W tym państwie rozpoczęła oraz przeżyła większość swoich przygód [Drużuna z Dereth](Drużyna_z_Dereth.html).
-
-
+- W tym państwie rozpoczęła oraz przeżyła większość swoich przygód [Drużyna z Dereth](Drużyna_z_Dereth.html).
