@@ -545,3 +545,31 @@ Idąc przez las towarzysze zauważyli szlak powalonych małych drzew i zdeptanyc
 Drużyna zaczęła się skradać w kierunku bestii, gdy wtem usłyszeli za swoimi plecami cichy szept, była to Dimidia, młoda adeptka magii, która zaoferowała drużynie swoją pomoc w ubiciu potwora. Po udanej zasadzce na bestię Dimidia zaprowadziła bohaterów do wioski w której obozował Ser Roland. Wyjaśnił on drużynie, że to wiedźma jest odpowiedzialna za inwazję bestii na tym obszarze i że jej zabicie wyeliminuje problem. Drużyna postanowiła wyruszyć nazajutrz aby odnaleźć wiedźmę.
 
 Następnego dnia po przedarciu się przez gęstwinę drużyna wyprzedziła ekipę Ser Rolanda aby zbadać teren. Natrafili na skalną ścianę po której wspieli się na górę, gdzie jak się okazało znajdowała się siedziba leśniej wiedźmy. Okazało się, że wiedźma taka straszna wcale nie jest i że Ser Roland nieustannie się jej naprzyksza podczas gdy ona troszczy się jedynie o ekosystem tego lasu. Bohaterowie byli jednak w stosunku do niej nieufni, toteż pragnęli więcej informacji, wiedźma jednak nie była skora do udzielania wyjaśnień, aczkolwiek zaproponowała drużynie małe zlecenie. Mieli odnaleźć dla niej trzeci fragment tajemniczej mapy, której fragment Nemmonis Akra znalazła w sklepie z szatami.
+
+
+
+#### Sesja 18
+
+##### *"A MOŻE CHCE ŻEBYŚMY TAK MYŚLELI..."*
+
+###### *Wulfhart*
+
+<audio controls>
+  <source src="Audio/Sesja_18.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
+
+
+Zlecenie od Wiedźmy wydało się bohaterom dosyć atrakcyjne gdyż zaproponowała ona 350 sztuk złota za każdy skrawek mapy. Wulfhart jednak zastanawiał się mocno nad tym, czy aby przypadkiem zachowanie mapy nie opłaci się drużynie bardziej. Ostatecznie drużyna postanowiła przyjąć zlecenie poszukiwania fragmentów mapy. Bohaterowie uzyskali informacje o położeniu jednego z fragmentów. Znajdował się on w ratuszu miejskim oprawiony w drewnianą ramkę i powieszony na ścianie. W drodze powrotnej bohaterowie natknęli się na ludzi Sir Rolanda który świętował wraz z żołnierzami ubicie wiedźmy. Tak na prawdę odrąbana głowa położona na pniu była niczym innym jak dynią, prawdopodobnie wiedźma zażartowała sobie z mężnego Palladyna i spowiła jego umysł iluzją.
+
+Sir Roland pomimo tłumaczeń upierał się, że pokonał siły ciemności i na przekonywania bohaterów odpowiedział, że może i oni służą diabelskim siłom. Na to Baldwin zaproponował mu pojedynek o honor, który skończył się jadką podczas której zginęło paru ludzi Sir Rolanda oraz on sam. Przestraszonych chłopów Baldwin przekonał, że powinni sami jako wolny lud zwalczać opresyjne autorytety i zabić każdego kto stanie na drodze rewolucji.
+
+Chłopi wzięli to mocno dosłownie, toteż gdy tylko wrócili do wioski postanowili spalić na stosie czarodziejkę Dymidię oraz jej siostrę Semis, która akurat przebywała u niej w odwiedzinach. Na szczęście drużyna w porę usłyszała jazgot i pomogła czarodziejkom wyjść z opresji, a raczej powstrzymać lud przed samobójczym atakiem.
+
+Drużyna udała się następnie do ratusza aby ukradkiem wykraść papier, aczkolwiek w ratuszu Wulfhart spostrzegł znajomo wyglądających krasnoludów oraz oszukańczego barda. Postanowił ich śledzić. Krasnoludy po pożegnaniu z bardem wyszły z ratusza, Wulfhart z Baldwinem zaś podążyli śladami barda który wszedł do drzwi na końcu korytarza ratusza. Gekon Baldwin skoczył na obicie małego zakratowanego okienka w jakie wyposażone były drzwi i zajrzał do środka. Ujrzał barda rozmawiającego z jakimś tajemniczym brodatym jegomościem, od którego otrzymał szkatułkę w zamian za mieszek prawdopodobnie wypełniony złotem. Aby nie zostać zauważonym Baldwin zeskoczył z powrotem na ścianę. Bard odszedł w swoją stronę, a bohaterowie postanowili sami podpytać tajemniczego brodacza o to i owo. Jednak podczas czekania w kolejce zauważyli Dredzika wchodzącego do pokoju brodatego mężczyzny. Po wyjściu z tamtąd Dredzik wyjaśnił bohaterom, że ów mężczyzna zajmuje się załatwianiem szemranych interesów, a ona potrzebuje znaleźć kogoś kto pomoże uwolnić Dagana.
+Po wyjściu z ratusza drużyna opowiedziała Dredzikowi wszystko co się do tej pory wydarzyło, wiedźmie, chłopach, mapie i Sir Rolandzie.
+
+Po tej pogawędce Dredzik oddalił się w kierunku tawerny, a drużyna zaczęła się nagle zastanawiać skąd właściwie wiedziała o aresztowaniu Dhampira. Po krótkiej retrospekcji drużyna uświadomiła sobie, że coś tu nie gra. Pobiegli za Dredzikiem do tawerny o której mówił, ale elfki już tam nie było. Karczmarz udzielił im informacji o tym, że widział zziajaną elfkę wbiegającą do karczmy pytając czy jest tu gdzieś łazienka. Aczkolwiek po skorzystaniu, z łazienki wyszedł mężczyzna ubrany w bardowskie szaty. Stało się jasne, że drużyna przekazała wszystkie swoje informacje...podstępnemu bardowi.
+
+
