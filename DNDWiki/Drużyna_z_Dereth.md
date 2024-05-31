@@ -593,3 +593,25 @@ Nazajutrz, po wykupieniu Dagana z pomocą przekupnego adwokata poleconego przez 
 Drużyna udała się w pościg za powozem i w porę udało się im nawet wyprzedzić przemytników. Zastawili zasadzkę, w którą powóz wpadł. Po walce ze ślepym magiem wieszczenia i jego kusznikami drużyna dostała się do środka powozu i znalazła tam uwięzionego w klatce oposa, drugi tom magicznej księgi ze smoczej utopii oraz... upragniony fragment mapy. Mając już komplet, udali się potem do wiedźmy, której jednak nie zaproponowali już sprzedaży cennych wskazówek. Wiedźma zaproponowała im układ, że odczytają wspólnie całą mapę i podzielą się wiedzą, po czym każdy zabierze swoje fragmenty i wykonane kopie. Drużyna, po dłuższym namyśle, zgodziła się na to i tak całość mapy została odczytana. Mapa opisywała tajemnicze podziemia świątyni, w której to wedle wiedźmy znajdowały się cenne artefakty. Wiedźma zaproponowała drużynie układ: podzielą się skarbami po 50%, a ona za to udzieli im cennych wskazówek odnośnie treści mapy oraz wskaże, gdzie może znajdować się wejście do świątyni. Mapa ostrzegała, że w podziemiach na bohaterów będą czekać ich lustrzane odbicia.
 
 
+
+#### Sesja 20
+
+##### *"SILNA JESTEŚ...SMO..TO ZNACZY WIESZ..."*
+
+###### *Dagan do Nemmonis po walce z jej klonem*
+
+<audio controls>
+  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
+Wiedźma udzieliła drużynie cennych wskazówek odnośnie tego, gdzie może znajdować się podziemny labirynt. Wskazówki okazały się być trafne, ponieważ już po niedługim marszu drużynie ukazała się tajemnicza, zrujnowana świątynia w środku gęstwiny. Po odczytaniu tajemniczych inskrypcji w kamieniu Wulfhart ustalił, że jest to świątynia dawno zapomnianego martwego bóstwa.
+
+Drużyna stwierdziła, że zakończy tu swoją współpracę z Eragornem, podejrzanym członkiem gildii kupieckiej, z racji tego, że nie ufają mu oni zanadto. Eragorn skomentował to słowami, że zawsze zwykł robić te biznesy, które mu się opłacają bardziej ale nigdy nic na siłę. Po tych słowach oddalił się w przeciwnym kierunku.
+
+Po wejściu do mrocznego labiryntu drużyna udała się zgodnie z mapą do pierwszego znacznika, który znajdował się najbliżej. Ich oczom ukazały się srebrne drzwi, które dla odmiany teraz nikomu palców nie urwały. Po wypowiedzeniu tajemniczego słowa "Ryük" napisanego na mapie drzwi stanęły otworem, a za drzwiami stała ładna, zdobiona skrzynia, która okazała się być mimikiem. Drużyna stoczyła z nim zwycięską walkę. Mimik miał w środku trochę złota oraz małą, dziwną, szklaną buteleczkę, w której znajdowała się figurka z gliny przypominająca człowieka. Ulotka na butelce wyjaśniała, że jest to golem strażniczy, który po zbiciu buteleczki wyciągnie użytkownika z labiryntu w razie niebezpieczeństwa.
+
+Drużyna ruszyła w przeciwnym kierunku, gdyż w tej części labiryntu nie było już kolejnych przejść. Wulfhart swoim bacznym okiem krasnoluda zbadał ściany i poinformował drużynę, że są one wykonane z głębinowej skały twardszej od stali. Oznaczało to, że przejście na skróty, wyłupując otwór w ścianie, nie wchodziło w grę. Drużyna szła dalej, a przezorni łowcy postanowili sprawdzić, czy na trasie nie ma pułapek. Oczywiście, były. Pułapka mechaniczna, zatrzaskująca ścianę, znajdowała się przed naszymi bohaterami. Gekon przeskoczył przez nią sprawnie z racji swoich rozmiarów, ale reszta drużyny musiała skorzystać z pomocy Dagana pod postacią nietoperza. Niestety, ostatni pasażer, Nemmonis Akra, okazał się dla Dagana zbyt dużym wyzwaniem. Oboje spadli, aktywując pułapkę, która rozdzieliła drużynę.
+
+Dagan i Nemmonis wyszli z labiryntu, szukając wejścia od drugiej strony. Znaleźli je, aczkolwiek zauważyli też dwóch strażników miejskich przeszukujących teren. Oznaczało to, że ktoś również dowiedział się o położeniu świątyni. Po wejściu od drugiej strony labiryntu Nemmonis i Dagan stoczyli walkę z klonem Nemmonis, który okazał się być dla Dagana istnym nemezis. Dhampir zrozumiał, że jego siły nie zawsze będą w stanie zapewnić mu zwycięstwo w walce. Walka z klonami Ariel i Wulfharta okazała się dużym wyzwaniem. Wulfhart, Ariel i Baldwin niemal zginęli, kiedy to Baldwin wykonał na odwróconym plecami Daganie atak z zaskoczenia, który zakończył się uderzeniem kuli ognia z hełmu blasku należącego do klona Wulfharta, co przyprawiło bohaterów o stan niemal agonalny. Okazało się, że ów Dagan był tak naprawdę Ariel, która użyła swojej sukni i pierścienia zmiennokształtnego. Kiedy jej ciało padło na ziemię, owa kula ognia poczyniła bohaterom niesamowite szkody. Stało się jasne, że klony odziedziczyły po bohaterach nie tylko wygląd, ale i podstęp oraz umiejętności bitewne.
+
