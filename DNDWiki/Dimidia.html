@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the pathname of the URL
+            var pathName = decodeURI(document.location.pathname);
+            
+            // Split the pathname by '/' to get an array of segments
+            var segments = pathName.split('/');
+            
+            // Get the last segment which is the file name
+            var fileNameWithExtension = segments.pop();
+            
+            // Remove the extension from the file name and decode URI component
+            var fileNameWithoutExtension = decodeURIComponent(fileNameWithExtension.replace(/\.[^/.]+$/, ''));
+            
+            // Replace underscores with spaces
+            fileNameWithoutExtension = fileNameWithoutExtension.replace(/_/g, ' ');
+            
+            // Set the title to the file name without extension
+            document.title = `${fileNameWithoutExtension} | My DnD Wiki`;
+            
+            // Create a new <zero-md> element
+            var zeroMdElement = document.createElement("zero-md");
+            
+            // Set the src attribute to the Markdown file name
+            zeroMdElement.setAttribute("src", fileNameWithExtension.replace('.html', '.md'));
+
+            // Append the <zero-md> element to the body
+            document.body.appendChild(zeroMdElement);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

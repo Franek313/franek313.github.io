@@ -12,8 +12,6 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 
 - Kapitan Piratów z Dereth
 
-- Wujek Blokusa (astralny upiór)
-
 - Bosman, członek załogi piratów z Dereth
 
 - Gotorn, zarządca teatru w Dereth
@@ -50,7 +48,6 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 
 - John Arrow, kapitan piratów z Valinoru
 - Loczek
-- Aslan, nieznajomy półelf
 - Dwaren, menel z Valinoru
 
 ### Smocza Wyspa
@@ -69,15 +66,14 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 
 - Bard Celestyn
 
-- Czarodziejka "Wiedźma" Lorna
+- [Czarodziejka "Wiedźma" Lorna](Lorna.html)
 
-- Semis
-
-- Dimidia
+- [Dimidia](Dimidia.html)
 
 ### Kraina Snów
 
 - [Śniączka (Prządka)](Śniączka.html)
+- [Taron](Taron.html)
 
 ## Kampania - [Drużyna spod Dan](Drużyna_spod_Dan.html)
 
@@ -85,8 +81,6 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 
 - Sir Roland
 
-- Dimidia
+- [Semis](Semis.html)
 
-- Znachor
 
-- Dopler złodziejaszek
