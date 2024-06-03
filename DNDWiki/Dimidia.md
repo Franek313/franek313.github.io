@@ -8,7 +8,5 @@
 
 ### Ciekawostki
 
-- Ma siostrę Semis, która również jest czarodziejką z domeny wody, aczkolwiek z subdomeny burzy.
+- Ma siostrę Semis, która również jest czarodziejką z domeny wody, subdomeny lodu.
 - Jej imię pochodzi od łacińskiego słowa *dimidium* czyli *połowa*.
-
-

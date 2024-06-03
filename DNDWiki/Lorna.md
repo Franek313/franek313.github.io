@@ -8,7 +8,7 @@
 
 ### Ciekawostki
 
-- Wedle krwi jest 21 kandydatką w kolejce po tron Ladii, jako że pochodzi po ojcu ze starego i szanowanego rodu Talravenów
-- W swojej posiadłości spędzi najbliższe dwa lata, ponieważ zapoczątkowała jej tylko znany rytuał magiczny w jej tylko wiadomym celu, który wymaga ciągłego doglądania, aczkolwiek jako elfka czystej krwi nie stanowi to dla niej większego problemu.
+- Wedle krwi jest 21 kandydatką w kolejce po tron Ladii, jako że pochodzi po ojcu ze starego i szanowanego rodu Talvarenów
+- W swojej posiadłości spędzi najbliższe dwa lata, ponieważ zapoczątkowała jej tylko znany rytuał magiczny w jej tylko wiadomym celu, który wymaga ciągłego doglądania, aczkolwiek jako dla elfki czystej krwi nie stanowi to dla niej większego problemu.
 
 

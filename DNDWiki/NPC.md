@@ -74,6 +74,7 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 
 - [Śniączka (Prządka)](Śniączka.html)
 - [Taron](Taron.html)
+- [Kolorowa](Kolorowa.html)
 
 ## Kampania - [Drużyna spod Dan](Drużyna_spod_Dan.html)
 
@@ -82,5 +83,3 @@ Lista wszystkich bohaterów niezależnych, czyli tak zwanych NPC, którzy pojawi
 - Sir Roland
 
 - [Semis](Semis.html)
-
-
