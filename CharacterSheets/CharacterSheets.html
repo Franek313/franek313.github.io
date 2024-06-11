@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karta postaci</title>
+    <style>
+        #pdfImages {
+            display: flex;
+            flex-direction: column; /* Obrazki ułożone jeden pod drugim */
+            align-items: center; /* Wyświetlanie obrazków wyśrodkowane w poziomie */
+        }
+        
+        #pdfImages canvas {
+            margin: 5px;
+            width: 100%; /* Obrazki zajmują pełną dostępną szerokość */
+        }
+        
+        /* Stylowanie przycisku */
+        #editButton {
+            visibility: hidden; /*UKRYŁEM GO BO KIEDY INDZIEJ ZROBIĘ TĄ FUNKCJĘ*/
+            position: fixed; /* Ustawienie przycisku na stałe w oknie przeglądarki */
+            top: 10px; /* Odległość od góry strony */
+            right: 10px; /* Odległość od prawej krawędzi strony */
+            padding: 5px 10px; /* Wielkość przycisku */
+            background-color: #007bff; /* Kolor tła przycisku */
+            color: #fff; /* Kolor tekstu */
+            border: none; /* Usunięcie obramowania */
+            border-radius: 3px; /* Zaokrąglenie rogów */
+            cursor: pointer; /* Zmiana kursora na wskaźnik */
+            transition: background-color 0.3s; /* Płynna zmiana koloru tła po najechaniu myszką */
+        }
+        
+        /* Stylowanie przycisku po najechaniu myszką */
+        #editButton:hover {
+            background-color: #0056b3; /* Zmiana koloru tła po najechaniu myszką */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+</head>
+<body>
+    <div id="pdfImages"></div>
+
+    <!-- Przycisk do edycji -->
+    <button id="editButton" onclick="goToLogin()">Edytuj</button>
+
+    <script>
+
+        function goToLogin() {
+            window.location.href = "Login.html";
+        }        
+
+        // Odczytanie nazwy pliku PDF z localStorage
+        const selectedPdf = localStorage.getItem('selectedPdf');
+        const pdfPath = selectedPdf + '.pdf'; // Tworzenie ścieżki do pliku PDF
+
+        // Załadowanie pliku PDF
+        const loadingTask = pdfjsLib.getDocument(pdfPath);
+        loadingTask.promise.then(function(pdf) {
+            // Pobranie liczby stron w pliku PDF
+            const numPages = pdf.numPages;
+            
+            // Pętla renderująca każdą stronę PDF jako obraz PNG
+            for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
+                pdf.getPage(pageNumber).then(function(page) {
+                    // Ustawienie skali przekształcenia
+                    const scale = 5.0; // Zmniejszona skala, aby nie przycinać obrazów
+                    const viewport = page.getViewport({ scale: scale });
+
+                    // Utworzenie kanwy dla aktualnej strony PDF
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    // Renderowanie strony PDF na kanwie
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
+                    
+                    // Dodanie obrazu do kontenera div
+                    const pdfImages = document.getElementById('pdfImages');
+                    pdfImages.appendChild(canvas);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

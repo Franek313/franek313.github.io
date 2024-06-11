@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Aby edytować postać, musisz wpisać hasło:</h2>
+        <form id="characterForm">
+            <!-- Pole na wpisanie hasła -->
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <!-- Przycisk do przesłania formularza -->
+            <button type="submit">Dalej</button>
+        </form>
+    </div>
+
+    <script>
+        // Pobieranie hasła z pliku txt za pomocą Fetch API
+        function getPassword() {
+            return fetch('password.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Problem z pobraniem hasła.');
+                    }
+                    return response.text();
+                });
+        }
+
+        // Funkcja sprawdzająca hasło
+        function checkPassword() {
+            var inputPassword = document.getElementById('password').value;
+
+            getPassword().then(password => {
+                if (inputPassword === password.trim()) {
+                    // Hasło jest poprawne, przekieruj użytkownika na podstronę z karciami postaci
+                    window.location.href = 'EditCharacterSheet.html';
+                } else {
+                    // Hasło jest niepoprawne, wyświetl komunikat o błędzie
+                    alert('Błędne hasło. Spróbuj ponownie.');
+                }
+            }).catch(error => {
+                // Obsługa błędu pobierania hasła
+                console.error('Wystąpił problem:', error);
+                alert('Wystąpił problem z pobraniem hasła. Spróbuj ponownie później.');
+            });
+        }
+
+        // Dodanie obsługi zdarzenia dla przycisku Submit
+        document.getElementById('characterForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Zapobieganie domyślnej akcji przycisku Submit (wysłanie formularza)
+            checkPassword(); // Sprawdzanie hasła
+        });
+    </script>
+</body>
+</html>

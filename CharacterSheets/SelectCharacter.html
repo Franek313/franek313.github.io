@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybór postaci</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Wybierz postać:</h2>
+
+        <form id="characterForm">
+            <label for="character">Postać:</label>
+            <select id="characterOptions">
+                <!-- Lista opcji będzie generowana dynamicznie przez skrypt JavaScript -->
+            </select>
+            <br>
+            <button type="submit">Dalej</button>
+        </form>
+    </div>
+
+    <script>
+        // Pobieranie listy postaci z pliku JSON
+        fetch('characters.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Problem z pobraniem danych.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Generowanie opcji dla listy postaci
+                const characterOptions = document.getElementById('characterOptions');
+                data.forEach(character => {
+                    const option = document.createElement('option');
+                    option.value = character.id;
+                    option.textContent = character.name;
+                    characterOptions.appendChild(option);
+                });
+
+                // Sprawdzenie, czy istnieje zapisana wartość w localStorage
+                const selectedPdf = localStorage.getItem('selectedPdf');
+                if (selectedPdf) {
+                    document.getElementById('characterOptions').value = selectedPdf;
+                }
+            })
+            .catch(error => {
+                console.error('Wystąpił problem:', error);
+                alert('Wystąpił problem z pobraniem danych. Spróbuj ponownie później.');
+            });
+
+        // Dodanie obsługi zdarzenia dla formularza
+        document.getElementById('characterForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Zapobieganie domyślnej akcji przycisku Submit (wysłanie formularza)
+            
+            // Zapisanie wyboru z listy w localStorage
+            var selectedOption = document.getElementById('characterOptions').value;
+            localStorage.setItem('selectedPdf', selectedOption);
+
+            // Przekierowanie użytkownika na kolejną stronę
+            window.location.href = "CharacterSheets.html"; // Zastąp 'NextPage.html' nazwą kolejnej strony
+        });
+    </script>
+</body>
+</html>
