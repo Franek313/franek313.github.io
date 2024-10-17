@@ -6,4 +6,6 @@
 
 * [Karty Postaci](CharacterSheets/SelectCharacter.html)
 
-* [Nodes](nodes.html)
+* [Nodes](Nodes/Nodes.html)
+
+

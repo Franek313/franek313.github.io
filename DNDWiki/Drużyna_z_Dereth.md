@@ -615,3 +615,56 @@ Drużyna ruszyła w przeciwnym kierunku, gdyż w tej części labiryntu nie był
 
 Dagan i Nemmonis wyszli z labiryntu, szukając wejścia od drugiej strony. Znaleźli je, aczkolwiek zauważyli też dwóch strażników miejskich przeszukujących teren. Oznaczało to, że ktoś również dowiedział się o położeniu świątyni. Po wejściu od drugiej strony labiryntu Nemmonis i Dagan stoczyli walkę z klonem Nemmonis, który okazał się być dla Dagana istnym nemezis. Dhampir zrozumiał, że jego siły nie zawsze będą w stanie zapewnić mu zwycięstwo w walce. Walka z klonami Ariel i Wulfharta okazała się dużym wyzwaniem. Wulfhart, Ariel i Baldwin niemal zginęli, kiedy to Baldwin wykonał na odwróconym plecami Daganie atak z zaskoczenia, który zakończył się uderzeniem kuli ognia z hełmu blasku należącego do klona Wulfharta, co przyprawiło bohaterów o stan niemal agonalny. Okazało się, że ów Dagan był tak naprawdę Ariel, która użyła swojej sukni i pierścienia zmiennokształtnego. Kiedy jej ciało padło na ziemię, owa kula ognia poczyniła bohaterom niesamowite szkody. Stało się jasne, że klony odziedziczyły po bohaterach nie tylko wygląd, ale i podstęp oraz umiejętności bitewne.
 
+
+
+#### Sesja 21
+
+##### *"MIECZ PRZEDWIECZY JEST NIEBEZPIECZNY..."*
+
+###### *Zdrowy rozsądek*
+
+
+
+#### Sesja 22
+
+##### *"ZŁOTO TO PESTKA, ALE ARTEFAKTY..."*
+
+###### *Drużyna podczas targowania się z Wiedźmą Lorną*
+
+
+
+#### Sesja 23
+
+##### *"PUSZCZAJ MNIE! TY CHUULU!*
+
+###### *Wulfhart do Chuula*
+
+
+
+#### Sesja 24
+
+##### *"AGSIU&W)YA(YF_(@"*
+
+###### *Przybliżony dźwięk jaki wydał z siebie zabity dwugłowy olbrzym*
+
+
+
+#### Sesja 25
+
+##### *"..."*
+
+###### *...*
+
+<audio controls>  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">  Twoja przeglądarka nie obsługuje elementu audio.</audio>
+
+<audio controls>  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">  Twoja przeglądarka nie obsługuje elementu audio.</audio>
+
+
+
+<audio controls>  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">  Twoja przeglądarka nie obsługuje elementu audio.</audio>
+
+<audio controls>  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">  Twoja przeglądarka nie obsługuje elementu audio.</audio>
+
+<audio controls>  <source src="Audio/Sesja_20.mp3" type="audio/mpeg">  Twoja przeglądarka nie obsługuje elementu audio.</audio>
+
+
