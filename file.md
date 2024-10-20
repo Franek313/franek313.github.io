@@ -8,4 +8,4 @@
 
 * [Karty Postaci](CharacterSheets/SelectCharacter.html)
 
-* 
+
