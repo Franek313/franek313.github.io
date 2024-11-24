@@ -7,7 +7,7 @@ var globalVolume = 1.0;
 var fadeDelay = 1500;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
-var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London", "SPECIAL"];
+var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "SPECIAL"];
 
 function playRandomSong(category)
 {   
@@ -84,7 +84,7 @@ $(document).ready(function() {
     worldsPrefixesMap.set('Vampire', 'v_');
     worldsPrefixesMap.set('Pirate', 'p_');
     worldsPrefixesMap.set('SPECIAL', 'S_');
-    worldsPrefixesMap.set('London', 'l_');
+    worldsPrefixesMap.set('London 1888', 'l_');
 
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
@@ -788,11 +788,39 @@ var folderStructureJSONString = `{
         "Assassin's Creed IV Black Flag OST - 27 - Prizes Plunder and Adventure-00.mp3",
         "Assassin's Creed IV Black Flag OST - 27 - Prizes Plunder and Adventure-01.mp3",
         "Assassin's Creed IV Black Flag OST - 32 - Ships of Legend.mp3",
-        "Sherlock - Discombobulate.mp3"
+        "Franek313 - Sherlock Action.mp3"
     ],
     "l_Mysterious": [
         "Victorian London - Mansion.mp3",
         "Victorian London - Murder Mystery.mp3",
         "Victorian London - Mystery.mp3"
+    ],
+    "S_Dagan": [
+        "Tonal Chaos Trailers - Toccata (Dagan Theme).mp3"
+    ],
+    "S_Kraken": [
+        "kraken_theme.mp3"
+    ],
+    "S_Pucci": [
+        "JJBA Pucci Theme - Epic.mp3"
+    ],
+    "S_Transformation": [
+        "Shrek - Transformation.mp3"
+    ],
+    "S_Utena": [
+        "GOMG - Kakattekinasai - Extended Ver.mp3",
+        "GOMG - Nyanyashichau.mp3"
+    ],
+    "S_Vordt": [
+        "Dark Souls III OST - Vordt of the Boreal Valley [Phase 2 Extended].mp3"
+    ],
+    "S_Zepelli": [
+        "JJBA Phantom Blood - Zepelli Theme.mp3"
+    ],
+    "S_Zoltraak": [
+        "Frieren OST — Zoltraak Extended Ver.mp3"
+    ],
+    "S_Mortal Combat": [
+        "Techno Syndrome (Mortal Kombat) Song by The Immortals.mp3"
     ]
 }`;
