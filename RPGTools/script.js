@@ -89,7 +89,6 @@ $(document).ready(function() {
     worldsPrefixesMap.set('London 1888', 'l_');
     worldsPrefixesMap.set('Mandela Catalogue', 'm_');
 
-
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
     musicMap = new Map(Object.entries(data));
@@ -800,31 +799,36 @@ var folderStructureJSONString = `{
         "Victorian London - Mystery.mp3"
     ],
     "m_Peaceful" : [
-        "Mandela Catalogue OST #16 - Tootsie.mp3",
-        "Mandela Catalogue OST #15 - 3 Days of the Condor.mp3",
-        "Mandela Catalogue OST #5 - Amazing Grace.mp3",
-        "Mandela Catalogue OST #3 - Battle Hymn of the Republic.mp3",
-        "Mandela Catalogue OST #2 - Ave Maria.mp3",
-        "Mandela Catalogue OST #1 - The Stars and Stripes Forever.mp3"
+        "Mandela Catalogue - The Stars and Stripes Forever.mp3",
+        "Mandela Catalogue - 3 Days of the Condor.mp3",
+        "Mandela Catalogue - Amazing Grace.mp3",
+        "Mandela Catalogue - Battle Hymn of the Republic.mp3",
+        "Mandela Catalogue - Ave Maria.mp3",
+        "Mandela Catalogue - Tootsie.mp3"
     ],
     "m_Fear" : [
-        "Mandela Catalogue OST #17 - Ambient_2.mp3",
-        "Mandela Catalogue OST #14 - Hello, Adam.mp3",
-        "Mandela Catalogue OST #10 - My Guardian Angel.mp3",
-        "Mandela Catalogue OST #4 - Repass.mp3"
+        "Mandela Catalogue - Ambient_2.mp3",
+        "Mandela Catalogue - Hello, Adam.mp3",
+        "Mandela Catalogue - My Guardian Angel.mp3",
+        "Mandela Catalogue - Repass.mp3",
+        "XFiles - Forest Search.mp3",
+        "XFiles - Night Forest.mp3",
+        "XFiles - Weather Balloons.mp3"
     ],
     "m_Glory" : [
-        "Mandela Catalogue OST #8 - Marines  Hymn.mp3"
+        "Mandela Catalogue - Marines Hymn.mp3"
     ],
     "m_Mysterious" : [
-        "Mandela Catalogue OST #12 - Dear Ruth.mp3",
-        "Mandela Catalogue OST #6 - The Two of Us.mp3"
+        "Mandela Catalogue - Dear Ruth.mp3",
+        "Mandela Catalogue - The Two of Us.mp3",
+        "XFiles - UFO Technology.mp3"
     ],
     "S_Alternate":[
-        "Mandela Catalogue OST #7 - Ambient_1.mp3",
-        "Mandela Catalogue OST #9 - Thatcher s Theme.mp3",
-        "Mandela Catalogue OST #11 - Afraid of Your own Reflection.mp3",
-        "Mandela Catalogue OST #13 - Face Studio 2.mp3"
+        "Mandela Catalogue - Ambient_1.mp3",
+        "Mandela Catalogue - Thatcher's Theme.mp3",
+        "Mandela Catalogue - Afraid of Your own Reflection.mp3",
+        "Mandela Catalogue - Face Studio 2.mp3",
+        "Mandela Catalogue - Alternate Sounds.mp3"
     ],
     "S_Dagan": [
         "Tonal Chaos Trailers - Toccata (Dagan Theme).mp3"
