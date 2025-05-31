@@ -712,5 +712,27 @@
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
         "Sad Violin.mp3",
         "Tchaikovsky - None But The Lonely Hearts.mp3"
+    ],
+    "m_Peaceful" : [
+        "Mandela Catalogue OST #16 - Tootsie.mp3",
+        "Mandela Catalogue OST #15 - 3 Days of the Condor.mp3",
+        "Mandela Catalogue OST #5 - Amazing Grace.mp3",
+        "Mandela Catalogue OST #3 - Battle Hymn of the Republic.mp3",
+        "Mandela Catalogue OST #2 - Ave Maria.mp3",
+        "Mandela Catalogue OST #1 - The Stars and Stripes Forever.mp3"
+    ],
+    "m_Fear" : [
+        "Mandela Catalogue OST #17 - Ambient_2.mp3",
+        "Mandela Catalogue OST #14 - Hello, Adam.mp3",
+        "Mandela Catalogue OST #10 - My Guardian Angel.mp3",
+        "Mandela Catalogue OST #4 - Repass.mp3"
+    ],
+    "m_Glory" : [
+        "Mandela Catalogue OST #8 - Marines  Hymn.mp3"
+    ],
+    "m_Mysterious" : [
+    "Mandela Catalogue OST #12 - Dear Ruth.mp3",
+    "Mandela Catalogue OST #6 - The Two of Us.mp3"
     ]
+
 }

@@ -7,7 +7,7 @@ var globalVolume = 1.0;
 var fadeDelay = 1500;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
-var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "SPECIAL"];
+var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "SPECIAL"];
 
 function playRandomSong(category)
 {   
@@ -57,6 +57,8 @@ styleMap.set(`v_`, {'border-color': 'red','background-color': '#630000','color':
 styleMap.set(`p_`, {'border-color': '#4390DA','background-color': '#053B6F','color': '#4390DA'});
 styleMap.set(`S_`, {'border-color': 'gray','background-color': '#CFCFCF','color': 'silver'});
 styleMap.set(`l_`, {'border-color': '#46CE46','background-color': '#90EE90','color': '#46CE46'});
+styleMap.set(`m_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
+
 
 function generateGenreButtons(categories)
 {
@@ -85,6 +87,8 @@ $(document).ready(function() {
     worldsPrefixesMap.set('Pirate', 'p_');
     worldsPrefixesMap.set('SPECIAL', 'S_');
     worldsPrefixesMap.set('London 1888', 'l_');
+    worldsPrefixesMap.set('Mandela Catalogue', 'm_');
+
 
     //--JSON handle--//
     const data = JSON.parse(folderStructureJSONString);
@@ -794,6 +798,33 @@ var folderStructureJSONString = `{
         "Victorian London - Mansion.mp3",
         "Victorian London - Murder Mystery.mp3",
         "Victorian London - Mystery.mp3"
+    ],
+    "m_Peaceful" : [
+        "Mandela Catalogue OST #16 - Tootsie.mp3",
+        "Mandela Catalogue OST #15 - 3 Days of the Condor.mp3",
+        "Mandela Catalogue OST #5 - Amazing Grace.mp3",
+        "Mandela Catalogue OST #3 - Battle Hymn of the Republic.mp3",
+        "Mandela Catalogue OST #2 - Ave Maria.mp3",
+        "Mandela Catalogue OST #1 - The Stars and Stripes Forever.mp3"
+    ],
+    "m_Fear" : [
+        "Mandela Catalogue OST #17 - Ambient_2.mp3",
+        "Mandela Catalogue OST #14 - Hello, Adam.mp3",
+        "Mandela Catalogue OST #10 - My Guardian Angel.mp3",
+        "Mandela Catalogue OST #4 - Repass.mp3"
+    ],
+    "m_Glory" : [
+        "Mandela Catalogue OST #8 - Marines  Hymn.mp3"
+    ],
+    "m_Mysterious" : [
+        "Mandela Catalogue OST #12 - Dear Ruth.mp3",
+        "Mandela Catalogue OST #6 - The Two of Us.mp3"
+    ],
+    "S_Alternate":[
+        "Mandela Catalogue OST #7 - Ambient_1.mp3",
+        "Mandela Catalogue OST #9 - Thatcher s Theme.mp3",
+        "Mandela Catalogue OST #11 - Afraid of Your own Reflection.mp3",
+        "Mandela Catalogue OST #13 - Face Studio 2.mp3"
     ],
     "S_Dagan": [
         "Tonal Chaos Trailers - Toccata (Dagan Theme).mp3"
