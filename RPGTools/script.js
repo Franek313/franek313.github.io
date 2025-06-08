@@ -799,12 +799,19 @@ var folderStructureJSONString = `{
         "Victorian London - Mystery.mp3"
     ],
     "m_Peaceful" : [
-        "Mandela Catalogue - The Stars and Stripes Forever.mp3",
-        "Mandela Catalogue - 3 Days of the Condor.mp3",
-        "Mandela Catalogue - Amazing Grace.mp3",
-        "Mandela Catalogue - Battle Hymn of the Republic.mp3",
-        "Mandela Catalogue - Ave Maria.mp3",
-        "Mandela Catalogue - Tootsie.mp3"
+        "Cyndi Lauper - Time After Time.mp3",
+        "Berlin - Take My Breath Away.mp3",
+        "The Cars - Drive.mp3",
+        "Pet Shop Boys - West End Girls.mp3",
+        "Tears For Fears - Shout.mp3",
+        "Madonna - Borderline.mp3",
+        "Phil Collins - In The Air Tonight.mp3",
+        "Eurythmics - Sweet Dreams.mp3",
+        "True Colors - Instrumental.mp3",
+        "Bronski Beat - Smalltown Boy.mp3",
+        "David Bowie - Fame.mp3",
+        "Tears For Fears - Everybody Wants To Rule The World.mp3",
+        "The Police - Every Breath You Take.mp3"
     ],
     "m_Fear" : [
         "Mandela Catalogue - Ambient_2.mp3",
@@ -813,7 +820,10 @@ var folderStructureJSONString = `{
         "Mandela Catalogue - Repass.mp3",
         "XFiles - Forest Search.mp3",
         "XFiles - Night Forest.mp3",
-        "XFiles - Weather Balloons.mp3"
+        "XFiles - Weather Balloons.mp3",
+        "XFiles - Ain't Dead Yet.mp3",
+        "XFiles - Buttoning Up.mp3",
+        "XFiles - Confrontation.mp3"
     ],
     "m_Glory" : [
         "Mandela Catalogue - Marines Hymn.mp3"
@@ -821,7 +831,14 @@ var folderStructureJSONString = `{
     "m_Mysterious" : [
         "Mandela Catalogue - Dear Ruth.mp3",
         "Mandela Catalogue - The Two of Us.mp3",
-        "XFiles - UFO Technology.mp3"
+        "XFiles - UFO Technology.mp3",
+        "XFiles - Attached.mp3",
+        "XFiles - Bug Tales.mp3",
+        "XFiles - Arrival In Town.mp3"
+    ],
+    "m_Mystic" : [
+        "XFiles - Aerial Burial.mp3",
+        "XFiles - Another X-File.mp3"
     ],
     "S_Alternate":[
         "Mandela Catalogue - Ambient_1.mp3",
