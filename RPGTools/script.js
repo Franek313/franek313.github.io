@@ -26,7 +26,7 @@ function playRandomSong(category)
     } while(songName.text() == newSongName);
 
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
-    var audioUrl = `Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
+    var audioUrl = `https://franek313.github.io/RPGTools/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
     if(musicAudioPlayer[0].paused){
         currentMusicPlayer = musicAudioPlayer;
