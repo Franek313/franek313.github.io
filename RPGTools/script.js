@@ -99,7 +99,7 @@ $(document).ready(function() {
     //--UI--//
     var worldsPanel = $('#worldsPanel');
     var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
-    var img = $('<img>').attr('src', 'worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
     img.css("width", "60px");
     worldsButton.append(img); // Dodanie obrazka do przycisku
     worldsPanel.append(worldsButton);

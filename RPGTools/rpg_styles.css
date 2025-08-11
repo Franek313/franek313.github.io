@@ -9,7 +9,7 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url('old_paper.png');
+    background-image: url('https://franek313.github.io/RPGTools/old_paper.png');
     background-size: cover;
     background-position: center;
 }
