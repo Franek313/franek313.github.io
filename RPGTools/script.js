@@ -14,10 +14,12 @@ function playRandomSong(category)
     var newSongName;
     var randomIndex;
     var songName = $("#songName");
+    
+    var firstTry = true;
     do
     {
-        console.log("Same!");
-        console.log(songName.text());
+        if(!firstTry) console.log(`Same! = ${songName.text()}`);
+        firstTry = false;
         randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
         newSongName = (musicMap.get(category)[randomIndex]).replace('.mp3', '');
         if (musicMap.get(category).length == 1) break;
@@ -213,7 +215,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - Here be Dragons (Game Version).mp3",
         "Hunt or Be Hunted.mp3",
         "Igni.mp3",
-        "On the Champs De\u0301sole\u0301s.mp3",
+        "On the Champs Desoles.mp3",
         "Pillars of Eternity Soundtrack 20 - Combat B (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 23 - Combat E (Justin Bell).mp3",
         "TES V Skyrim Soundtrack - Blood and Steel.mp3",
@@ -224,7 +226,7 @@ var folderStructureJSONString = `{
         "The House Of The Borsodis.mp3",
         "The Hunt is Coming.mp3",
         "The Witcher 2 Assassins of Kings - Battle Music.mp3",
-        "The\u00a0Shrieker\u00a0Contract.mp3",
+        "The Shrieker Contract.mp3",
         "Widow maker.mp3",
         "Sousou no Frieren OST -  Zoltraak  by Evan Call.mp3"
     ],
@@ -253,7 +255,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - 68. Adelbern's Ghost.mp3",
         "Guild Wars 2 OST - 70. The Heart of Rata Sum.mp3",
         "Guild Wars 2 OST - 72. Malchor's Leap.mp3",
-        "In\u00a0The\u00a0Giant's\u00a0Shadow.mp3",
+        "In The Giant's Shadow.mp3",
         "Pillars of Eternity Soundtrack 11 - Heritage Hill (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 12 - Engwithan Ruins (Justin Bell).mp3",
         "Seeking Resonance.mp3",
@@ -291,7 +293,7 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Out of the Cold.mp3",
         "TES V Skyrim Soundtrack - The Bannered Mare.mp3",
         "The Mandragora.mp3",
-        "The Musty Scent of Fresh Pa\u0302te\u0301.mp3",
+        "The Musty Scent of Fresh Pate.mp3",
         "The Witcher OST - Evening in the Tavern (extended).mp3",
         "The Witcher Soundtrack - Tavern at the End of World.mp3",
         "The Wolven Storm (English).mp3",
@@ -309,7 +311,7 @@ var folderStructureJSONString = `{
         "Baldur's Gate OST - The Dream.mp3",
         "Divinity Original Sin 2 OST   28 Embrace of the Deathfog.mp3",
         "Divinity Original Sin 2 OST   29 Fanes Theme.mp3",
-        "Family\u00a0Matters.mp3",
+        "Family Matters.mp3",
         "Go Back Whence You Came.mp3",
         "Gothic 2 Soundtrack - 02 Installation Theme.mp3",
         "Gothic 2 Soundtrack - 09 Lesters Valley.mp3",
@@ -333,7 +335,6 @@ var folderStructureJSONString = `{
         "Pillars of Eternity Soundtrack 14 - Temple of Woedica (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 15 - Od Nua A (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 16 - Od Nua B (Justin Bell).mp3",
-        "The Chronicles of Narnia Soundtrack - 06 - The White Witch.mp3",
         "Witch Hunters.mp3"
     ],
     "f_Mystic": [
@@ -352,7 +353,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - 56. Promenade of the Gods.mp3",
         "Guild Wars 2 OST - 57. Hope Falls.mp3",
         "Guild Wars 2 OST - 58. The Vaults of the Priory.mp3",
-        "I\u00a0Name\u00a0Thee\u00a0Dea\u00a0And\u00a0Embrace\u00a0Thee\u00a0As\u00a0My\u00a0Daughter.mp3",
+        "I Name Thee Dea And Embrace Thee As My Daughter.mp3",
         "Lady of the Lake.mp3",
         "Pillars of Eternity Soundtrack 05 - Oldsong (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 09 - Elmshore (Justin Bell).mp3",
@@ -362,14 +363,14 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Unbound.mp3",
         "TES V Skyrim Soundtrack - Wind Guide You.mp3",
         "The Temple Of Lilvani.mp3",
-        "Trial\u00a0Of\u00a0The\u00a0Grasses.mp3",
-        "Words\u00a0On\u00a0Wind.mp3"
+        "Trial Of The Grasses.mp3",
+        "Words On Wind.mp3"
     ],
     "f_Peaceful": [
         "Ard Skellig Village.mp3",
         "Assassin's Creed IV Black Flag OST - 26 - Confrontation.mp3",
         "Baldur's Gate OST - Safe in Beregost.mp3",
-        "Bonnie\u00a0At\u00a0Morn Instrumental.mp3",
+        "Bonnie At Morn Instrumental.mp3",
         "Divinity Original Sin 2 OST   14 Power of Innocence 2017.mp3",
         "Divinity Original Sin 2 OST   15 Reapers Coast.mp3",
         "Divinity Original Sin 2 OST   16 Rivellon Light.mp3",
@@ -422,15 +423,12 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Ancient Stones.mp3",
         "TES V Skyrim Soundtrack - From Past to Present.mp3",
         "The Banks of the Sansretour.mp3",
-        "The Chronicles of Narnia Soundtrack - 02 - Evacuating London.mp3",
-        "The Chronicles of Narnia Soundtrack - 03 - The Wardrobe.mp3",
-        "The Chronicles of Narnia Soundtrack - 07 - From Western Wood To Beaversdam.mp3",
         "The Fields of Ard Skellig.mp3",
         "The Moon over Mount Gorgon.mp3",
         "The Slopes of the Blessure.mp3",
         "The Vagabond.mp3",
-        "The\u00a0Tree\u00a0When\u00a0We\u00a0Sat\u00a0Once.mp3",
-        "When\u00a0No\u00a0Man\u00a0Has\u00a0Gone\u00a0Before.mp3",
+        "The Tree When We Sat Once.mp3",
+        "When No Man Has Gone Before.mp3",
         "Whispers of Oxenfurt Instrumental.mp3",
         "Yes, I Do.mp3",
         "Sousou no Frieren OST -  Departures  by Evan Call.mp3",
@@ -442,7 +440,7 @@ var folderStructureJSONString = `{
         "Sousou no Frieren OST -  Where the Blue-Moon Weed Grows  by Evan Call.mp3"
     ],
     "f_Sad": [
-        "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
+        "Frédéric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
@@ -479,7 +477,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - Here be Dragons (Game Version).mp3",
         "Hunt or Be Hunted.mp3",
         "Igni.mp3",
-        "On the Champs De\u0301sole\u0301s.mp3",
+        "On the Champs Desoles.mp3",
         "Pillars of Eternity Soundtrack 20 - Combat B (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 23 - Combat E (Justin Bell).mp3",
         "TES V Skyrim Soundtrack - Blood and Steel.mp3",
@@ -490,7 +488,7 @@ var folderStructureJSONString = `{
         "The House Of The Borsodis.mp3",
         "The Hunt is Coming.mp3",
         "The Witcher 2 Assassins of Kings - Battle Music.mp3",
-        "The\u00a0Shrieker\u00a0Contract.mp3",
+        "The Shrieker Contract.mp3",
         "Widow maker.mp3"
     ],
     "v_Fear": [
@@ -518,7 +516,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - 68. Adelbern's Ghost.mp3",
         "Guild Wars 2 OST - 70. The Heart of Rata Sum.mp3",
         "Guild Wars 2 OST - 72. Malchor's Leap.mp3",
-        "In\u00a0The\u00a0Giant's\u00a0Shadow.mp3",
+        "In The Giant's Shadow.mp3",
         "Pillars of Eternity Soundtrack 11 - Heritage Hill (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 12 - Engwithan Ruins (Justin Bell).mp3",
         "Seeking Resonance.mp3",
@@ -548,7 +546,7 @@ var folderStructureJSONString = `{
         "Bad News Ahead Full.mp3",
         "Baldur's Gate OST - The Dream.mp3",
         "Dark Vampiric Music - The Last Vampire.mp3",
-        "Family Matters.mp3",
+        "Family Matters.mp3",
         "Go Back Whence You Came.mp3",
         "Lulaby1.mp3",
         "Lulaby10.mp3",
@@ -565,7 +563,6 @@ var folderStructureJSONString = `{
         "Pillars of Eternity Soundtrack 14 - Temple of Woedica (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 15 - Od Nua A (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 16 - Od Nua B (Justin Bell).mp3",
-        "The Chronicles of Narnia Soundtrack - 06 - The White Witch.mp3",
         "Toccata and Fugue in D Minor.mp3",
         "Vampire Calm.mp3",
         "Vampire Calm2.mp3",
@@ -588,7 +585,7 @@ var folderStructureJSONString = `{
         "Guild Wars 2 OST - 56. Promenade of the Gods.mp3",
         "Guild Wars 2 OST - 57. Hope Falls.mp3",
         "Guild Wars 2 OST - 58. The Vaults of the Priory.mp3",
-        "I\u00a0Name\u00a0Thee\u00a0Dea\u00a0And\u00a0Embrace\u00a0Thee\u00a0As\u00a0My\u00a0Daughter.mp3",
+        "I Name Thee Dea And Embrace Thee As My Daughter.mp3",
         "Lady of the Lake.mp3",
         "Pillars of Eternity Soundtrack 05 - Oldsong (Justin Bell).mp3",
         "Pillars of Eternity Soundtrack 09 - Elmshore (Justin Bell).mp3",
@@ -598,14 +595,14 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Unbound.mp3",
         "TES V Skyrim Soundtrack - Wind Guide You.mp3",
         "The Temple Of Lilvani.mp3",
-        "Trial\u00a0Of\u00a0The\u00a0Grasses.mp3",
-        "Words\u00a0On\u00a0Wind.mp3"
+        "Trial Of The Grasses.mp3",
+        "Words On Wind.mp3"
     ],
     "v_Peaceful": [
         "Ard Skellig Village.mp3",
         "Assassin's Creed IV Black Flag OST - 26 - Confrontation.mp3",
         "Baldur's Gate OST - Safe in Beregost.mp3",
-        "Bonnie\u00a0At\u00a0Morn Instrumental.mp3",
+        "Bonnie At Morn Instrumental.mp3",
         "Divinity Original Sin 2 OST   14 Power of Innocence 2017.mp3",
         "Divinity Original Sin 2 OST   15 Reapers Coast.mp3",
         "Divinity Original Sin 2 OST   16 Rivellon Light.mp3",
@@ -658,21 +655,17 @@ var folderStructureJSONString = `{
         "TES V Skyrim Soundtrack - Ancient Stones.mp3",
         "TES V Skyrim Soundtrack - From Past to Present.mp3",
         "The Banks of the Sansretour.mp3",
-        "The Chronicles of Narnia Soundtrack - 02 - Evacuating London.mp3",
-        "The Chronicles of Narnia Soundtrack - 03 - The Wardrobe.mp3",
-        "The Chronicles of Narnia Soundtrack - 07 - From Western Wood To Beaversdam.mp3",
-        "The Chronicles of Narnia Soundtrack - 08 - Father Christmas.mp3",
         "The Fields of Ard Skellig.mp3",
         "The Moon over Mount Gorgon.mp3",
         "The Slopes of the Blessure.mp3",
         "The Vagabond.mp3",
-        "The\u00a0Tree\u00a0When\u00a0We\u00a0Sat\u00a0Once.mp3",
-        "When\u00a0No\u00a0Man\u00a0Has\u00a0Gone\u00a0Before.mp3",
+        "The Tree When We Sat Once.mp3",
+        "When No Man Has Gone Before.mp3",
         "Whispers of Oxenfurt Instrumental.mp3",
         "Yes, I Do.mp3"
     ],
     "v_Sad": [
-        "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
+        "Frédéric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
@@ -779,7 +772,7 @@ var folderStructureJSONString = `{
         "To the pirates cove.mp3"
     ],
     "p_Sad": [
-        "Fr\u00e9d\u00e9ric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
+        "Frédéric Chopin - Prelude in E-Minor (op.28 no. 4).mp3",
         "Guild Wars 2 OST - Fear Not This Night (Full Piano Version).mp3",
         "Mozart - Lacrimosa.mp3",
         "Remo Giazotto - Adagio In G Minor For Strings And Organ..mp3",
