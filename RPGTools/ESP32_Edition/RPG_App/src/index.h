@@ -1,72 +1,73 @@
 #include <Arduino.h>
 
-const char PAGE_INDEX[] PROGMEM = R"HTML(
-<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1">
-<title>ESP32 LED + Player</title>
-<style>
-  body{font-family:system-ui;margin:20px;max-width:480px}
-  .row{display:flex;gap:10px;margin:10px 0}
-  button,input{font-size:18px;padding:10px;border-radius:10px;border:1px solid #ccc}
-  .grow{flex:1}
-</style>
-</head><body>
-<h2>ESP32 LED + Player</h2>
+const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RPG Tools</title>
+    <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/rpg_styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://franek313.github.io/RPGTools/script.js"></script>
+</head>
 
-<!-- LED controls -->
-<div class=row>
-  <button id=on class=grow>LED ON</button>
-  <button id=off class=grow>LED OFF</button>
-</div>
-<div class=row><input id=color type=color class=grow value="#ffffff"></div>
-<div class=row>
-  <input id=br type=range min=1 max=255 value=128 class=grow>
-  <span id=brv>128</span>
-</div>
+<body>
+    <div id="main">
+        <div id="songName">Press genre button to play music...</div>
+        <div id="worldsPanel"></div>
+        <div id="genresPanel"></div>
+        <div id="controlsPanel">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+            <div id = "musicControls">
+                <button class="controlButton" id="playPauseButton">&#9654</button>
+                <button class="controlButton" id="stopButton">&#9632</button>
+                <!-- <button class="controlButton" id="muteButton">M</button> -->
+                <button class="controlButton" id="fullscreen-button">⛶</button>
+            </div>
+        </div>
+        <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="tempAudioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
-<hr>
+    <script>
+        // Funkcja do uruchamiania pełnoekranowego trybu
+        function toggleFullscreen() {
+            var elem = document.documentElement;
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
 
-<!-- Music player -->
-<div class=row>
-  <button id=play class=grow>▶️ Play music</button>
-  <button id=pause class=grow>⏸️ Pause</button>
-  <button id=stop class=grow>⏹️ Stop</button>
-</div>
-<div style="font-size:14px;opacity:.8">Źródło: GitHub Pages</div>
-
-<audio id=mp3 preload="auto" crossorigin="anonymous" src="{{TRACK_URL}}"></audio>
-
-<pre id=state>...</pre>
-
-<script>
-const S=q=>document.querySelector(q);
-
-// --- LED API ---
-async function getState(){
-  const r=await fetch('/api/state'); const j=await r.json();
-  S('#state').textContent=JSON.stringify(j,null,2);
-  S('#br').value=j.bright; S('#brv').textContent=j.bright;
-  if(j.color && /^#[0-9a-f]{6}$/i.test(j.color)) S('#color').value=j.color;
-}
-async function set(p){
-  const qs=new URLSearchParams(p).toString();
-  await fetch('/api/set?'+qs);
-  getState();
-}
-S('#on').onclick  = ()=> set({on:1});
-S('#off').onclick = ()=> set({on:0});
-S('#br').oninput  = e=> S('#brv').textContent=e.target.value;
-S('#br').onchange = e=> set({br:e.target.value});
-S('#color').onchange = e=> set({color:e.target.value});
-
-// --- Audio ---
-const a=S('#mp3');
-S('#play').onclick  = async ()=>{ try{ await a.play(); }catch(e){ alert('Jeśli nie zagrało, kliknij jeszcze raz (polityka autoplay).'); } };
-S('#pause').onclick = ()=> a.pause();
-S('#stop').onclick  = ()=> { a.pause(); a.currentTime=0; };
-a.addEventListener('error', ()=> alert('Błąd odtwarzania (sprawdź internet/URL).'));
-
-// init
-getState();
-</script>
-</body></html>
+        // Dodanie obsługi zdarzenia kliknięcia do przycisku
+        var fullscreenButton = document.getElementById('fullscreen-button');
+        if (fullscreenButton) {
+            fullscreenButton.addEventListener('click', function() {
+                toggleFullscreen();
+            });
+        }
+    </script>
+</body>
+</html>
 )HTML";
