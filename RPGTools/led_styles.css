@@ -62,13 +62,15 @@ body, html {
   flex-direction: column;
   justify-content: left;
 }
+
 #colorSlider[type="range"] {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
+    appearance: none;
     width: 90%; /* 100% - po 5% z każdej strony */
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
     height: 4vw;
-     background: linear-gradient(to right, 
+    background: linear-gradient(to right,
         hsl(10, 100%, 50%),
         hsl(60, 100%, 50%),
         hsl(120, 100%, 50%),
@@ -80,33 +82,76 @@ body, html {
     border-radius: 10px;
     outline: none;
 }
-/* Zmieniamy wygląd "kciuka" suwaka dla przeglądarek Webkit */
+
+/* Tor suwaka w WebKit (Chrome, Safari, Android) */
+#colorSlider[type="range"]::-webkit-slider-runnable-track {
+    height: 4vw;
+    -webkit-appearance: none;
+}
+
+/* Tor suwaka w Firefox */
+#colorSlider[type="range"]::-moz-range-track {
+    height: 4vw;
+}
+
+/* Opcjonalnie ustaw thumb, żeby też był proporcjonalny do wysokości */
 #colorSlider[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
-    width: 1vw; /* Ustawiamy szerokość "kciuka" */
-    height: 1vw; /* Ustawiamy wysokość "kciuka" */
-    background: silver; /* Ustawiamy kolor "kciuka" */
-    border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
-    cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    background: silver;
+    cursor: pointer;
+}
+
+#colorSlider[type="range"]::-moz-range-thumb {
+    width: 1vw;
+    height: 16vw;
+    border-radius: 50%;
+    background: silver;
+    cursor: pointer;
 }
 
 #brightnessSlider[type="range"] {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
+    appearance: none;
     width: 90%; /* 100% - po 5% z każdej strony */
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
     height: 4vw;
     border-radius: 10px;
     outline: none;
 }
 
+/* Tor suwaka w WebKit (Chrome, Safari, Android) */
+#brightnessSlider[type="range"]::-webkit-slider-runnable-track {
+    height: 4vw;
+    -webkit-appearance: none;
+}
+
+/* Tor suwaka w Firefox */
+#brightnessSlider[type="range"]::-moz-range-track {
+    height: 4vw;
+}
+
+/* Opcjonalnie ustaw thumb, żeby też był proporcjonalny do wysokości */
 #brightnessSlider[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
-    width: 1vw; /* Ustawiamy szerokość "kciuka" */
-    height: 1vw; /* Ustawiamy wysokość "kciuka" */
-    background: silver; /* Ustawiamy kolor "kciuka" */
-    border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
-    cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    background: silver;
+    cursor: pointer;
+}
+
+#brightnessSlider[type="range"]::-moz-range-thumb {
+    width: 1vw;
+    height: 16vw;
+    border-radius: 50%;
+    background: silver;
+    cursor: pointer;
 }
 
 /* Uchwyt wystający NA ZEWNĄTRZ panelu (zawsze widoczny) */

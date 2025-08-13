@@ -161,7 +161,7 @@ void loop(){
 
   bool needsUpdate = false;
 
-  uint8_t newH = stepHue(currentHSV.h, targetHSV.h, /*szybkość*/ 4); // dostrój np. 2–8
+  uint8_t newH = stepHue(currentHSV.h, targetHSV.h, /*szybkość*/ 2); // dostrój np. 2–8
   if (newH != currentHSV.h) { currentHSV.h = newH; needsUpdate = true; }
 
   // nasycenie i wartość trzymamy na 255, ale gdybyś chciał je też wygładzać:
