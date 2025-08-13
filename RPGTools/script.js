@@ -213,7 +213,7 @@ $(document).ready(function() {
         // zdarzenia dla hue
         $hueSlider.on('input', function(){
         selectedHue = +this.value;
-        recomputeColor(); // aktualizuj tylko podgląd
+        updateColor(); // aktualizuj tylko podgląd
         });
         $hueSlider.on('change', function(){
         sendToEsp32();    // wyślij dopiero po puszczeniu
@@ -222,7 +222,7 @@ $(document).ready(function() {
         // zdarzenia dla brightness
         $briSlider.on('input', function(){
         selectedBrightness = +this.value;
-        recomputeColor(); // aktualizuj tylko podgląd
+        updateColor(); // aktualizuj tylko podgląd
         });
         $briSlider.on('change', function(){
         sendToEsp32();    // wyślij dopiero po puszczeniu
