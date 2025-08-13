@@ -12,7 +12,6 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://franek313.github.io/RPGTools/script.js"></script>
     <!-- <script src="E:/franek313.github.io/RPGTools/script.js"></script> -->
-    <script src="https://rawcdn.githack.com/jbrems/color-wheel/master/dist/color-wheel.min.js"></script>
 
 </head>
 
