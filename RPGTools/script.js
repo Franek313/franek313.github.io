@@ -123,117 +123,104 @@ $(document).ready(function() {
         worldsPanel.append(button);
     });
 
-    if(ESP32_VERSION)
-    {
-        var lightPanel = $('#lightPanel');
-        var lightButton = $('<button>').attr('id', 'lightButton'); // Dodawanie przycisku lightButton na koniec lightPanel z obrazkiem
-        var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
-        img.css("width", "60px");
-        lightButton.append(img); // Dodanie obrazka do przycisku    
-        lightPanel.append(lightButton);
-        $('#lightButton').click(function() {
-            if ($('#lightPanel').css('right') === '0px') {
-                $('#lightPanel').css('right', '-250px'); // chowamy
-            } else {
-                $('#lightPanel').css('right', '0px'); // wysuwamy
-            }
+    if (ESP32_VERSION) {
+        const $lightPanel = $('#lightPanel');
+
+        // Uchwyt panelu
+        const $lightButton = $('<button>', { id: 'lightButton' });
+        const $img = $('<img>', { src: 'https://franek313.github.io/RPGTools/lights_button.png', alt: 'Toggle Icon' })
+        .css('width', '60px');
+        $lightButton.append($img);
+        $lightPanel.append($lightButton);
+
+        $('#lightButton').on('click', function () {
+            if ($lightPanel.css('right') === '0px') $lightPanel.css('right', '-250px');
+            else $lightPanel.css('right', '0px');
         });
-        let selectedHue = 0;        // 0–360
-        let selectedBrightness = 255; // 0–255
-        let selectedColor = '#ff0000'; // wynikowy kolor przy aktualnym hue+jasność
 
-        // --- UI ---
-        const $hueWrap = $('<div>').css({textAlign:'center', width: '100%'});
-        const $brightnessWrap = $('<div>').css({textAlign:'center', width: '100%'});
+        // Model
+        let selectedHue = 0;          // 0..360 w UI
+        let selectedBrightness = 255; // 0..255 dla FastLED
 
-        // Hue slider
-        const $hueLabel = $('<div>').text('Color').css({ marginBottom:'4px', color:'#fff' });
-        const $hueSlider = $('<input>', { type:'range', min:0, max:360, value:0 }).attr('id', 'colorSlider');
+        // UI suwaków
+        const $hueWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
+        const $briWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
+
+        const $hueLabel = $('<div>').text('Color').css({ marginBottom: '4px', color: '#fff' });
+        const $hueSlider = $('<input>', { type: 'range', min: 0, max: 360, value: 0, id: 'colorSlider' })
+        .css({ width: '90%', margin: '0 5%' });
+
+        const $briLabel = $('<div>').text('Brightness:').css({ marginBottom: '4px', color: '#fff' });
+        const $briSlider = $('<input>', { type: 'range', min: 0, max: 255, value: 255, id: 'brightnessSlider' })
+        .css({ width: '90%', margin: '0 5%' });
+
         $hueWrap.append($hueLabel, $hueSlider);
+        $briWrap.append($briLabel, $briSlider);
 
-        // Brightness slider
-        const $briLabel = $('<div>').text('Brightness:').css({ marginBottom:'4px', color:'#fff' });
-        const $briSlider = $('<input>', { type:'range', min:0, max:255, value:255 }).attr('id', 'brightnessSlider');
-        $brightnessWrap.append($briLabel, $briSlider);
-
-        // Podgląd
         const $preview = $('<div>').css({
-            width:'50px', height:'50px',
-            borderRadius:'8px', border:'1px solid #00000055',
-            background:selectedColor
+            width: '50px', height: '50px', margin: '10px auto',
+            borderRadius: '8px', border: '1px solid #00000055', background: '#ff0000'
         });
 
-        // Dodaj do panelu
-        lightPanel.append($hueWrap, $brightnessWrap, $preview);
+        $lightPanel.append($hueWrap, $briWrap, $preview);
 
-        // --- Funkcje ---
-        function hslToHex(h, s, l) {
-            s /= 100; l /= 100;
-            const k = n => (n + h/30) % 12;
-            const a = s * Math.min(l, 1 - l);
-            const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
-            const toHex = x => {
-                const hex = Math.round(x * 255).toString(16).padStart(2,'0');
-                return hex;
+        // Konwersje i podgląd
+        function hsvToRgb(h, s, v) { // h:0..360, s/v:0..1
+            const c = v * s;
+            const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+            const m = v - c;
+            let r=0,g=0,b=0;
+            if (0<=h && h<60){ r=c; g=x; b=0; }
+            else if (60<=h && h<120){ r=x; g=c; b=0; }
+            else if (120<=h && h<180){ r=0; g=c; b=x; }
+            else if (180<=h && h<240){ r=0; g=x; b=c; }
+            else if (240<=h && h<300){ r=x; g=0; b=c; }
+            else { r=c; g=0; b=x; }
+            return {
+                r: Math.round((r+m)*255),
+                g: Math.round((g+m)*255),
+                b: Math.round((b+m)*255)
             };
-            return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+        }
+        function rgbToHex(r,g,b){ return '#' + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+
+        function updatePreviewFromHSV() {
+            const rgb = hsvToRgb(selectedHue, 1, 1); // pełne S i V dla czystego koloru
+            $preview.css('background', rgbToHex(rgb.r, rgb.g, rgb.b));
         }
 
-        function updateColor() {
-            // pełna jasność w HSL = 50% lightness
-            const hueColor = hslToHex(selectedHue, 100, 50);
-            // przeskaluj jasność
-            const rgb = hexToRgb(hueColor);
-            const scale = selectedBrightness / 255;
-            const r = Math.round(rgb.r * scale);
-            const g = Math.round(rgb.g * scale);
-            const b = Math.round(rgb.b * scale);
-            selectedColor = rgbToHex(r, g, b);
-            $preview.css('background', selectedColor);
-            console.log(`Hue: ${selectedHue}, Brightness: ${selectedBrightness}, Color: ${selectedColor}`);
-        }
+        // Hue gradient (1:1)
+        (function setHueSliderGradient(el){
+            const stops = [];
+            for (let h = 0; h <= 360; h += 10) {
+                const rgb = hsvToRgb(h, 1, 1);
+                stops.push(`${rgbToHex(rgb.r, rgb.g, rgb.b)} ${(h/360)*100}%`);
+            }
+            el.style.background = `linear-gradient(to right, ${stops.join(',')})`;
+        })($hueSlider[0]);
 
-        function rgbToHex(r,g,b){ return "#" + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
-        function hexToRgb(hex){ const m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i); return m ? {r:parseInt(m[1],16), g:parseInt(m[2],16), b:parseInt(m[3],16)} : null; }
-
-        // --- Obsługa suwaków ---
-        $hueSlider.on('input', function(){
-            selectedHue = parseInt(this.value);
-            updateColor();
-        });
-
-        $briSlider.on('input', function(){
-            selectedBrightness = parseInt(this.value);
-            updateColor();
-        });
-
-        // Inicjalizacja
-        updateColor();
-
-        // zdarzenia dla hue
-        $hueSlider.on('input', function(){
-        selectedHue = +this.value;
-        updateColor(); // aktualizuj tylko podgląd
-        });
-        $hueSlider.on('change', function(){
-        sendToEsp32();    // wyślij dopiero po puszczeniu
-        });
-
-        // zdarzenia dla brightness
-        $briSlider.on('input', function(){
-        selectedBrightness = +this.value;
-        updateColor(); // aktualizuj tylko podgląd
-        });
-        $briSlider.on('change', function(){
-        sendToEsp32();    // wyślij dopiero po puszczeniu
-        });
-
-        // wysyłka (teraz bez debounce, bo to tylko raz po zmianie)
+        // Wysyłka do ESP32 (dopiero po puszczeniu)
         function sendToEsp32() {
-        const url = `/api/set?color=${encodeURIComponent(selectedColor)}&br=${selectedBrightness}`;
-        fetch(url).catch(err => console.warn('Błąd wysyłki do ESP32:', err));
+            const h8 = Math.round((selectedHue % 360) * 255 / 360); // 0..255 dla CHSV
+            fetch(`/api/set?h=${h8}&br=${selectedBrightness}`).catch(e=>console.warn(e));
         }
-    }
+
+        // input → tylko podgląd, change → wysyłka
+        $hueSlider.on('input', function(){
+            selectedHue = +this.value;
+            updatePreviewFromHSV();
+        });
+        $hueSlider.on('change', sendToEsp32);
+
+        $briSlider.on('input', function(){
+            selectedBrightness = +this.value;
+            // jasność nie zmienia podglądu koloru (robi to taśma)
+        });
+        $briSlider.on('change', sendToEsp32);
+
+        // init
+        updatePreviewFromHSV();
+}
     
     generateGenreButtons(categories);
 

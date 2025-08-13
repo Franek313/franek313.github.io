@@ -59,22 +59,26 @@ void handleState(){
 }
 
 void handleSet(){
-  // Odbieramy tylko docelowe wartości — faktyczna zmiana nastąpi płynnie w loop()
   if (server.hasArg("on")) {
     isOn = (server.arg("on")=="1" || server.arg("on")=="true");
   }
   if (server.hasArg("br")) {
     int b = server.arg("br").toInt();
-    if (b < 0)   b = 0;
+    if (b < 0) b = 0;
     if (b > 255) b = 255;
     targetBright = (uint8_t)b;
   }
-  if (server.hasArg("color")) {
+  if (server.hasArg("h")) {
+    int h = server.arg("h").toInt();
+    if (h < 0) h = 0;
+    if (h > 255) h = 255;
+    targetColor = CHSV((uint8_t)h, 255, 255); // pełne S i V
+  } else if (server.hasArg("color")) {
     CRGB c;
     if (parseHexColor(server.arg("color"), c)) targetColor = c;
   }
-  // Odpowiadamy aktualnym stanem (jeszcze w trakcie fade)
-  handleState();
+
+  handleState(); // wraca stan (fade leci w loop)
 }
 
 // --- Wi-Fi/mDNS ---
@@ -97,8 +101,12 @@ void connectWiFi(){
 void setup(){
   Serial.begin(115200);
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
+  FastLED.setCorrection(TypicalLEDStrip);
+  FastLED.setDither(1);
   FastLED.clear(true);
   FastLED.setBrightness(bright);
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  FastLED.show();
 
   connectWiFi();
 
