@@ -18,11 +18,12 @@ CRGB leds[NUM_LEDS];
 
 bool     isOn          = true;
 uint8_t  bright        = 128;
-CRGB     currentColor  = CRGB::White;
+uint8_t  targetBright  = bright;
 
 // Docelowe wartości do płynnego przejścia
-CRGB     targetColor   = currentColor;
-uint8_t  targetBright  = bright;
+
+CHSV    currentHSV  = CHSV(0, 255, 255);
+CHSV    targetHSV   = currentHSV;
 
 // Szybkość wygładzania (im większe, tym szybciej)
 const uint8_t LERP_SPEED = 20;
@@ -32,7 +33,7 @@ WebServer server(80);
 // --- Pomocnicze ---
 void applyLeds(){
   FastLED.setBrightness(isOn ? bright : 0);
-  for (int i = 0; i < NUM_LEDS; i++) leds[i] = currentColor;
+  for (int i = 0; i < NUM_LEDS; i++) leds[i] = currentHSV; // przypisujesz CHSV
   FastLED.show();
 }
 
@@ -49,36 +50,54 @@ void handleIndex(){
   String html = FPSTR(PAGE_INDEX);
   server.send(200, "text/html", html);
 }
-
 void handleState(){
   char buf[128];
+  CRGB rgb;
+  hsv2rgb_rainbow(currentHSV, rgb); // konwersja HSV -> RGB
+
   snprintf(buf, sizeof(buf),
     "{\"on\":%s,\"bright\":%u,\"color\":\"#%02x%02x%02x\"}",
-    isOn?"true":"false", bright, currentColor.r, currentColor.g, currentColor.b);
+    isOn ? "true" : "false",
+    bright,
+    rgb.r, rgb.g, rgb.b
+  );
+
   server.send(200, "application/json", buf);
 }
 
 void handleSet(){
-  if (server.hasArg("on")) {
+  if (server.hasArg("on"))
     isOn = (server.arg("on")=="1" || server.arg("on")=="true");
-  }
+
   if (server.hasArg("br")) {
     int b = server.arg("br").toInt();
-    if (b < 0) b = 0;
-    if (b > 255) b = 255;
+    if (b < 0) b = 0; if (b > 255) b = 255;
     targetBright = (uint8_t)b;
   }
+
   if (server.hasArg("h")) {
     int h = server.arg("h").toInt();
-    if (h < 0) h = 0;
-    if (h > 255) h = 255;
-    targetColor = CHSV((uint8_t)h, 255, 255); // pełne S i V
-  } else if (server.hasArg("color")) {
-    CRGB c;
-    if (parseHexColor(server.arg("color"), c)) targetColor = c;
+    if (h < 0) h = 0; if (h > 255) h = 255;
+    targetHSV.h = (uint8_t)h;      // pełne nasycenie i wartość trzymamy na 255
+    targetHSV.s = 255;
+    targetHSV.v = 255;
   }
 
-  handleState(); // wraca stan (fade leci w loop)
+  // (opcjonalny fallback) jeśli kiedyś wyślesz color=#RRGGBB:
+  if (server.hasArg("color")) {
+    CRGB c; if (parseHexColor(server.arg("color"), c)) {
+      CHSV hsv = rgb2hsv_approximate(c);
+      targetHSV = CHSV(hsv.h, 255, 255);
+    }
+  }
+
+  // zwróć stan
+  char buf[128];
+  CRGB rgb; hsv2rgb_rainbow(currentHSV, rgb);
+  snprintf(buf,sizeof(buf),
+    "{\"on\":%s,\"bright\":%u,\"color\":\"#%02x%02x%02x\"}",
+    isOn?"true":"false", bright, rgb.r, rgb.g, rgb.b);
+  server.send(200,"application/json",buf);
 }
 
 // --- Wi-Fi/mDNS ---
@@ -102,11 +121,12 @@ void setup(){
   Serial.begin(115200);
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setCorrection(TypicalLEDStrip);
-  FastLED.setDither(0);
+  FastLED.setDither(1);             // możesz dać 0 na testy czystych kanałów
   FastLED.clear(true);
   FastLED.setBrightness(bright);
-  fill_solid(leds, NUM_LEDS, CRGB::Magenta);
-  FastLED.show();
+  Serial.println(bright);
+
+  currentHSV = CHSV(0,255,255);
 
   connectWiFi();
 
@@ -123,25 +143,35 @@ void setup(){
   server.begin();
   Serial.println("HTTP server start");
 
-  applyLeds();
 
+  applyLeds();
+}
+
+static uint8_t stepHue(uint8_t cur, uint8_t tgt, uint8_t step){
+  if (cur == tgt) return cur;
+  int16_t d = (int16_t)tgt - cur;
+  if (d > 127)  d -= 256;
+  if (d < -127) d += 256;
+  int8_t dir = (d > 0) ? 1 : -1;
+  uint8_t move = step;             // ile „stopni” na iterację
+  if (abs(d) < move) move = abs(d);
+  return (uint8_t)(cur + dir * move);
 }
 
 void loop(){
   if (WiFi.status()!=WL_CONNECTED) connectWiFi();
   server.handleClient();
 
-  // Płynne przejście do targetColor/targetBright
   bool needsUpdate = false;
 
-  if (currentColor != targetColor) {
-    currentColor.r = lerp8by8(currentColor.r, targetColor.r, LERP_SPEED);
-    currentColor.g = lerp8by8(currentColor.g, targetColor.g, LERP_SPEED);
-    currentColor.b = lerp8by8(currentColor.b, targetColor.b, LERP_SPEED);
-    needsUpdate = true;
-  }
+  uint8_t newH = stepHue(currentHSV.h, targetHSV.h, /*szybkość*/ 4); // dostrój np. 2–8
+  if (newH != currentHSV.h) { currentHSV.h = newH; needsUpdate = true; }
+
+  // nasycenie i wartość trzymamy na 255, ale gdybyś chciał je też wygładzać:
+  // currentHSV.s = lerp8by8(currentHSV.s, targetHSV.s, 20);
+
   if (bright != targetBright) {
-    bright = lerp8by8(bright, targetBright, LERP_SPEED);
+    bright = lerp8by8(bright, targetBright, 20);
     needsUpdate = true;
   }
 
