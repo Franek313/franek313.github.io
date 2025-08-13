@@ -123,10 +123,8 @@ void setup(){
   FastLED.setCorrection(TypicalLEDStrip);
   FastLED.setDither(1);             // możesz dać 0 na testy czystych kanałów
   FastLED.clear(true);
-  FastLED.setBrightness(bright);
-  Serial.println(bright);
 
-  currentHSV = CHSV(0,255,255);
+  currentHSV = CHSV(0,255,bright);
 
   connectWiFi();
 
@@ -142,7 +140,6 @@ void setup(){
   server.on("/api/set",   HTTP_GET, handleSet);
   server.begin();
   Serial.println("HTTP server start");
-
 
   applyLeds();
 }

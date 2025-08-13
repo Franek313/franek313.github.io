@@ -150,7 +150,7 @@ $(document).ready(function() {
         const $hueSlider = $('<input>', { type: 'range', min: 0, max: 360, value: 0, id: 'colorSlider' })
         .css({ width: '90%', margin: '0 5%' });
 
-        const $briLabel = $('<div>').text('Brightness:').css({ marginBottom: '4px', color: '#fff' });
+        const $briLabel = $('<div>').text('Brightness').css({ marginBottom: '4px', color: '#fff' });
         const $briSlider = $('<input>', { type: 'range', min: 0, max: 255, value: 255, id: 'brightnessSlider' })
         .css({ width: '90%', margin: '0 5%' });
 
