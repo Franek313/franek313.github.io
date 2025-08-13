@@ -127,9 +127,9 @@ $(document).ready(function() {
     {
         var lightPanel = $('#lightPanel');
         var lightButton = $('<button>').attr('id', 'lightButton'); // Dodawanie przycisku lightButton na koniec lightPanel z obrazkiem
-        var img = $('<img>').attr('src', 'E:/franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
+        var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
         img.css("width", "60px");
-        lightButton.append(img); // Dodanie obrazka do przycisku
+        lightButton.append(img); // Dodanie obrazka do przycisku    
         lightPanel.append(lightButton);
         $('#lightButton').click(function() {
             if ($('#lightPanel').css('right') === '0px') {
