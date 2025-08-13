@@ -13,7 +13,7 @@ const char* HOSTNAME  = "rpgeffects";   // -> http://rpgeffects.local
 #define DATA_PIN     13
 #define NUM_LEDS     60
 #define LED_TYPE     WS2812B
-#define COLOR_ORDER  GRB
+#define COLOR_ORDER  RBG
 CRGB leds[NUM_LEDS];
 
 bool     isOn          = true;
@@ -102,10 +102,10 @@ void setup(){
   Serial.begin(115200);
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setCorrection(TypicalLEDStrip);
-  FastLED.setDither(1);
+  FastLED.setDither(0);
   FastLED.clear(true);
   FastLED.setBrightness(bright);
-  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  fill_solid(leds, NUM_LEDS, CRGB::Magenta);
   FastLED.show();
 
   connectWiFi();
@@ -124,6 +124,7 @@ void setup(){
   Serial.println("HTTP server start");
 
   applyLeds();
+
 }
 
 void loop(){
