@@ -296,6 +296,40 @@ input[type="range"]::-webkit-slider-thumb {
 	text-decoration: none;
 }
 
+#rainHolder{
+    padding: 2rem;
+    display : flex;
+    flex-wrap : wrap;
+}
+
+.RainButton
+{
+    text-align: center;
+    font-family: Cinzel;
+	font-size: 145%;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 2rem;
+	border-color: gray;
+	background-color: #CFCFCF;
+	color: silver;
+	text-shadow: 0.2px 0.6px 2px gray,
+				0.3px 0.6px 2px gray,
+				0.4px 0.6px 2px gray,
+				0.5px 0.6px 2px gray,
+				0.6px 0.6px 2px gray;
+	outline: none;
+	text-decoration: none;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    margin : 0.5rem;
+}
+
+.RainButton img{
+    width: 3rem;
+}
+
 .GenreButton
 {
     white-space: normal;

@@ -3,75 +3,73 @@ var currentCategory = "";
 var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var currentMusicPlayer;
+var rainAudioPlayer;
+var tempRainAudioPlayer;
 var globalVolume = 1.0;
 var fadeDelay = 1500;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "SPECIAL"];
 
-function playRandomSong(category)
-{   
+function playRandomSong(category) {
     var newSongName;
     var randomIndex;
     var songName = $("#songName");
-    
+
     var firstTry = true;
-    do
-    {
-        if(!firstTry) console.log(`Same! = ${songName.text()}`);
+    do {
+        if (!firstTry) console.log(`Same! = ${songName.text()}`);
         firstTry = false;
         randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
         newSongName = (musicMap.get(category)[randomIndex]).replace('.mp3', '');
         if (musicMap.get(category).length == 1) break;
-    } while(songName.text() == newSongName);
+    } while (songName.text() == newSongName);
 
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `https://franek313.github.io/RPGTools/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
-    if(musicAudioPlayer[0].paused){
+    if (musicAudioPlayer[0].paused) {
         currentMusicPlayer = musicAudioPlayer;
-        tempMusicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+        tempMusicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
             tempMusicAudioPlayer[0].pause();
         });
         musicAudioPlayer[0].src = audioUrl;
         musicAudioPlayer[0].play();
         musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        musicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
         return;
     }
 
-    if(tempMusicAudioPlayer[0].paused){
+    if (tempMusicAudioPlayer[0].paused) {
         currentMusicPlayer = tempMusicAudioPlayer;
-        musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+        musicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
             musicAudioPlayer[0].pause();
         });
         tempMusicAudioPlayer[0].src = audioUrl;
         tempMusicAudioPlayer[0].play();
         tempMusicAudioPlayer[0].volume = 0;
-        tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        tempMusicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
         return;
     }
 }
 
 var styleMap = new Map();
-styleMap.set(`f_`, {'border-color': 'gold','background-color': 'rgb(252, 255, 70)','color': 'gold'});
-styleMap.set(`v_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
-styleMap.set(`p_`, {'border-color': '#4390DA','background-color': '#053B6F','color': '#4390DA'});
-styleMap.set(`S_`, {'border-color': 'gray','background-color': '#CFCFCF','color': 'silver'});
-styleMap.set(`l_`, {'border-color': '#46CE46','background-color': '#90EE90','color': '#46CE46'});
-styleMap.set(`m_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
+styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
+styleMap.set(`v_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
+styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', 'color': '#4390DA' });
+styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
+styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
+styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
 
 
-function generateGenreButtons(categories)
-{
+function generateGenreButtons(categories) {
     var genresPanel = $('#genresPanel');
-    $.each(categories, function(index, name) { //tworzenie przycisków i dodawanie do genresPanel
-        if(name.includes(worldPrefix))
-        {
+    $.each(categories, function (index, name) { //tworzenie przycisków i dodawanie do genresPanel
+        if (name.includes(worldPrefix)) {
             var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton'); // Tworzenie przycisku
             let styleString = styleMap.get(worldPrefix);
             button.css(styleString);
-            button.click(function() { //obsługa zdarzenia onlick
+            button.click(function () { //obsługa zdarzenia onlick
                 var category = categories[index];
                 currentCategory = category;
                 paused = false;
@@ -82,7 +80,7 @@ function generateGenreButtons(categories)
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     //--Worlds Map Handle--//
     worldsPrefixesMap.set('Fantasy', 'f_');
     worldsPrefixesMap.set('Vampire', 'v_');
@@ -103,41 +101,40 @@ $(document).ready(function() {
     img.css("width", "60px");
     worldsButton.append(img); // Dodanie obrazka do przycisku
     worldsPanel.append(worldsButton);
-    $('#worldsButton').click(function() {
+    $('#worldsButton').click(function () {
         if ($('#worldsPanel').css('left') === '-250px') {
             $('#worldsPanel').css('left', '0'); // Wysuwaj panel
         } else {
             $('#worldsPanel').css('left', '-250px'); // Schowaj panel
         }
     });
-    $.each(worldsButtonsArray, function(index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
+    $.each(worldsButtonsArray, function (index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
         var button = $('<button>').text(name).attr('class', 'WorldButton');
-        button.click(function() { //obsługa zdarzenia onlick
+        button.click(function () { //obsługa zdarzenia onlick
             worldPrefix = worldsPrefixesMap.get(worldsButtonsArray[index]);
             $('.GenreButton').remove();
             generateGenreButtons(categories);
             let songName = $("#songName");
             songName.css(styleMap.get(worldPrefix))
-            songName.css('background-color' , '#00000000');
+            songName.css('background-color', '#00000000');
         });
         worldsPanel.append(button);
     });
 
-    if (ESP32_VERSION) {
-        const $lightPanel = $('#lightPanel');
+    const $lightPanel = $('#lightPanel');
 
-        // Uchwyt panelu
-        const $lightButton = $('<button>', { id: 'lightButton' });
-        const $img = $('<img>', { src: 'https://franek313.github.io/RPGTools/lights_button.png', alt: 'Toggle Icon' })
+    // Uchwyt panelu
+    const $lightButton = $('<button>', { id: 'lightButton' });
+    const $img = $('<img>', { src: 'https://franek313.github.io/RPGTools/lights_button.png', alt: 'Toggle Icon' })
         .css('width', '60px');
-        $lightButton.append($img);
-        $lightPanel.append($lightButton);
+    $lightButton.append($img);
+    $lightPanel.append($lightButton);
+    $('#lightButton').on('click', function () {
+        if ($lightPanel.css('right') === '0px') $lightPanel.css('right', '-250px');
+        else $lightPanel.css('right', '0px');
+    });
 
-        $('#lightButton').on('click', function () {
-            if ($lightPanel.css('right') === '0px') $lightPanel.css('right', '-250px');
-            else $lightPanel.css('right', '0px');
-        });
-
+    if (ESP32_VERSION) {
         // Model
         let selectedHue = 0;          // 0..360 w UI
         let selectedBrightness = 255; // 0..255 dla FastLED
@@ -148,11 +145,11 @@ $(document).ready(function() {
 
         const $hueLabel = $('<div>').text('Color').css({ marginBottom: '4px', color: '#fff' });
         const $hueSlider = $('<input>', { type: 'range', min: 0, max: 360, value: 0, id: 'colorSlider' })
-        .css({ width: '90%', margin: '0 5%' });
+            .css({ width: '90%', margin: '0 5%' });
 
         const $briLabel = $('<div>').text('Brightness').css({ marginBottom: '4px', color: '#fff' });
         const $briSlider = $('<input>', { type: 'range', min: 0, max: 255, value: 255, id: 'brightnessSlider' })
-        .css({ width: '90%', margin: '0 5%' });
+            .css({ width: '90%', margin: '0 5%' });
 
         $hueWrap.append($hueLabel, $hueSlider);
         $briWrap.append($briLabel, $briSlider);
@@ -169,20 +166,20 @@ $(document).ready(function() {
             const c = v * s;
             const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
             const m = v - c;
-            let r=0,g=0,b=0;
-            if (0<=h && h<60){ r=c; g=x; b=0; }
-            else if (60<=h && h<120){ r=x; g=c; b=0; }
-            else if (120<=h && h<180){ r=0; g=c; b=x; }
-            else if (180<=h && h<240){ r=0; g=x; b=c; }
-            else if (240<=h && h<300){ r=x; g=0; b=c; }
-            else { r=c; g=0; b=x; }
+            let r = 0, g = 0, b = 0;
+            if (0 <= h && h < 60) { r = c; g = x; b = 0; }
+            else if (60 <= h && h < 120) { r = x; g = c; b = 0; }
+            else if (120 <= h && h < 180) { r = 0; g = c; b = x; }
+            else if (180 <= h && h < 240) { r = 0; g = x; b = c; }
+            else if (240 <= h && h < 300) { r = x; g = 0; b = c; }
+            else { r = c; g = 0; b = x; }
             return {
-                r: Math.round((r+m)*255),
-                g: Math.round((g+m)*255),
-                b: Math.round((b+m)*255)
+                r: Math.round((r + m) * 255),
+                g: Math.round((g + m) * 255),
+                b: Math.round((b + m) * 255)
             };
         }
-        function rgbToHex(r,g,b){ return '#' + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+        function rgbToHex(r, g, b) { return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join(''); }
 
         function updatePreviewFromHSV() {
             const rgb = hsvToRgb(selectedHue, 1, 1); // pełne S i V dla czystego koloru
@@ -190,11 +187,11 @@ $(document).ready(function() {
         }
 
         // Hue gradient (1:1)
-        (function setHueSliderGradient(el){
+        (function setHueSliderGradient(el) {
             const stops = [];
             for (let h = 0; h <= 360; h += 10) {
                 const rgb = hsvToRgb(h, 1, 1);
-                stops.push(`${rgbToHex(rgb.r, rgb.g, rgb.b)} ${(h/360)*100}%`);
+                stops.push(`${rgbToHex(rgb.r, rgb.g, rgb.b)} ${(h / 360) * 100}%`);
             }
             el.style.background = `linear-gradient(to right, ${stops.join(',')})`;
         })($hueSlider[0]);
@@ -202,17 +199,17 @@ $(document).ready(function() {
         // Wysyłka do ESP32 (dopiero po puszczeniu)
         function sendToEsp32() {
             const h8 = Math.round((selectedHue % 360) * 255 / 360); // 0..255 dla CHSV
-            fetch(`/api/set?h=${h8}&br=${selectedBrightness}`).catch(e=>console.warn(e));
+            fetch(`/api/set?h=${h8}&br=${selectedBrightness}`).catch(e => console.warn(e));
         }
 
         // input → tylko podgląd, change → wysyłka
-        $hueSlider.on('input', function(){
+        $hueSlider.on('input', function () {
             selectedHue = +this.value;
             updatePreviewFromHSV();
         });
         $hueSlider.on('change', sendToEsp32);
 
-        $briSlider.on('input', function(){
+        $briSlider.on('input', function () {
             selectedBrightness = +this.value;
             // jasność nie zmienia podglądu koloru (robi to taśma)
         });
@@ -220,8 +217,60 @@ $(document).ready(function() {
 
         // init
         updatePreviewFromHSV();
-}
-    
+    }
+    function playWeather(weather) {
+        const $audio = rainAudioPlayer; // jQuery obiekt
+        const $tempAudio = tempRainAudioPlayer;
+        const audio = $audio[0];        // natywny <audio>
+        const base = 'E://franek313.github.io/RPGTools/Audio/';
+
+        // Usuwamy poprzedni listener, żeby się nie mnożył
+        audio.onended = null;
+
+        // "no" = cisza
+        if (weather === 'no') {
+            $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+                audio.pause();
+            });
+            $('#songName').text('');
+            return;
+        } else {
+            audio.volume = 1;
+        }
+
+        const url = `${base}${weather}/${weather}.mp3`;
+
+        $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+            audio.pause();
+            audio.src = url;
+            audio.load();
+            audio.volume = 0;
+
+            // Ustawiamy co zrobić po zakończeniu utworu
+            audio.onended = function () {
+                playWeather(weather); // wywołaj ponownie
+            };
+
+            audio.play();
+            $audio.animate({ volume: globalVolume }, fadeDelay);
+        });
+    }
+
+    var rainHolder = $('<div>', { id: 'rainHolder' });
+
+    var weathers = ['no', 'rain', 'thunder', 'storm', 'snowstorm'];
+
+    weathers.forEach(function (weather) {
+        $('<button>', { class: 'RainButton' })
+            .append($('<img>', { src: 'E:/franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
+            .appendTo(rainHolder)
+            .on('click', function () {
+                playWeather(weather);
+            });
+    });
+
+    $lightPanel.append(rainHolder);
+
     generateGenreButtons(categories);
 
     var volumeSlider = $("#volume-slider");
@@ -233,48 +282,50 @@ $(document).ready(function() {
     musicAudioPlayer[0].volume = 1;
     tempMusicAudioPlayer = $("#tempAudioPlayer");
     tempMusicAudioPlayer[0].volume = 1;
+
+    rainAudioPlayer = $("#rainAudioPlayer");
+    tempRainAudioPlayer = $("#tempRainAudioPlayer")
+
     currentMusicPlayer = musicAudioPlayer;
-    volumeSlider.on("input", function(){
+    volumeSlider.on("input", function () {
         musicAudioPlayer[0].volume = $(this).val();
         tempMusicAudioPlayer[0].volume = $(this).val();
         globalVolume = $(this).val();
         console.log(musicAudioPlayer[0].volume);
     });
-    playPauseButton.click(function() {
-        if(currentMusicPlayer[0].paused)
-        {
+    playPauseButton.click(function () {
+        if (currentMusicPlayer[0].paused) {
             $("#playPauseButton").prop("disabled", true);
             currentMusicPlayer[0].play();
-            currentMusicPlayer.animate({volume: globalVolume}, fadeDelay, function() {
+            currentMusicPlayer.animate({ volume: globalVolume }, fadeDelay, function () {
                 $("#playPauseButton").prop("disabled", false);
             });
         }
-        else
-        {
+        else {
             $("#playPauseButton").prop("disabled", true);
-            currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+            currentMusicPlayer.animate({ volume: 0 }, fadeDelay, function () {
                 currentMusicPlayer[0].pause();
                 $("#playPauseButton").prop("disabled", false);
             });
         }
     });
-    stopButton.click(function() {
+    stopButton.click(function () {
         $("#playPauseButton").prop("disabled", true);
         $("#stopButton").prop("disabled", true);
         currentMusicPlayer.stop();
         currentMusicPlayer[0].volume = globalVolume;
-        currentMusicPlayer.animate({volume: 0}, fadeDelay); 
-        currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+        currentMusicPlayer.animate({ volume: 0 }, fadeDelay);
+        currentMusicPlayer.animate({ volume: 0 }, fadeDelay, function () {
             currentMusicPlayer[0].pause();
             currentMusicPlayer[0].currentTime = 0;
             $("#playPauseButton").prop("disabled", false);
             $("#stopButton").prop("disabled", false);
         });
     });
-    musicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
+    musicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
         playRandomSong(currentCategory, musicAudioPlayer);
     });
-    tempMusicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
+    tempMusicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
         playRandomSong(currentCategory, tempMusicAudioPlayer);
     });
 });
@@ -339,7 +390,6 @@ var folderStructureJSONString = `{
         "Baldur's Gate OST - Even Deeper.mp3",
         "Gothic 2 Soundtrack - 01 Titel Theme.mp3",
         "Gothic 2 Soundtrack - 04 Ingame Music.mp3",
-        "Gothic 2 Soundtrack - 26 Fish Food.mp3",
         "Gothic 3 -- OST 03 'Xardas Tower Indoor'.mp3",
         "Gothic 3 -- OST 27 'Death Valley'.mp3",
         "Gothic 3 -- OST 29 'Beliar'.mp3",
@@ -600,7 +650,6 @@ var folderStructureJSONString = `{
         "Baldur's Gate OST - Even Deeper.mp3",
         "Gothic 2 Soundtrack - 01 Titel Theme.mp3",
         "Gothic 2 Soundtrack - 04 Ingame Music.mp3",
-        "Gothic 2 Soundtrack - 26 Fish Food.mp3",
         "Gothic 3 -- OST 03 'Xardas Tower Indoor'.mp3",
         "Gothic 3 -- OST 27 'Death Valley'.mp3",
         "Gothic 3 -- OST 29 'Beliar'.mp3",

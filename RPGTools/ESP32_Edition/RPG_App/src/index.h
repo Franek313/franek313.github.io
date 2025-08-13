@@ -7,16 +7,16 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RPG Tools</title>
     <!-- <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/rpg_styles.css"> -->
-    <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/led_styles.css">
-    <!-- <link rel="stylesheet" type="text/css" href="E:\franek313.github.io\RPGTools\ESP32_Edition\RPG_App\extras\led_styles.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/led_styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="E:\franek313.github.io\RPGTools\led_styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         var ESP32_VERSION = true;
     </script>
 
-    <!-- <script src="E:/franek313.github.io/RPGTools/script.js"></script> -->
-    <script src="https://franek313.github.io/RPGTools/script.js"></script>
+    <script src="E:/franek313.github.io/RPGTools/script.js"></script>
+    <!-- <script src="https://franek313.github.io/RPGTools/script.js"></script> -->
 
 
 </head>
@@ -40,6 +40,12 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
             Your browser does not support the audio element.
         </audio>
         <audio id="tempAudioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="rainAudioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="tempRainAudioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
     </div>

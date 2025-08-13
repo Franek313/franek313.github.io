@@ -28,6 +28,13 @@ CHSV    targetHSV   = currentHSV;
 // Szybkość wygładzania (im większe, tym szybciej)
 const uint8_t LERP_SPEED = 20;
 
+// --- FLASH state ---
+bool     flashActive   = false;
+uint32_t flashUntilMs  = 0;
+
+CHSV     savedHSV      = CHSV(0,255,255);
+uint8_t  savedBright   = 255;
+
 WebServer server(80);
 
 // --- Pomocnicze ---
@@ -117,6 +124,45 @@ void connectWiFi(){
   Serial.print("MAC: "); Serial.println(WiFi.macAddress());
 }
 
+// helper: odpal flash
+void startFlash(uint16_t ms, uint8_t flashBright /*0..255*/) {
+  // zapisz stan
+  savedHSV    = currentHSV;
+  savedBright = bright;
+
+  // ustaw biały, max nasycenie i V (biel w HSV to S=0,V=255)
+  currentHSV = CHSV(0, 0, 255);
+  bright     = flashBright;
+
+  flashActive  = true;
+  flashUntilMs = millis() + ms;
+
+  applyLeds();
+}
+
+void endFlashRestore() {
+  flashActive = false;
+  currentHSV  = savedHSV;
+  bright      = savedBright;
+  applyLeds();
+}
+
+void handleFlash() {
+  // /api/flash?ms=200&br=255
+  uint16_t ms = 200;
+  uint8_t  br = 255;
+
+  if (server.hasArg("ms")) ms = (uint16_t) server.arg("ms").toInt();
+  if (server.hasArg("br")) {
+    int b = server.arg("br").toInt();
+    if (b < 0) b = 0; if (b > 255) b = 255;
+    br = (uint8_t)b;
+  }
+
+  startFlash(ms, br);
+  server.send(200, "application/json", "{\"ok\":true}");
+}
+
 void setup(){
   Serial.begin(115200);
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
@@ -138,6 +184,7 @@ void setup(){
   server.on("/", handleIndex);
   server.on("/api/state", HTTP_GET, handleState);
   server.on("/api/set",   HTTP_GET, handleSet);
+  server.on("/api/flash", HTTP_GET, handleFlash);
   server.begin();
   Serial.println("HTTP server start");
 
@@ -159,6 +206,14 @@ void loop(){
   if (WiFi.status()!=WL_CONNECTED) connectWiFi();
   server.handleClient();
 
+  // Jeśli aktywny flash – priorytet (nic nie wygładzaj teraz)
+  if (flashActive) {
+    if ((int32_t)(millis() - flashUntilMs) >= 0) {
+      endFlashRestore();
+    }
+    return; // flash ma pierwszeństwo
+  }
+
   bool needsUpdate = false;
 
   uint8_t newH = stepHue(currentHSV.h, targetHSV.h, /*szybkość*/ 2); // dostrój np. 2–8
@@ -166,9 +221,16 @@ void loop(){
 
   // nasycenie i wartość trzymamy na 255, ale gdybyś chciał je też wygładzać:
   // currentHSV.s = lerp8by8(currentHSV.s, targetHSV.s, 20);
-
-  if (bright != targetBright) {
-    bright = lerp8by8(bright, targetBright, 20);
+  
+  if(bright != targetBright){
+    if(targetBright == 0)
+    {
+      bright = 0;
+    }
+    else
+    {
+      bright = lerp8by8(bright, targetBright, 20);
+    }
     needsUpdate = true;
   }
 
