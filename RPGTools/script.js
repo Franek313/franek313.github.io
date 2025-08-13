@@ -123,118 +123,114 @@ $(document).ready(function() {
         worldsPanel.append(button);
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var lightPanel = $('#lightPanel');
-        if(lightPanel.length)
-        {
-            var lightButton = $('<button>').attr('id', 'lightButton'); // Dodawanie przycisku lightButton na koniec lightPanel z obrazkiem
-            var img = $('<img>').attr('src', 'E:/franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
-            img.css("width", "60px");
-            lightButton.append(img); // Dodanie obrazka do przycisku
-            lightPanel.append(lightButton);
-            $('#lightButton').click(function() {
-                if ($('#lightPanel').css('right') === '0px') {
-                    $('#lightPanel').css('right', '-250px'); // chowamy
-                } else {
-                    $('#lightPanel').css('right', '0px'); // wysuwamy
-                }
-            });
-            let selectedHue = 0;        // 0–360
-            let selectedBrightness = 255; // 0–255
-            let selectedColor = '#ff0000'; // wynikowy kolor przy aktualnym hue+jasność
+   document.addEventListener('DOMContentLoaded', function () 
+   {
+        const $lightPanel = $('#lightPanel');
+        if (!$lightPanel.length) return;
 
-            // --- UI ---
-            const $hueWrap = $('<div>').css({textAlign:'center', width: '100%'});
-            const $brightnessWrap = $('<div>').css({textAlign:'center', width: '100%'});
+        // --- Uchwyt panelu (zmień src na URL względny/absolutny) ---
+        const $lightButton = $('<button>', { id: 'lightButton' });
+        const $img = $('<img>', {
+            src: 'https://franek313.github.io/RPGTools/lights_button.png',
+            alt: 'Toggle Icon'
+        }).css('width', '60px');
+        $lightButton.append($img);
+        $lightPanel.append($lightButton);
 
-            // Hue slider
-            const $hueLabel = $('<div>').text('Color').css({ marginBottom:'4px', color:'#fff' });
-            const $hueSlider = $('<input>', { type:'range', min:0, max:360, value:0 }).attr('id', 'colorSlider');
-            $hueWrap.append($hueLabel, $hueSlider);
+        $('#lightButton').on('click', function () {
+            const open = $('#lightPanel').css('right') === '0px';
+            $('#lightPanel').css('right', open ? '-250px' : '0px');
+        });
 
-            // Brightness slider
-            const $briLabel = $('<div>').text('Brightness:').css({ marginBottom:'4px', color:'#fff' });
-            const $briSlider = $('<input>', { type:'range', min:0, max:255, value:255 }).attr('id', 'brightnessSlider');
-            $brightnessWrap.append($briLabel, $briSlider);
+        // --- Model ---
+        let selectedHue = 0;          // 0–360
+        let selectedBrightness = 255;  // 0–255
+        let selectedColor = '#ff0000'; // wynik HEX wysyłany do ESP32
 
-            // Podgląd
-            const $preview = $('<div>').css({
-                width:'50px', height:'50px',
-                borderRadius:'8px', border:'1px solid #00000055',
-                background:selectedColor
-            });
+        // --- UI ---
+        const $hueWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
+        const $briWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
 
-            // Dodaj do panelu
-            lightPanel.append($hueWrap, $brightnessWrap, $preview);
+        const $hueLabel = $('<div>').text('Color').css({ marginBottom: '4px', color: '#fff' });
+        const $hueSlider = $('<input>', { id: 'colorSlider', type: 'range', min: 0, max: 360, value: 0 })
+            .css({ width: '90%', margin: '0 5%', height: '14px', borderRadius: '8px', appearance: 'none', outline: 'none' });
 
-            // --- Funkcje ---
-            function hslToHex(h, s, l) {
-                s /= 100; l /= 100;
-                const k = n => (n + h/30) % 12;
-                const a = s * Math.min(l, 1 - l);
-                const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
-                const toHex = x => {
-                    const hex = Math.round(x * 255).toString(16).padStart(2,'0');
-                    return hex;
-                };
-                return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+        const $briLabel = $('<div>').text('Brightness').css({ marginBottom: '4px', color: '#fff' });
+        const $briSlider = $('<input>', { id: 'brightnessSlider', type: 'range', min: 0, max: 255, value: 255 })
+            .css({ width: '90%', margin: '0 5%', height: '10px', borderRadius: '8px', appearance: 'none', outline: 'none' });
+
+        $hueWrap.append($hueLabel, $hueSlider);
+        $briWrap.append($briLabel, $briSlider);
+
+        const $preview = $('<div>').css({
+            width: '50px', height: '50px', margin: '10px auto',
+            borderRadius: '8px', border: '1px solid #00000055', background: selectedColor
+        });
+
+        $lightPanel.append($hueWrap, $briWrap, $preview);
+
+        // --- Konwersje ---
+        function hslToHex(h, s, l) {
+            s /= 100; l /= 100;
+            const k = n => (n + h / 30) % 12;
+            const a = s * Math.min(l, 1 - l);
+            const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+            const toHex = x => Math.round(x * 255).toString(16).padStart(2, '0');
+            return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+        }
+        function hexToRgb(hex) {
+            const m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+            return m ? { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) } : null;
+        }
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        // --- Gradient HUE 1:1 ---
+        function setHueSliderGradient(inputEl) {
+            const stops = [];
+            for (let h = 0; h <= 360; h += 10) {
+            stops.push(`${hslToHex(h, 100, 50)} ${(h / 360) * 100}%`);
             }
+            inputEl.style.background = `linear-gradient(to right, ${stops.join(',')})`;
+        }
+        setHueSliderGradient($hueSlider[0]);
 
-            function updateColor() {
-                // pełna jasność w HSL = 50% lightness
-                const hueColor = hslToHex(selectedHue, 100, 50);
-                // przeskaluj jasność
-                const rgb = hexToRgb(hueColor);
-                const scale = selectedBrightness / 255;
-                const r = Math.round(rgb.r * scale);
-                const g = Math.round(rgb.g * scale);
-                const b = Math.round(rgb.b * scale);
-                selectedColor = rgbToHex(r, g, b);
-                $preview.css('background', selectedColor);
-                console.log(`Hue: ${selectedHue}, Brightness: ${selectedBrightness}, Color: ${selectedColor}`);
-            }
+        // --- Przeliczenie koloru + podgląd ---
+        function recomputeColor() {
+            const base = hslToHex(selectedHue, 100, 50);   // czysty HUE
+            const rgb = hexToRgb(base);
+            const k = selectedBrightness / 255;
+            const r = Math.round(rgb.r * k);
+            const g = Math.round(rgb.g * k);
+            const b = Math.round(rgb.b * k);
+            selectedColor = rgbToHex(r, g, b);
+            $preview.css('background', selectedColor);
+        }
+        recomputeColor();
 
-            function rgbToHex(r,g,b){ return "#" + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
-            function hexToRgb(hex){ const m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i); return m ? {r:parseInt(m[1],16), g:parseInt(m[2],16), b:parseInt(m[3],16)} : null; }
-
-            // --- Obsługa suwaków ---
-            $hueSlider.on('input', function(){
-                selectedHue = parseInt(this.value);
-                updateColor();
-            });
-
-            $briSlider.on('input', function(){
-                selectedBrightness = parseInt(this.value);
-                updateColor();
-            });
-
-            // Inicjalizacja
-            updateColor();
-
-            // zdarzenia dla hue
-            $hue.on('input', function(){
-            selectedHue = +this.value;
-            recomputeColor(); // aktualizuj tylko podgląd
-            });
-            $hue.on('change', function(){
-            sendToEsp32();    // wyślij dopiero po puszczeniu
-            });
-
-            // zdarzenia dla brightness
-            $br.on('input', function(){
-            selectedBrightness = +this.value;
-            recomputeColor(); // aktualizuj tylko podgląd
-            });
-            $br.on('change', function(){
-            sendToEsp32();    // wyślij dopiero po puszczeniu
-            });
-
-            // wysyłka (teraz bez debounce, bo to tylko raz po zmianie)
-            function sendToEsp32() {
+        // --- Wysyłka do ESP32 (dopiero po puszczeniu) ---
+        function sendToEsp32() {
             const url = `/api/set?color=${encodeURIComponent(selectedColor)}&br=${selectedBrightness}`;
             fetch(url).catch(err => console.warn('Błąd wysyłki do ESP32:', err));
-            }
-        }   
+        }
+
+        // --- Zdarzenia suwaków ---
+        // Podczas przeciągania – tylko UI
+        $hueSlider.on('input', function () {
+            selectedHue = +this.value;
+            recomputeColor();
+        });
+        $briSlider.on('input', function () {
+            selectedBrightness = +this.value;
+            recomputeColor();
+        });
+        // Po puszczeniu – wyślij
+        $hueSlider.on('change', sendToEsp32);
+        $briSlider.on('change', sendToEsp32);
+
+        // (opcjonalnie) wyślij stan startowy
+        // sendToEsp32();
     });
     
     generateGenreButtons(categories);
