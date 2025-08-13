@@ -10,8 +10,14 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
     <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/led_styles.css">
     <!-- <link rel="stylesheet" type="text/css" href="E:\franek313.github.io\RPGTools\ESP32_Edition\RPG_App\extras\led_styles.css"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://franek313.github.io/RPGTools/script.js"></script>
+
+    <script>
+        var ESP32_VERSION = true;
+    </script>
+
     <!-- <script src="E:/franek313.github.io/RPGTools/script.js"></script> -->
+    <script src="https://franek313.github.io/RPGTools/script.js"></script>
+
 
 </head>
 
