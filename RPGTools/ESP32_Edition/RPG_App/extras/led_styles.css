@@ -59,7 +59,54 @@ body, html {
   z-index: 2000;           /* wyżej niż inne elementy */
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: left;
+}
+#colorSlider[type="range"] {
+    -webkit-appearance: none; 
+    width: 90%; /* 100% - po 5% z każdej strony */
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 4vw;
+     background: linear-gradient(to right, 
+        hsl(10, 100%, 50%),
+        hsl(60, 100%, 50%),
+        hsl(120, 100%, 50%),
+        hsl(180, 100%, 50%),
+        hsl(240, 100%, 50%),
+        hsl(300, 100%, 50%),
+        hsl(360, 100%, 50%)
+    );
+    border-radius: 10px;
+    outline: none;
+}
+/* Zmieniamy wygląd "kciuka" suwaka dla przeglądarek Webkit */
+#colorSlider[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
+    width: 1vw; /* Ustawiamy szerokość "kciuka" */
+    height: 1vw; /* Ustawiamy wysokość "kciuka" */
+    background: silver; /* Ustawiamy kolor "kciuka" */
+    border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
+    cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
+}
+
+#brightnessSlider[type="range"] {
+    -webkit-appearance: none; 
+    width: 90%; /* 100% - po 5% z każdej strony */
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 4vw;
+    border-radius: 10px;
+    outline: none;
+}
+
+#brightnessSlider[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Wyłączamy domyślny wygląd "kciuka" dla przeglądarek Webkit */
+    width: 1vw; /* Ustawiamy szerokość "kciuka" */
+    height: 1vw; /* Ustawiamy wysokość "kciuka" */
+    background: silver; /* Ustawiamy kolor "kciuka" */
+    border-radius: 50%; /* Zaokrąglamy "kciuk" (aby był okrągły) */
+    cursor: pointer; /* Ustawiamy kursor na "pointer" (dla interaktywności) */
 }
 
 /* Uchwyt wystający NA ZEWNĄTRZ panelu (zawsze widoczny) */
@@ -78,6 +125,7 @@ body, html {
   outline: none;
 }
 #lightButton img{ width: 60px; }
+
 
 #controlsPanel {
     display: flex; /* Ustawienie kontenera flex */
@@ -127,7 +175,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-wrap: wrap;
     height: 100%; 
     width: 30%;
-    margin-right: 5rem;
+    margin-right: 8rem;
 }
 
 #songName
@@ -147,7 +195,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100vw;
     height: 3vw;
     text-align: center;
-    left : 2rem;
+    left : 1rem;
 }
 #genresPanel {
     display: flex; /* Ustawienie kontenera flex */
@@ -156,7 +204,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-wrap: wrap;
     position: fixed;
     bottom: 20vh;
-    left : 2rem;
+    left : 3rem;
     width: 100vw;
     height: 80vh; 
     background-color: rgb(0, 0, 0, 0);

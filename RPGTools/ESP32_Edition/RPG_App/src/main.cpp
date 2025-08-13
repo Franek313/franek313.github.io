@@ -7,10 +7,7 @@
 // ====== Twoje Wi-Fi ======
 const char* WIFI_SSID = "Dom Frania 2.4G";
 const char* WIFI_PASS = "franekfranek";
-const char* HOSTNAME  = "esp32-led";   // -> http://esp32-led.local
-
-// ====== URL utworu (GitHub Pages) ======
-const char* TRACK_URL = "https://franek313.github.io/RPGTools/Audio/Action/19%20-%20The%20Witcher%202%20Score%20-%20Easier%20Said%20Than%20Killed%20(Extended).mp3";
+const char* HOSTNAME  = "rpgeffects";   // -> http://rpgeffects.local
 
 // ====== LED strip (jak u Ciebie) ======
 #define DATA_PIN     13
@@ -21,6 +18,10 @@ CRGB leds[NUM_LEDS];
 bool     isOn   = false;
 uint8_t  bright = 128;
 CRGB     currentColor = CRGB::White;
+
+// ====== My LED color variables ===== 
+CRGB targetColor = currentColor;
+uint8_t targetBright = bright;
 
 WebServer server(80);
 
@@ -37,13 +38,6 @@ bool parseHexColor(const String& s, CRGB& out){
   out = CRGB(hx(1),hx(3),hx(5)); return true;
 }
 
-// Generujemy HTML z podmianą {{TRACK_URL}} na wartość z C++
-void handleIndex(){
-  String html = FPSTR(PAGE_INDEX); //PAGE INDEX is taken from index.h
-  html.replace("{{TRACK_URL}}", TRACK_URL);
-  server.send(200, "text/html", html);
-}
-
 void handleState(){
   char buf[128];
   snprintf(buf,sizeof(buf),
@@ -53,10 +47,23 @@ void handleState(){
 }
 
 void handleSet(){
-  if(server.hasArg("on")) { isOn = (server.arg("on")=="1"||server.arg("on")=="true"); }
-  if(server.hasArg("br")) { int b=server.arg("br").toInt(); if(b<1)b=1; if(b>255)b=255; bright=(uint8_t)b; }
-  if(server.hasArg("color")){ CRGB c; if(parseHexColor(server.arg("color"), c)) currentColor=c; }
-  applyLeds(); handleState();
+  if(server.hasArg("on"))  
+    isOn = (server.arg("on")=="1"||server.arg("on")=="true");
+  
+  if(server.hasArg("br"))  {
+    int b = server.arg("br").toInt();
+    if (b < 0) b = 0;
+    if (b > 255) b = 255;
+    targetBright = (uint8_t)b;
+  }
+  
+  if(server.hasArg("color")){
+    CRGB c;
+    if(parseHexColor(server.arg("color"), c))
+      targetColor = c;
+  }
+
+  handleState(); // odsyła nowy stan, ale jeszcze nie zmienia LEDów natychmiast
 }
 
 void connectWiFi(){
@@ -90,7 +97,6 @@ void setup(){
     Serial.println("mDNS nie działa (Windows może wymagać Bonjour).");
   }
 
-  server.on("/", handleIndex);
   server.on("/api/state", handleState);
   server.on("/api/set", handleSet);
   server.begin();
@@ -101,4 +107,15 @@ void setup(){
 void loop(){
   if (WiFi.status()!=WL_CONNECTED) connectWiFi();
   server.handleClient();
+
+  // Smooth fade kolorów
+  if (currentColor != targetColor || bright != targetBright) {
+    // krok po kolorze
+    currentColor.r = lerp8by8(currentColor.r, targetColor.r, 20); // 20 = szybkość
+    currentColor.g = lerp8by8(currentColor.g, targetColor.g, 20);
+    currentColor.b = lerp8by8(currentColor.b, targetColor.b, 20);
+    // krok po jasności
+    bright = lerp8by8(bright, targetBright, 20);
+    applyLeds();
+  }
 }
