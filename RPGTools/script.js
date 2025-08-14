@@ -26,7 +26,7 @@ function playRandomSong(category)
     } while(songName.text() == newSongName);
 
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
-    var audioUrl = `https://franek313.github.io/RPGTools/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
+    var audioUrl = `${DATA_SOURCE}/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
     if(musicAudioPlayer[0].paused){
         currentMusicPlayer = musicAudioPlayer;
@@ -61,9 +61,13 @@ styleMap.set(`S_`, {'border-color': 'gray','background-color': '#CFCFCF','color'
 styleMap.set(`l_`, {'border-color': '#46CE46','background-color': '#90EE90','color': '#46CE46'});
 styleMap.set(`m_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
 
+<<<<<<< Updated upstream
 
 function generateGenreButtons(categories)
 {
+=======
+function generateGenreButtons(categories) {
+>>>>>>> Stashed changes
     var genresPanel = $('#genresPanel');
     $.each(categories, function(index, name) { //tworzenie przycisków i dodawanie do genresPanel
         if(name.includes(worldPrefix))
@@ -82,7 +86,13 @@ function generateGenreButtons(categories)
     });
 }
 
+<<<<<<< Updated upstream
 $(document).ready(function() {
+=======
+$(document).ready(function () {
+
+
+>>>>>>> Stashed changes
     //--Worlds Map Handle--//
     worldsPrefixesMap.set('Fantasy', 'f_');
     worldsPrefixesMap.set('Vampire', 'v_');
@@ -99,7 +109,7 @@ $(document).ready(function() {
     //--UI--//
     var worldsPanel = $('#worldsPanel');
     var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
-    var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon'); // Dodanie obrazka
     img.css("width", "60px");
     worldsButton.append(img); // Dodanie obrazka do przycisku
     worldsPanel.append(worldsButton);
@@ -123,6 +133,7 @@ $(document).ready(function() {
         worldsPanel.append(button);
     });
 
+<<<<<<< Updated upstream
     var lightPanel = $('#lightPanel');
     var lightButton = $('<button>').attr('id', 'lightButton'); // Dodawanie przycisku lightButton na koniec lightPanel z obrazkiem
     var img = $('<img>').attr('src', 'E:/franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
@@ -132,6 +143,122 @@ $(document).ready(function() {
     $('#lightButton').click(function() {
         if ($('#lightPanel').css('right') === '0px') {
             $('#lightPanel').css('right', '-250px'); // chowamy
+=======
+    const $lightPanel = $('#lightPanel');
+
+    // Uchwyt panelu
+    const $lightButton = $('<button>', { id: 'lightButton' });
+    const $img = $('<img>', {src: `${DATA_SOURCE}lights_button.png`, alt: 'Toggle Icon' })
+        .css('width', '60px');
+    $lightButton.append($img);
+    $lightPanel.append($lightButton);
+    $('#lightButton').on('click', function () {
+        if ($lightPanel.css('right') === '0px') $lightPanel.css('right', '-250px');
+        else $lightPanel.css('right', '0px');
+    });
+
+    if (ESP32_VERSION) {
+        // Model
+        let selectedHue = 0;          // 0..360 w UI
+        let selectedBrightness = 255; // 0..255 dla FastLED
+
+        // UI suwaków
+        const $hueWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
+        const $briWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
+
+        const $hueLabel = $('<div>').text('Color').css({ marginBottom: '4px', color: '#fff' });
+        const $hueSlider = $('<input>', { type: 'range', min: 0, max: 360, value: 0, id: 'colorSlider' })
+            .css({ width: '90%', margin: '0 5%' });
+
+        const $briLabel = $('<div>').text('Brightness').css({ marginBottom: '4px', color: '#fff' });
+        const $briSlider = $('<input>', { type: 'range', min: 0, max: 255, value: 255, id: 'brightnessSlider' })
+            .css({ width: '90%', margin: '0 5%' });
+
+        $hueWrap.append($hueLabel, $hueSlider);
+        $briWrap.append($briLabel, $briSlider);
+
+        const $preview = $('<div>').css({
+            width: '50px', height: '50px', margin: '10px auto',
+            borderRadius: '8px', border: '1px solid #00000055', background: '#ff0000'
+        });
+
+        $lightPanel.append($hueWrap, $briWrap, $preview);
+
+        // Konwersje i podgląd
+        function hsvToRgb(h, s, v) { // h:0..360, s/v:0..1
+            const c = v * s;
+            const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+            const m = v - c;
+            let r = 0, g = 0, b = 0;
+            if (0 <= h && h < 60) { r = c; g = x; b = 0; }
+            else if (60 <= h && h < 120) { r = x; g = c; b = 0; }
+            else if (120 <= h && h < 180) { r = 0; g = c; b = x; }
+            else if (180 <= h && h < 240) { r = 0; g = x; b = c; }
+            else if (240 <= h && h < 300) { r = x; g = 0; b = c; }
+            else { r = c; g = 0; b = x; }
+            return {
+                r: Math.round((r + m) * 255),
+                g: Math.round((g + m) * 255),
+                b: Math.round((b + m) * 255)
+            };
+        }
+        function rgbToHex(r, g, b) { return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join(''); }
+
+        function updatePreviewFromHSV() {
+            const rgb = hsvToRgb(selectedHue, 1, 1); // pełne S i V dla czystego koloru
+            $preview.css('background', rgbToHex(rgb.r, rgb.g, rgb.b));
+        }
+
+        // Hue gradient (1:1)
+        (function setHueSliderGradient(el) {
+            const stops = [];
+            for (let h = 0; h <= 360; h += 10) {
+                const rgb = hsvToRgb(h, 1, 1);
+                stops.push(`${rgbToHex(rgb.r, rgb.g, rgb.b)} ${(h / 360) * 100}%`);
+            }
+            el.style.background = `linear-gradient(to right, ${stops.join(',')})`;
+        })($hueSlider[0]);
+
+        // Wysyłka do ESP32 (dopiero po puszczeniu)
+        function sendToEsp32() {
+            const h8 = Math.round((selectedHue % 360) * 255 / 360); // 0..255 dla CHSV
+            fetch(`/api/set?h=${h8}&br=${selectedBrightness}`).catch(e => console.warn(e));
+        }
+
+        // input → tylko podgląd, change → wysyłka
+        $hueSlider.on('input', function () {
+            selectedHue = +this.value;
+            updatePreviewFromHSV();
+        });
+        $hueSlider.on('change', sendToEsp32);
+
+        $briSlider.on('input', function () {
+            selectedBrightness = +this.value;
+            // jasność nie zmienia podglądu koloru (robi to taśma)
+        });
+        $briSlider.on('change', sendToEsp32);
+
+        // init
+        updatePreviewFromHSV();
+    }
+
+    function playWeather(weather) {
+        const $audio = rainAudioPlayer; // jQuery obiekt
+        const $tempAudio = tempRainAudioPlayer;
+        const audio = $audio[0];        // natywny <audio>
+        const base = `${DATA_SOURCE}Audio/`;
+
+        // Usuwamy poprzedni listener, żeby się nie mnożył
+        audio.onended = null;
+
+        // "no" = cisza
+        if (weather === 'no') {
+            $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+                audio.pause();
+            });
+            $('#songName').text('');
+            return;
+>>>>>>> Stashed changes
         } else {
             $('#lightPanel').css('right', '0px'); // wysuwamy
         }
@@ -154,11 +281,30 @@ $(document).ready(function() {
     const $briSlider = $('<input>', { type:'range', min:0, max:255, value:255 }).attr('id', 'brightnessSlider');
     $brightnessWrap.append($briLabel, $briSlider);
 
+<<<<<<< Updated upstream
     // Podgląd
     const $preview = $('<div>').css({
         width:'50px', height:'50px',
         borderRadius:'8px', border:'1px solid #00000055',
         background:selectedColor
+=======
+            audio.play();
+            $audio.animate({ volume: globalVolume }, fadeDelay);
+        });
+    }
+
+    var rainHolder = $('<div>', { id: 'rainHolder' });
+
+    var weathers = ['no', 'rain', 'thunder', 'storm', 'snowstorm'];
+
+    weathers.forEach(function (weather) {
+        $('<button>', { class: 'RainButton' })
+            .append($('<img>', { src: DATA_SOURCE + 'icon_' + weather + '.png' }))
+            .appendTo(rainHolder)
+            .on('click', function () {
+                playWeather(weather);
+            });
+>>>>>>> Stashed changes
     });
 
     // Dodaj do panelu

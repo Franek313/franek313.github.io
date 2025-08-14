@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RPG Tools</title>
+<<<<<<< Updated upstream
     <!-- <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/rpg_styles.css"> -->
     <link rel="stylesheet" type="text/css" href="E:\franek313.github.io\RPGTools\ESP32_Edition\RPG_App\extras\led_styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -11,6 +13,30 @@
     <script src="E:/franek313.github.io/RPGTools/script.js"></script>
     <script src="https://rawcdn.githack.com/jbrems/color-wheel/master/dist/color-wheel.min.js"></script>
 
+=======
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        var ESP32_VERSION = true;
+        var IS_LOCAL = false;
+        var DATA_SOURCE = IS_LOCAL
+            ? "E://franek313.github.io/RPGTools/"
+            : "https://franek313.github.io/RPGTools/";
+
+        // CSS
+        var stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = DATA_SOURCE + "led_styles.css";
+        document.head.appendChild(stylesheet);
+
+        // JS
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = DATA_SOURCE + "script.js";
+        document.head.appendChild(script);
+    </script>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -19,6 +45,7 @@
         <div id="worldsPanel"></div>
         <div id="lightPanel"></div>
         <div id="genresPanel"></div>
+
         <div id="controlsPanel">
             <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
             <div id = "musicControls">
@@ -28,16 +55,27 @@
                 <button class="controlButton" id="fullscreen-button">⛶</button>
             </div>
         </div>
+
         <audio id="audioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
         <audio id="tempAudioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
+<<<<<<< Updated upstream
+=======
+        <audio id="rainAudioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="tempRainAudioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+
+>>>>>>> Stashed changes
     </div>
 
     <script>
-        // Funkcja do uruchamiania pełnoekranowego trybu
+        // Function that allows to enter fullscreen
         function toggleFullscreen() {
             var elem = document.documentElement;
             if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
@@ -63,7 +101,7 @@
             }
         }
 
-        // Dodanie obsługi zdarzenia kliknięcia do przycisku
+        // Adding event of fullscreen to the button
         var fullscreenButton = document.getElementById('fullscreen-button');
         if (fullscreenButton) {
             fullscreenButton.addEventListener('click', function() {
