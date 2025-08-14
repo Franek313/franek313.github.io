@@ -47,7 +47,7 @@ body, html {
     z-index: 998;
 }
 
-#lightPanel{
+#effectsPanel{
   position: fixed;
   top: 0;
   right: -250px;           /* start: schowany */
@@ -155,7 +155,7 @@ body, html {
 }
 
 /* Uchwyt wystający NA ZEWNĄTRZ panelu (zawsze widoczny) */
-#lightButton{
+#effectsButton{
   position: absolute;
   top: 0;
   left: -4rem;             /* wysuń uchwyt na ekran */
@@ -169,7 +169,7 @@ body, html {
   cursor: pointer;
   outline: none;
 }
-#lightButton img{ width: 60px; }
+#effectsButton img{ width: 60px; }
 
 
 #controlsPanel {

@@ -2,7 +2,6 @@ var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var currentMusicPlayer;
 var rainAudioPlayer;
-var tempRainAudioPlayer;
 var globalVolume = 1.0;
 
 var fadeDelay = 1500;
@@ -66,12 +65,12 @@ function playRandomSong(category) {
 
 function generateGenreButtons(categories) {
     var genresPanel = $('#genresPanel');
-    $.each(categories, function (index, name) { //tworzenie przycisków i dodawanie do genresPanel
+    $.each(categories, function (index, name) {
         if (name.includes(worldPrefix)) {
-            var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton'); // Tworzenie przycisku
+            var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton');
             let styleString = styleMap.get(worldPrefix);
             button.css(styleString);
-            button.click(function () { //obsługa zdarzenia onlick
+            button.click(function () {
                 var category = categories[index];
                 currentCategory = category;
                 paused = false;
@@ -83,37 +82,40 @@ function generateGenreButtons(categories) {
 }
 
 $(document).ready(function () {
-    //--Worlds Map Handle--//
-    worldsPrefixesMap.set('Fantasy', 'f_');
-    worldsPrefixesMap.set('Vampire', 'v_');
-    worldsPrefixesMap.set('Pirate', 'p_');
-    worldsPrefixesMap.set('London 1888', 'l_');
-    worldsPrefixesMap.set('Mandela Catalogue', 'm_');
-    worldsPrefixesMap.set('SPECIAL', 'S_');
 
+    //--Worlds Map Handle--//
+    const worldsPrefixesMap = new Map([
+        ['Fantasy', 'f_'],
+        ['Vampire', 'v_'],
+        ['Pirate', 'p_'],
+        ['London 1888', 'l_'],
+        ['Mandela Catalogue', 'm_'],
+        ['SPECIAL', 'S_']
+    ]);
+
+    //Getting folder structure json from server
     let data;
 
     async function init() {
         const url = `${DATA_SOURCE}folder_structure.json`;
-                             
+
         console.log('USING: ', url);
         const res = await fetch(url);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         data = await res.json();
     }
 
-    // uruchamiamy pobranie, a potem resztę programu
     init().then(() => {
         console.log("Loaded data:", data);
         musicMap = new Map(Object.entries(data));
         categories = [...musicMap.keys()];
-        generateGenreButtons(categories);
-    
+        generateGenreButtons(categories); //generating buttons for each genre
     }).catch(err => {
         console.error("Error while getting JSON:", err);
     });
 
     //--UI--//
+    //--WORLDS PANEL--//
     var worldsPanel = $('#worldsPanel');
     var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
     var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon'); // Dodanie obrazka
@@ -127,7 +129,7 @@ $(document).ready(function () {
             $('#worldsPanel').css('left', '-250px'); // Schowaj panel
         }
     });
-    
+
     $.each(worldsButtonsArray, function (index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
         var button = $('<button>').text(name).attr('class', 'WorldButton');
         button.click(function () { //obsługa zdarzenia onlick
@@ -141,19 +143,87 @@ $(document).ready(function () {
         worldsPanel.append(button);
     });
 
-    const $lightPanel = $('#lightPanel');
-
-    // Uchwyt panelu
-    const $lightButton = $('<button>', { id: 'lightButton' });
-    const $img = $('<img>', { src: `${DATA_SOURCE}lights_button.png`, alt: 'Toggle Icon' })
+    //--EFFECTS PANEL--//
+    const $effectsPanel = $('#effectsPanel');
+    const $effectsButton = $('<button>', { id: 'effectsButton' });
+    const $img = $('<img>', { src: `${DATA_SOURCE}effects_button.png`, alt: 'Toggle Icon' })
         .css('width', '60px');
-    $lightButton.append($img);
-    $lightPanel.append($lightButton);
-    $('#lightButton').on('click', function () {
-        if ($lightPanel.css('right') === '0px') $lightPanel.css('right', '-250px');
-        else $lightPanel.css('right', '0px');
+    $effectsButton.append($img);
+    $effectsPanel.append($effectsButton);
+    $('#effectsButton').on('click', function () {
+        if ($effectsPanel.css('right') === '0px') $effectsPanel.css('right', '-250px');
+        else $effectsPanel.css('right', '0px');
     });
 
+    function playWeather(weather) {
+        const $audio = rainAudioPlayer; // jQuery obiekt
+        const audio = $audio[0];        // natywny <audio>
+        const base = `${DATA_SOURCE}Audio/`;
+
+        // Usuwamy poprzedni listener, żeby się nie mnożył
+        audio.onended = null;
+
+        // "no" = cisza
+        if (weather === 'no') {
+            $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+                audio.pause();
+            });
+            $('#songName').text('');
+            return;
+        } else {
+            $audio.volume = globalVolume;
+        }
+
+        const url = `${base}${weather}/${weather}.mp3`;
+
+        $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+            audio.pause();
+            audio.src = url;
+            audio.load();
+            audio.volume = 0;
+
+            // Ustawiamy co zrobić po zakończeniu utworu
+            audio.onended = function () {
+                playWeather(weather); // wywołaj ponownie
+            };
+
+            audio.play();
+            $audio.animate({ volume: globalVolume }, fadeDelay);
+        });
+    }
+
+    var rainHolder = $('<div>', { id: 'rainHolder' });
+    var weathers = ['no', 'rain', 'thunder', 'storm', 'snowstorm'];
+    weathers.forEach(function (weather) {
+        $('<button>', { class: 'RainButton' })
+            .append($('<img>', { src: DATA_SOURCE + 'icon_' + weather + '.png' }))
+            .appendTo(rainHolder)
+            .on('click', function () {
+                playWeather(weather);
+            });
+    });
+    $effectsPanel.append(rainHolder);
+
+    // === RAIN VOLUME SLIDER ===
+    const $rainVolumeSlider = $('<input>', {
+        type: 'range',
+        id: 'brightnessSlider', // using same css as brightnessSlider
+        min: 0,
+        max: 100,
+        value: 33,
+        step: 1
+    });
+
+    $rainVolumeSlider.on('input', function () {
+        const newVol = $(this).val() / 100;
+        rainAudioPlayer[0].volume = newVol;
+        globalVolume = newVol;
+    });
+
+    // Dodajemy do panelu efektów
+    $effectsPanel.append($('<div>').text('Rain volume').css('textAlign', 'center').append($rainVolumeSlider));
+
+    //Some features make sense only while using the ESP32 miniserver, for example controlling the led strip
     if (ESP32_VERSION) {
         // Model
         let selectedHue = 0;          // 0..360 w UI
@@ -179,7 +249,7 @@ $(document).ready(function () {
             borderRadius: '8px', border: '1px solid #00000055', background: '#ff0000'
         });
 
-        $lightPanel.append($hueWrap, $briWrap, $preview);
+        $effectsPanel.append($hueWrap, $briWrap, $preview);
 
         // Konwersje i podgląd
         function hsvToRgb(h, s, v) { // h:0..360, s/v:0..1
@@ -239,73 +309,17 @@ $(document).ready(function () {
         updatePreviewFromHSV();
     }
 
-    function playWeather(weather) {
-        const $audio = rainAudioPlayer; // jQuery obiekt
-        const $tempAudio = tempRainAudioPlayer;
-        const audio = $audio[0];        // natywny <audio>
-        const base = `${DATA_SOURCE}Audio/`;
-
-        // Usuwamy poprzedni listener, żeby się nie mnożył
-        audio.onended = null;
-
-        // "no" = cisza
-        if (weather === 'no') {
-            $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
-                audio.pause();
-            });
-            $('#songName').text('');
-            return;
-        } else {
-            audio.volume = 1;
-        }
-
-        const url = `${base}${weather}/${weather}.mp3`;
-
-        $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
-            audio.pause();
-            audio.src = url;
-            audio.load();
-            audio.volume = 0;
-
-            // Ustawiamy co zrobić po zakończeniu utworu
-            audio.onended = function () {
-                playWeather(weather); // wywołaj ponownie
-            };
-
-            audio.play();
-            $audio.animate({ volume: globalVolume }, fadeDelay);
-        });
-    }
-
-    var rainHolder = $('<div>', { id: 'rainHolder' });
-
-    var weathers = ['no', 'rain', 'thunder', 'storm', 'snowstorm'];
-
-    weathers.forEach(function (weather) {
-        $('<button>', { class: 'RainButton' })
-            .append($('<img>', { src: DATA_SOURCE + 'icon_' + weather + '.png' }))
-            .appendTo(rainHolder)
-            .on('click', function () {
-                playWeather(weather);
-            });
-    });
-
-    $lightPanel.append(rainHolder);
-
-    generateGenreButtons(categories);
-
+    //--AUDIO CONTROLS--//
     var volumeSlider = $("#volume-slider");
     var playPauseButton = $('#playPauseButton');
     var stopButton = $('#stopButton');
 
-    //--Audio--//
     musicAudioPlayer = $("#audioPlayer");
     musicAudioPlayer[0].volume = 1;
     tempMusicAudioPlayer = $("#tempAudioPlayer");
     tempMusicAudioPlayer[0].volume = 1;
 
     rainAudioPlayer = $("#rainAudioPlayer");
-    tempRainAudioPlayer = $("#tempRainAudioPlayer")
 
     currentMusicPlayer = musicAudioPlayer;
     volumeSlider.on("input", function () {

@@ -2,31 +2,42 @@
 
 const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RPG Tools</title>
-    <!-- <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/rpg_styles.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://franek313.github.io/RPGTools/led_styles.css"> -->
-    <link rel="stylesheet" type="text/css" href="E:\franek313.github.io\RPGTools\led_styles.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         var ESP32_VERSION = true;
+        var IS_LOCAL = false;
+        var DATA_SOURCE = IS_LOCAL
+            ? "http://localhost:5500/RPGTools/"
+            : "https://franek313.github.io/RPGTools/";
+
+        // CSS
+        var stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = DATA_SOURCE + "led_styles.css";
+        document.head.appendChild(stylesheet);
+
+        // JS
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = DATA_SOURCE + "script.js";
+        document.head.appendChild(script);
     </script>
-
-    <script src="E:/franek313.github.io/RPGTools/script.js"></script>
-    <!-- <script src="https://franek313.github.io/RPGTools/script.js"></script> -->
-
-
 </head>
 
 <body>
     <div id="main">
         <div id="songName">Press genre button to play music...</div>
         <div id="worldsPanel"></div>
-        <div id="lightPanel"></div>
+        <div id="effectsPanel"></div>
         <div id="genresPanel"></div>
+
         <div id="controlsPanel">
             <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
             <div id = "musicControls">
@@ -36,6 +47,7 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
                 <button class="controlButton" id="fullscreen-button">⛶</button>
             </div>
         </div>
+
         <audio id="audioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
@@ -45,13 +57,10 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
         <audio id="rainAudioPlayer" controls>
             Your browser does not support the audio element.
         </audio>
-        <audio id="tempRainAudioPlayer" controls>
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
     <script>
-        // Funkcja do uruchamiania pełnoekranowego trybu
+        // Function that allows to enter fullscreen
         function toggleFullscreen() {
             var elem = document.documentElement;
             if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
@@ -77,7 +86,7 @@ const char PAGE_INDEX[] PROGMEM = R"HTML(<!DOCTYPE html>
             }
         }
 
-        // Dodanie obsługi zdarzenia kliknięcia do przycisku
+        // Adding event of fullscreen to the button
         var fullscreenButton = document.getElementById('fullscreen-button');
         if (fullscreenButton) {
             fullscreenButton.addEventListener('click', function() {
