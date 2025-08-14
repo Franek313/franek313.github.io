@@ -1,15 +1,26 @@
-var musicMap;
-var currentCategory = "";
 var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var currentMusicPlayer;
 var rainAudioPlayer;
 var tempRainAudioPlayer;
 var globalVolume = 1.0;
+
 var fadeDelay = 1500;
+
+var musicMap;
+var categories;
+var currentCategory = "";
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "SPECIAL"];
+
+var styleMap = new Map();
+styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
+styleMap.set(`v_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
+styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', 'color': '#4390DA' });
+styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
+styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
+styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
 
 function playRandomSong(category) {
     var newSongName;
@@ -26,7 +37,7 @@ function playRandomSong(category) {
     } while (songName.text() == newSongName);
 
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
-    var audioUrl = `https://franek313.github.io/RPGTools/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
+    var audioUrl = `${DATA_SOURCE}Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
     if (musicAudioPlayer[0].paused) {
         currentMusicPlayer = musicAudioPlayer;
@@ -53,15 +64,6 @@ function playRandomSong(category) {
     }
 }
 
-var styleMap = new Map();
-styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
-styleMap.set(`v_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
-styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', 'color': '#4390DA' });
-styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
-styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
-styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
-
-
 function generateGenreButtons(categories) {
     var genresPanel = $('#genresPanel');
     $.each(categories, function (index, name) { //tworzenie przycisków i dodawanie do genresPanel
@@ -85,19 +87,40 @@ $(document).ready(function () {
     worldsPrefixesMap.set('Fantasy', 'f_');
     worldsPrefixesMap.set('Vampire', 'v_');
     worldsPrefixesMap.set('Pirate', 'p_');
-    worldsPrefixesMap.set('SPECIAL', 'S_');
     worldsPrefixesMap.set('London 1888', 'l_');
     worldsPrefixesMap.set('Mandela Catalogue', 'm_');
+    worldsPrefixesMap.set('SPECIAL', 'S_');
 
-    //--JSON handle--//
-    const data = JSON.parse(folderStructureJSONString);
-    musicMap = new Map(Object.entries(data));
-    const categories = [...musicMap.keys()];
+    let data;
+
+    async function init() {
+        const url = `${DATA_SOURCE}folder_structure.json`;
+                             
+        console.log('USING: ', url);
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+    }
+
+    // uruchamiamy pobranie, a potem resztę programu
+    init().then(() => {
+        console.log("Loaded data:", data);
+        musicMap = new Map(Object.entries(data));
+        categories = [...musicMap.keys()];
+        generateGenreButtons(categories);
+    
+    }).catch(err => {
+        console.error("Error while getting JSON:", err);
+    });
+
+    // const loadedData = JSON.parse(folderStructureJSONString);
+    // musicMap = new Map(Object.entries(loadedData));
+    // const categories = [...musicMap.keys()];
 
     //--UI--//
     var worldsPanel = $('#worldsPanel');
     var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
-    var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon'); // Dodanie obrazka
     img.css("width", "60px");
     worldsButton.append(img); // Dodanie obrazka do przycisku
     worldsPanel.append(worldsButton);
@@ -108,6 +131,7 @@ $(document).ready(function () {
             $('#worldsPanel').css('left', '-250px'); // Schowaj panel
         }
     });
+    
     $.each(worldsButtonsArray, function (index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
         var button = $('<button>').text(name).attr('class', 'WorldButton');
         button.click(function () { //obsługa zdarzenia onlick
@@ -125,7 +149,7 @@ $(document).ready(function () {
 
     // Uchwyt panelu
     const $lightButton = $('<button>', { id: 'lightButton' });
-    const $img = $('<img>', { src: 'https://franek313.github.io/RPGTools/lights_button.png', alt: 'Toggle Icon' })
+    const $img = $('<img>', { src: `${DATA_SOURCE}lights_button.png`, alt: 'Toggle Icon' })
         .css('width', '60px');
     $lightButton.append($img);
     $lightPanel.append($lightButton);
@@ -223,7 +247,7 @@ $(document).ready(function () {
         const $audio = rainAudioPlayer; // jQuery obiekt
         const $tempAudio = tempRainAudioPlayer;
         const audio = $audio[0];        // natywny <audio>
-        const base = 'https://franek313.github.io/RPGTools/Audio/';
+        const base = `${DATA_SOURCE}Audio/`;
 
         // Usuwamy poprzedni listener, żeby się nie mnożył
         audio.onended = null;
@@ -263,7 +287,7 @@ $(document).ready(function () {
 
     weathers.forEach(function (weather) {
         $('<button>', { class: 'RainButton' })
-            .append($('<img>', { src: 'https://franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
+            .append($('<img>', { src: DATA_SOURCE + 'icon_' + weather + '.png' }))
             .appendTo(rainHolder)
             .on('click', function () {
                 playWeather(weather);
