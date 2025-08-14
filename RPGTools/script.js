@@ -262,7 +262,7 @@ $(document).ready(function () {
 
     weathers.forEach(function (weather) {
         $('<button>', { class: 'RainButton' })
-            .append($('<img>', { src: 'E:/franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
+            .append($('<img>', { src: 'https:/franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
             .appendTo(rainHolder)
             .on('click', function () {
                 playWeather(weather);
