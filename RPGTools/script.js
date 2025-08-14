@@ -218,11 +218,12 @@ $(document).ready(function () {
         // init
         updatePreviewFromHSV();
     }
+
     function playWeather(weather) {
         const $audio = rainAudioPlayer; // jQuery obiekt
         const $tempAudio = tempRainAudioPlayer;
         const audio = $audio[0];        // natywny <audio>
-        const base = 'E://franek313.github.io/RPGTools/Audio/';
+        const base = 'https://franek313.github.io/RPGTools/Audio/';
 
         // Usuwamy poprzedni listener, żeby się nie mnożył
         audio.onended = null;
@@ -262,7 +263,7 @@ $(document).ready(function () {
 
     weathers.forEach(function (weather) {
         $('<button>', { class: 'RainButton' })
-            .append($('<img>', { src: 'https:/franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
+            .append($('<img>', { src: 'https://franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
             .appendTo(rainHolder)
             .on('click', function () {
                 playWeather(weather);
