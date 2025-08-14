@@ -3,79 +3,73 @@ var currentCategory = "";
 var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var currentMusicPlayer;
+var rainAudioPlayer;
+var tempRainAudioPlayer;
 var globalVolume = 1.0;
 var fadeDelay = 1500;
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
 var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "SPECIAL"];
 
-function playRandomSong(category)
-{   
+function playRandomSong(category) {
     var newSongName;
     var randomIndex;
     var songName = $("#songName");
-    
+
     var firstTry = true;
-    do
-    {
-        if(!firstTry) console.log(`Same! = ${songName.text()}`);
+    do {
+        if (!firstTry) console.log(`Same! = ${songName.text()}`);
         firstTry = false;
         randomIndex = Math.floor(Math.random() * musicMap.get(category).length);
         newSongName = (musicMap.get(category)[randomIndex]).replace('.mp3', '');
         if (musicMap.get(category).length == 1) break;
-    } while(songName.text() == newSongName);
+    } while (songName.text() == newSongName);
 
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
-    var audioUrl = `${DATA_SOURCE}/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
+    var audioUrl = `https://franek313.github.io/RPGTools/Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
-    if(musicAudioPlayer[0].paused){
+    if (musicAudioPlayer[0].paused) {
         currentMusicPlayer = musicAudioPlayer;
-        tempMusicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+        tempMusicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
             tempMusicAudioPlayer[0].pause();
         });
         musicAudioPlayer[0].src = audioUrl;
         musicAudioPlayer[0].play();
         musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        musicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
         return;
     }
 
-    if(tempMusicAudioPlayer[0].paused){
+    if (tempMusicAudioPlayer[0].paused) {
         currentMusicPlayer = tempMusicAudioPlayer;
-        musicAudioPlayer.animate({volume: 0}, fadeDelay, function() {
+        musicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
             musicAudioPlayer[0].pause();
         });
         tempMusicAudioPlayer[0].src = audioUrl;
         tempMusicAudioPlayer[0].play();
         tempMusicAudioPlayer[0].volume = 0;
-        tempMusicAudioPlayer.animate({volume: globalVolume}, fadeDelay);
+        tempMusicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
         return;
     }
 }
 
 var styleMap = new Map();
-styleMap.set(`f_`, {'border-color': 'gold','background-color': 'rgb(252, 255, 70)','color': 'gold'});
-styleMap.set(`v_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
-styleMap.set(`p_`, {'border-color': '#4390DA','background-color': '#053B6F','color': '#4390DA'});
-styleMap.set(`S_`, {'border-color': 'gray','background-color': '#CFCFCF','color': 'silver'});
-styleMap.set(`l_`, {'border-color': '#46CE46','background-color': '#90EE90','color': '#46CE46'});
-styleMap.set(`m_`, {'border-color': 'red','background-color': '#630000','color': 'red'});
+styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
+styleMap.set(`v_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
+styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', 'color': '#4390DA' });
+styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
+styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
+styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
 
-<<<<<<< Updated upstream
 
-function generateGenreButtons(categories)
-{
-=======
 function generateGenreButtons(categories) {
->>>>>>> Stashed changes
     var genresPanel = $('#genresPanel');
-    $.each(categories, function(index, name) { //tworzenie przycisków i dodawanie do genresPanel
-        if(name.includes(worldPrefix))
-        {
+    $.each(categories, function (index, name) { //tworzenie przycisków i dodawanie do genresPanel
+        if (name.includes(worldPrefix)) {
             var button = $('<button>').text(name.replace(worldPrefix, "")).attr('class', 'GenreButton'); // Tworzenie przycisku
             let styleString = styleMap.get(worldPrefix);
             button.css(styleString);
-            button.click(function() { //obsługa zdarzenia onlick
+            button.click(function () { //obsługa zdarzenia onlick
                 var category = categories[index];
                 currentCategory = category;
                 paused = false;
@@ -86,13 +80,7 @@ function generateGenreButtons(categories) {
     });
 }
 
-<<<<<<< Updated upstream
-$(document).ready(function() {
-=======
 $(document).ready(function () {
-
-
->>>>>>> Stashed changes
     //--Worlds Map Handle--//
     worldsPrefixesMap.set('Fantasy', 'f_');
     worldsPrefixesMap.set('Vampire', 'v_');
@@ -109,46 +97,35 @@ $(document).ready(function () {
     //--UI--//
     var worldsPanel = $('#worldsPanel');
     var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
-    var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    var img = $('<img>').attr('src', 'https://franek313.github.io/RPGTools/worlds_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
     img.css("width", "60px");
     worldsButton.append(img); // Dodanie obrazka do przycisku
     worldsPanel.append(worldsButton);
-    $('#worldsButton').click(function() {
+    $('#worldsButton').click(function () {
         if ($('#worldsPanel').css('left') === '-250px') {
             $('#worldsPanel').css('left', '0'); // Wysuwaj panel
         } else {
             $('#worldsPanel').css('left', '-250px'); // Schowaj panel
         }
     });
-    $.each(worldsButtonsArray, function(index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
+    $.each(worldsButtonsArray, function (index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
         var button = $('<button>').text(name).attr('class', 'WorldButton');
-        button.click(function() { //obsługa zdarzenia onlick
+        button.click(function () { //obsługa zdarzenia onlick
             worldPrefix = worldsPrefixesMap.get(worldsButtonsArray[index]);
             $('.GenreButton').remove();
             generateGenreButtons(categories);
             let songName = $("#songName");
             songName.css(styleMap.get(worldPrefix))
-            songName.css('background-color' , '#00000000');
+            songName.css('background-color', '#00000000');
         });
         worldsPanel.append(button);
     });
 
-<<<<<<< Updated upstream
-    var lightPanel = $('#lightPanel');
-    var lightButton = $('<button>').attr('id', 'lightButton'); // Dodawanie przycisku lightButton na koniec lightPanel z obrazkiem
-    var img = $('<img>').attr('src', 'E:/franek313.github.io/RPGTools/lights_button.png').attr('alt', 'Toggle Icon'); // Dodanie obrazka
-    img.css("width", "60px");
-    lightButton.append(img); // Dodanie obrazka do przycisku
-    lightPanel.append(lightButton);
-    $('#lightButton').click(function() {
-        if ($('#lightPanel').css('right') === '0px') {
-            $('#lightPanel').css('right', '-250px'); // chowamy
-=======
     const $lightPanel = $('#lightPanel');
 
     // Uchwyt panelu
     const $lightButton = $('<button>', { id: 'lightButton' });
-    const $img = $('<img>', {src: `${DATA_SOURCE}lights_button.png`, alt: 'Toggle Icon' })
+    const $img = $('<img>', { src: 'https://franek313.github.io/RPGTools/lights_button.png', alt: 'Toggle Icon' })
         .css('width', '60px');
     $lightButton.append($img);
     $lightPanel.append($lightButton);
@@ -246,7 +223,7 @@ $(document).ready(function () {
         const $audio = rainAudioPlayer; // jQuery obiekt
         const $tempAudio = tempRainAudioPlayer;
         const audio = $audio[0];        // natywny <audio>
-        const base = `${DATA_SOURCE}Audio/`;
+        const base = 'https://franek313.github.io/RPGTools/Audio/';
 
         // Usuwamy poprzedni listener, żeby się nie mnożył
         audio.onended = null;
@@ -258,36 +235,23 @@ $(document).ready(function () {
             });
             $('#songName').text('');
             return;
->>>>>>> Stashed changes
         } else {
-            $('#lightPanel').css('right', '0px'); // wysuwamy
+            audio.volume = 1;
         }
-    });
-    let selectedHue = 0;        // 0–360
-    let selectedBrightness = 255; // 0–255
-    let selectedColor = '#ff0000'; // wynikowy kolor przy aktualnym hue+jasność
 
-    // --- UI ---
-    const $hueWrap = $('<div>').css({textAlign:'center', width: '100%'});
-    const $brightnessWrap = $('<div>').css({textAlign:'center', width: '100%'});
+        const url = `${base}${weather}/${weather}.mp3`;
 
-    // Hue slider
-    const $hueLabel = $('<div>').text('Color').css({ marginBottom:'4px', color:'#fff' });
-    const $hueSlider = $('<input>', { type:'range', min:0, max:360, value:0 }).attr('id', 'colorSlider');
-    $hueWrap.append($hueLabel, $hueSlider);
+        $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
+            audio.pause();
+            audio.src = url;
+            audio.load();
+            audio.volume = 0;
 
-    // Brightness slider
-    const $briLabel = $('<div>').text('Brightness:').css({ marginBottom:'4px', color:'#fff' });
-    const $briSlider = $('<input>', { type:'range', min:0, max:255, value:255 }).attr('id', 'brightnessSlider');
-    $brightnessWrap.append($briLabel, $briSlider);
+            // Ustawiamy co zrobić po zakończeniu utworu
+            audio.onended = function () {
+                playWeather(weather); // wywołaj ponownie
+            };
 
-<<<<<<< Updated upstream
-    // Podgląd
-    const $preview = $('<div>').css({
-        width:'50px', height:'50px',
-        borderRadius:'8px', border:'1px solid #00000055',
-        background:selectedColor
-=======
             audio.play();
             $audio.animate({ volume: globalVolume }, fadeDelay);
         });
@@ -299,84 +263,14 @@ $(document).ready(function () {
 
     weathers.forEach(function (weather) {
         $('<button>', { class: 'RainButton' })
-            .append($('<img>', { src: DATA_SOURCE + 'icon_' + weather + '.png' }))
+            .append($('<img>', { src: 'https://franek313.github.io/RPGTools/' + 'icon_' + weather + '.png' }))
             .appendTo(rainHolder)
             .on('click', function () {
                 playWeather(weather);
             });
->>>>>>> Stashed changes
     });
 
-    // Dodaj do panelu
-    lightPanel.append($hueWrap, $brightnessWrap, $preview);
-
-    // --- Funkcje ---
-    function hslToHex(h, s, l) {
-        s /= 100; l /= 100;
-        const k = n => (n + h/30) % 12;
-        const a = s * Math.min(l, 1 - l);
-        const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
-        const toHex = x => {
-            const hex = Math.round(x * 255).toString(16).padStart(2,'0');
-            return hex;
-        };
-        return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
-    }
-
-    function updateColor() {
-        // pełna jasność w HSL = 50% lightness
-        const hueColor = hslToHex(selectedHue, 100, 50);
-        // przeskaluj jasność
-        const rgb = hexToRgb(hueColor);
-        const scale = selectedBrightness / 255;
-        const r = Math.round(rgb.r * scale);
-        const g = Math.round(rgb.g * scale);
-        const b = Math.round(rgb.b * scale);
-        selectedColor = rgbToHex(r, g, b);
-        $preview.css('background', selectedColor);
-        console.log(`Hue: ${selectedHue}, Brightness: ${selectedBrightness}, Color: ${selectedColor}`);
-    }
-
-    function rgbToHex(r,g,b){ return "#" + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
-    function hexToRgb(hex){ const m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i); return m ? {r:parseInt(m[1],16), g:parseInt(m[2],16), b:parseInt(m[3],16)} : null; }
-
-    // --- Obsługa suwaków ---
-    $hueSlider.on('input', function(){
-        selectedHue = parseInt(this.value);
-        updateColor();
-    });
-
-    $briSlider.on('input', function(){
-        selectedBrightness = parseInt(this.value);
-        updateColor();
-    });
-
-    // Inicjalizacja
-    updateColor();
-
-    // zdarzenia dla hue
-    $hue.on('input', function(){
-    selectedHue = +this.value;
-    recomputeColor(); // aktualizuj tylko podgląd
-    });
-    $hue.on('change', function(){
-    sendToEsp32();    // wyślij dopiero po puszczeniu
-    });
-
-    // zdarzenia dla brightness
-    $br.on('input', function(){
-    selectedBrightness = +this.value;
-    recomputeColor(); // aktualizuj tylko podgląd
-    });
-    $br.on('change', function(){
-    sendToEsp32();    // wyślij dopiero po puszczeniu
-    });
-
-    // wysyłka (teraz bez debounce, bo to tylko raz po zmianie)
-    function sendToEsp32() {
-    const url = `/api/set?color=${encodeURIComponent(selectedColor)}&br=${selectedBrightness}`;
-    fetch(url).catch(err => console.warn('Błąd wysyłki do ESP32:', err));
-    }
+    $lightPanel.append(rainHolder);
 
     generateGenreButtons(categories);
 
@@ -389,48 +283,50 @@ $(document).ready(function () {
     musicAudioPlayer[0].volume = 1;
     tempMusicAudioPlayer = $("#tempAudioPlayer");
     tempMusicAudioPlayer[0].volume = 1;
+
+    rainAudioPlayer = $("#rainAudioPlayer");
+    tempRainAudioPlayer = $("#tempRainAudioPlayer")
+
     currentMusicPlayer = musicAudioPlayer;
-    volumeSlider.on("input", function(){
+    volumeSlider.on("input", function () {
         musicAudioPlayer[0].volume = $(this).val();
         tempMusicAudioPlayer[0].volume = $(this).val();
         globalVolume = $(this).val();
         console.log(musicAudioPlayer[0].volume);
     });
-    playPauseButton.click(function() {
-        if(currentMusicPlayer[0].paused)
-        {
+    playPauseButton.click(function () {
+        if (currentMusicPlayer[0].paused) {
             $("#playPauseButton").prop("disabled", true);
             currentMusicPlayer[0].play();
-            currentMusicPlayer.animate({volume: globalVolume}, fadeDelay, function() {
+            currentMusicPlayer.animate({ volume: globalVolume }, fadeDelay, function () {
                 $("#playPauseButton").prop("disabled", false);
             });
         }
-        else
-        {
+        else {
             $("#playPauseButton").prop("disabled", true);
-            currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+            currentMusicPlayer.animate({ volume: 0 }, fadeDelay, function () {
                 currentMusicPlayer[0].pause();
                 $("#playPauseButton").prop("disabled", false);
             });
         }
     });
-    stopButton.click(function() {
+    stopButton.click(function () {
         $("#playPauseButton").prop("disabled", true);
         $("#stopButton").prop("disabled", true);
         currentMusicPlayer.stop();
         currentMusicPlayer[0].volume = globalVolume;
-        currentMusicPlayer.animate({volume: 0}, fadeDelay); 
-        currentMusicPlayer.animate({volume: 0}, fadeDelay, function() {
+        currentMusicPlayer.animate({ volume: 0 }, fadeDelay);
+        currentMusicPlayer.animate({ volume: 0 }, fadeDelay, function () {
             currentMusicPlayer[0].pause();
             currentMusicPlayer[0].currentTime = 0;
             $("#playPauseButton").prop("disabled", false);
             $("#stopButton").prop("disabled", false);
         });
     });
-    musicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
+    musicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
         playRandomSong(currentCategory, musicAudioPlayer);
     });
-    tempMusicAudioPlayer.on('ended', function() { //po zakończeniu utworu zrób...
+    tempMusicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
         playRandomSong(currentCategory, tempMusicAudioPlayer);
     });
 });
@@ -495,7 +391,6 @@ var folderStructureJSONString = `{
         "Baldur's Gate OST - Even Deeper.mp3",
         "Gothic 2 Soundtrack - 01 Titel Theme.mp3",
         "Gothic 2 Soundtrack - 04 Ingame Music.mp3",
-        "Gothic 2 Soundtrack - 26 Fish Food.mp3",
         "Gothic 3 -- OST 03 'Xardas Tower Indoor'.mp3",
         "Gothic 3 -- OST 27 'Death Valley'.mp3",
         "Gothic 3 -- OST 29 'Beliar'.mp3",
@@ -756,7 +651,6 @@ var folderStructureJSONString = `{
         "Baldur's Gate OST - Even Deeper.mp3",
         "Gothic 2 Soundtrack - 01 Titel Theme.mp3",
         "Gothic 2 Soundtrack - 04 Ingame Music.mp3",
-        "Gothic 2 Soundtrack - 26 Fish Food.mp3",
         "Gothic 3 -- OST 03 'Xardas Tower Indoor'.mp3",
         "Gothic 3 -- OST 27 'Death Valley'.mp3",
         "Gothic 3 -- OST 29 'Beliar'.mp3",
