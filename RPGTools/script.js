@@ -11,7 +11,7 @@ var categories;
 var currentCategory = "";
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
-var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "SPECIAL"];
+var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "Western", "SPECIAL"];
 
 var styleMap = new Map();
 styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
@@ -20,6 +20,7 @@ styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', '
 styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
 styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
 styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
+styleMap.set(`w_`, { 'border-color': '#825531ff', 'background-color': '#C4A484', 'color': '#825531ff' });
 
 function playRandomSong(category) {
     var newSongName;
@@ -90,6 +91,7 @@ $(document).ready(function () {
         ['Pirate', 'p_'],
         ['London 1888', 'l_'],
         ['Mandela Catalogue', 'm_'],
+        ['Western', 'w_'],
         ['SPECIAL', 'S_']
     ]);
 
