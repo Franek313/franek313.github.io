@@ -22,7 +22,7 @@ styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', '
 styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
 styleMap.set(`w_`, { 'border-color': '#825531ff', 'background-color': '#C4A484', 'color': '#825531ff' });
 
-function playRandomSong(category) {
+function playRandomSong(category, endedPlayer) {
     var newSongName;
     var randomIndex;
     var songName = $("#songName");
@@ -39,29 +39,44 @@ function playRandomSong(category) {
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `${DATA_SOURCE}Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
-    if (musicAudioPlayer[0].paused) {
-        currentMusicPlayer = musicAudioPlayer;
-        tempMusicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
-            tempMusicAudioPlayer[0].pause();
-        });
-        musicAudioPlayer[0].src = audioUrl;
-        musicAudioPlayer[0].play();
-        musicAudioPlayer[0].volume = 0;
-        musicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
-        return;
+    // Ustalamy, który player ma zagrać nowy utwór (incoming), a który ma zostać wygaszony (outgoing).
+    var incomingPlayer, outgoingPlayer;
+
+    if (endedPlayer) {
+        // Wywołane przez zdarzenie 'ended' - wiemy na 100% który player właśnie skończył,
+        // więc nie zgadujemy przez .paused (to źródło wyścigu / zacinania się).
+        incomingPlayer = endedPlayer;
+        outgoingPlayer = (endedPlayer === musicAudioPlayer) ? tempMusicAudioPlayer : musicAudioPlayer;
+    } else if (musicAudioPlayer[0].paused) {
+        incomingPlayer = musicAudioPlayer;
+        outgoingPlayer = tempMusicAudioPlayer;
+    } else if (tempMusicAudioPlayer[0].paused) {
+        incomingPlayer = tempMusicAudioPlayer;
+        outgoingPlayer = musicAudioPlayer;
+    } else {
+        // Fallback: oba playery wyglądają na "zajęte" (np. trwa jeszcze fade z poprzedniego
+        // przejścia). Wcześniej w tym miejscu funkcja po prostu nic nie robiła - stąd zacinanie.
+        // Teraz wymuszamy przełączenie na player inny niż aktualnie odtwarzający.
+        incomingPlayer = (currentMusicPlayer === musicAudioPlayer) ? tempMusicAudioPlayer : musicAudioPlayer;
+        outgoingPlayer = currentMusicPlayer;
+        console.warn('playRandomSong: fallback - oba playery były "not paused", wybrano awaryjnie.');
     }
 
-    if (tempMusicAudioPlayer[0].paused) {
-        currentMusicPlayer = tempMusicAudioPlayer;
-        musicAudioPlayer.animate({ volume: 0 }, fadeDelay, function () {
-            musicAudioPlayer[0].pause();
-        });
-        tempMusicAudioPlayer[0].src = audioUrl;
-        tempMusicAudioPlayer[0].play();
-        tempMusicAudioPlayer[0].volume = 0;
-        tempMusicAudioPlayer.animate({ volume: globalVolume }, fadeDelay);
-        return;
-    }
+    currentMusicPlayer = incomingPlayer;
+
+    // Czyścimy kolejkę animacji jQuery na obu playerach, żeby stare .animate() z poprzednich
+    // przejść nie nawarstwiały się i nie blokowały nowego fade'a.
+    outgoingPlayer.stop(true);
+    incomingPlayer.stop(true);
+
+    outgoingPlayer.animate({ volume: 0 }, fadeDelay, function () {
+        outgoingPlayer[0].pause();
+    });
+
+    incomingPlayer[0].src = audioUrl;
+    incomingPlayer[0].play();
+    incomingPlayer[0].volume = 0;
+    incomingPlayer.animate({ volume: globalVolume }, fadeDelay);
 }
 
 function generateGenreButtons(categories) {
