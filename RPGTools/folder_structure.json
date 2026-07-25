@@ -603,11 +603,12 @@
         "Victorian London - Murder Mystery.mp3",
         "Victorian London - Mystery.mp3"
     ],
-    "m_Action":[
+
+    "a_Action":[
         "Kill Bill OST - Battle Without Honor Or Humanity.mp3",
         "Scarface - Push It To The Limit.mp3"
     ],
-    "m_Peaceful" : [
+    "a_Peaceful" : [
         "Cyndi Lauper - Time After Time.mp3",
         "Berlin - Take My Breath Away.mp3",
         "The Cars - Drive.mp3",
@@ -622,22 +623,10 @@
         "Tears For Fears - Everybody Wants To Rule The World.mp3",
         "The Police - Every Breath You Take.mp3"
     ],
-    "m_Fear" : [
-        "Mandela Catalogue - Ambient_2.mp3",
-        "Mandela Catalogue - Hello, Adam.mp3",
-        "Mandela Catalogue - My Guardian Angel.mp3",
-        "Mandela Catalogue - Repass.mp3",
-        "XFiles - Forest Search.mp3",
-        "XFiles - Night Forest.mp3",
-        "XFiles - Weather Balloons.mp3",
-        "XFiles - Ain't Dead Yet.mp3",
-        "XFiles - Buttoning Up.mp3",
-        "XFiles - Confrontation.mp3"
-    ],
-    "m_Glory" : [
+    "a_Glory" : [
         "Mandela Catalogue - Marines Hymn.mp3"
     ],
-    "m_Mysterious" : [
+    "a_Mysterious" : [
         "Mandela Catalogue - Dear Ruth.mp3",
         "Mandela Catalogue - The Two of Us.mp3",
         "XFiles - UFO Technology.mp3",
@@ -647,10 +636,50 @@
         "XFiles - Detective Schmuck.mp3",
         "XFiles - Digital Data Banks.mp3"
     ],
-    "m_Mystic" : [
-        "XFiles - Aerial Burial.mp3",
-        "XFiles - Another X-File.mp3"
+    "a_Fear" : [
+        "XFiles - Weather Balloons.mp3",
+        "XFiles - Ain't Dead Yet.mp3",
+        "XFiles - Buttoning Up.mp3",
+        "XFiles - Confrontation.mp3"
     ],
+
+    "k_Action":[
+        "The Pink Room - Twin Peaks.mp3"
+    ],
+    "k_Peaceful" : [
+        "Blood Meridian.mp3",
+        "Traumatraum.mp3",
+        "Memory and Forgetting by Spearfisher.mp3"
+    ],
+    "k_Inn":[
+        "Dance Of The Dream Man - Twin Peaks.mp3"
+    ],
+    "k_Fear" : [
+        "Darkness Within.mp3",
+        "Mechanoreceptor - Corruption of the Primordial Condition.mp3",
+        "Prophecy.mp3",
+        "TrueDetective_2.mp3",
+        "TrueDetective_1.mp3",
+        "TrueDetective_4.mp3",
+        "TrueDetective_7.mp3"
+    ],
+
+    "k_Mysterious" : [
+        "Infinite Emptiness.mp3",
+        "TwinPeaks_0.mp3",
+        "TwinPeaks_1.mp3",
+        "TwinPeaks_2.mp3",
+        "TwinPeaks_3.mp3",
+        "TwinPeaks_5.mp3",
+        "TwinPeaks_6.mp3",
+        "XFiles - UFO Technology.mp3",
+        "XFiles - Attached.mp3",
+        "XFiles - Bug Tales.mp3",
+        "XFiles - Arrival In Town.mp3",
+        "XFiles - Detective Schmuck.mp3",
+        "XFiles - Digital Data Banks.mp3"
+    ],
+
     "w_Action" : [
         "We Ride Really - Rango.mp3"
     ],

@@ -2,16 +2,21 @@ var musicAudioPlayer;
 var tempMusicAudioPlayer;
 var currentMusicPlayer;
 var rainAudioPlayer;
+var tempRainAudioPlayer;
+var currentRainPlayer;
+var currentWeather = 'no';
 var globalVolume = 1.0;
+var rainVolume = 0.1;
 
 var fadeDelay = 1500;
+var rainfadeDelay = 1500;
 
 var musicMap;
 var categories;
 var currentCategory = "";
 var worldsPrefixesMap = new Map();
 var worldPrefix = "f_";
-var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Mandela Catalogue", "Western", "SPECIAL"];
+var worldsButtonsArray = ["Fantasy", "Vampire", "Pirate", "London 1888", "Kult", "Western", "Action 80s", "SPECIAL"];
 
 var styleMap = new Map();
 styleMap.set(`f_`, { 'border-color': 'gold', 'background-color': 'rgb(252, 255, 70)', 'color': 'gold' });
@@ -19,8 +24,9 @@ styleMap.set(`v_`, { 'border-color': 'red', 'background-color': '#630000', 'colo
 styleMap.set(`p_`, { 'border-color': '#4390DA', 'background-color': '#053B6F', 'color': '#4390DA' });
 styleMap.set(`S_`, { 'border-color': 'gray', 'background-color': '#CFCFCF', 'color': 'silver' });
 styleMap.set(`l_`, { 'border-color': '#46CE46', 'background-color': '#90EE90', 'color': '#46CE46' });
-styleMap.set(`m_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
+styleMap.set(`k_`, { 'border-color': 'red', 'background-color': '#630000', 'color': 'red' });
 styleMap.set(`w_`, { 'border-color': '#825531ff', 'background-color': '#C4A484', 'color': '#825531ff' });
+styleMap.set(`a_`, { 'border-color': 'rgb(255, 116, 190)', 'background-color': '#ffafdb', 'color': 'rgb(255, 41, 177)' });
 
 function playRandomSong(category, endedPlayer) {
     var newSongName;
@@ -39,12 +45,9 @@ function playRandomSong(category, endedPlayer) {
     songName.text((musicMap.get(category)[randomIndex]).replace('.mp3', ''));
     var audioUrl = `${DATA_SOURCE}Audio/${category.replace(worldPrefix, "")}/${musicMap.get(category)[randomIndex]}`;
 
-    // Ustalamy, który player ma zagrać nowy utwór (incoming), a który ma zostać wygaszony (outgoing).
     var incomingPlayer, outgoingPlayer;
 
     if (endedPlayer) {
-        // Wywołane przez zdarzenie 'ended' - wiemy na 100% który player właśnie skończył,
-        // więc nie zgadujemy przez .paused (to źródło wyścigu / zacinania się).
         incomingPlayer = endedPlayer;
         outgoingPlayer = (endedPlayer === musicAudioPlayer) ? tempMusicAudioPlayer : musicAudioPlayer;
     } else if (musicAudioPlayer[0].paused) {
@@ -54,9 +57,6 @@ function playRandomSong(category, endedPlayer) {
         incomingPlayer = tempMusicAudioPlayer;
         outgoingPlayer = musicAudioPlayer;
     } else {
-        // Fallback: oba playery wyglądają na "zajęte" (np. trwa jeszcze fade z poprzedniego
-        // przejścia). Wcześniej w tym miejscu funkcja po prostu nic nie robiła - stąd zacinanie.
-        // Teraz wymuszamy przełączenie na player inny niż aktualnie odtwarzający.
         incomingPlayer = (currentMusicPlayer === musicAudioPlayer) ? tempMusicAudioPlayer : musicAudioPlayer;
         outgoingPlayer = currentMusicPlayer;
         console.warn('playRandomSong: fallback - oba playery były "not paused", wybrano awaryjnie.');
@@ -64,8 +64,6 @@ function playRandomSong(category, endedPlayer) {
 
     currentMusicPlayer = incomingPlayer;
 
-    // Czyścimy kolejkę animacji jQuery na obu playerach, żeby stare .animate() z poprzednich
-    // przejść nie nawarstwiały się i nie blokowały nowego fade'a.
     outgoingPlayer.stop(true);
     incomingPlayer.stop(true);
 
@@ -105,12 +103,12 @@ $(document).ready(function () {
         ['Vampire', 'v_'],
         ['Pirate', 'p_'],
         ['London 1888', 'l_'],
-        ['Mandela Catalogue', 'm_'],
+        ['Kult', 'k_'],
         ['Western', 'w_'],
+        ['Action 80s', 'a_'],
         ['SPECIAL', 'S_']
     ]);
 
-    //Getting folder structure json from server
     let data;
 
     async function init() {
@@ -126,7 +124,7 @@ $(document).ready(function () {
         console.log("Loaded data:", data);
         musicMap = new Map(Object.entries(data));
         categories = [...musicMap.keys()];
-        generateGenreButtons(categories); //generating buttons for each genre
+        generateGenreButtons(categories);
     }).catch(err => {
         console.error("Error while getting JSON:", err);
     });
@@ -134,22 +132,22 @@ $(document).ready(function () {
     //--UI--//
     //--WORLDS PANEL--//
     var worldsPanel = $('#worldsPanel');
-    var worldsButton = $('<button>').attr('id', 'worldsButton'); // Dodawanie przycisku worldsButton na koniec worldsPanel z obrazkiem
-    var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon'); // Dodanie obrazka
+    var worldsButton = $('<button>').attr('id', 'worldsButton');
+    var img = $('<img>').attr('src', `${DATA_SOURCE}worlds_button.png`).attr('alt', 'Toggle Icon');
     img.css("width", "60px");
-    worldsButton.append(img); // Dodanie obrazka do przycisku
+    worldsButton.append(img);
     worldsPanel.append(worldsButton);
     $('#worldsButton').click(function () {
         if ($('#worldsPanel').css('left') === '-250px') {
-            $('#worldsPanel').css('left', '0'); // Wysuwaj panel
+            $('#worldsPanel').css('left', '0');
         } else {
-            $('#worldsPanel').css('left', '-250px'); // Schowaj panel
+            $('#worldsPanel').css('left', '-250px');
         }
     });
 
-    $.each(worldsButtonsArray, function (index, name) {// Tworzenie przycisków i dodawanie ich do worldsPanel
+    $.each(worldsButtonsArray, function (index, name) {
         var button = $('<button>').text(name).attr('class', 'WorldButton');
-        button.click(function () { //obsługa zdarzenia onlick
+        button.click(function () {
             worldPrefix = worldsPrefixesMap.get(worldsButtonsArray[index]);
             $('.GenreButton').remove();
             generateGenreButtons(categories);
@@ -172,41 +170,73 @@ $(document).ready(function () {
         else $effectsPanel.css('right', '0px');
     });
 
+    // Rdzeń logiki: wykonuje crossfade na docelową pogodę (rain/thunder/storm/snowstorm),
+    // niezależnie czy to jest zmiana pogody, czy zapętlenie TEJ SAMEJ pogody.
+    function startRainCrossfade(weather) {
+        const url = `${DATA_SOURCE}Audio/${weather}/${weather}.mp3`;
+
+        var outgoingPlayer = currentRainPlayer;
+        var incomingPlayer = (currentRainPlayer === rainAudioPlayer) ? tempRainAudioPlayer : rainAudioPlayer;
+
+        // Usuwamy zaplanowane wcześniej sprawdzanie "końca utworu" z obu playerów,
+        // żeby stare wywołania nie nawarstwiały się przy szybkiej zmianie pogody.
+        outgoingPlayer.off('timeupdate.rainloop');
+        incomingPlayer.off('timeupdate.rainloop');
+
+        outgoingPlayer.stop(true);
+        incomingPlayer.stop(true);
+
+        outgoingPlayer.animate({ volume: 0 }, rainfadeDelay, function () {
+            outgoingPlayer[0].pause();
+        });
+
+        incomingPlayer[0].src = url;
+        incomingPlayer[0].volume = 0;
+        incomingPlayer[0].play();
+        incomingPlayer.animate({ volume: rainVolume }, rainfadeDelay);
+
+        currentRainPlayer = incomingPlayer;
+        currentWeather = weather;
+
+        scheduleLoopCrossfade(incomingPlayer, weather);
+    }
+
+    // Nasłuchuje na bieżący czas odtwarzania i - gdy do końca pliku zostaje
+    // dokładnie tyle, ile trwa fade (rainfadeDelay) - z WYPRZEDZENIEM odpala
+    // crossfade na drugi player z tym samym plikiem. Dzięki temu pętla tego
+    // samego dźwięku przenika się tak samo płynnie jak zmiana między pogodami,
+    // zamiast czekać na 'ended' (czyli już PO fakcie, kiedy jest za późno na fade).
+    function scheduleLoopCrossfade(player, weather) {
+        var triggered = false;
+        player.on('timeupdate.rainloop', function () {
+            var audio = player[0];
+            if (!audio.duration || isNaN(audio.duration)) return;
+            var remainingMs = (audio.duration - audio.currentTime) * 1000;
+            if (!triggered && remainingMs <= rainfadeDelay) {
+                triggered = true;
+                player.off('timeupdate.rainloop');
+                // Tylko jeśli w międzyczasie użytkownik nie zmienił pogody na inną.
+                if (currentWeather === weather) {
+                    startRainCrossfade(weather);
+                }
+            }
+        });
+    }
+
     function playWeather(weather) {
-        const $audio = rainAudioPlayer; // jQuery obiekt
-        const audio = $audio[0];        // natywny <audio>
-        const base = `${DATA_SOURCE}Audio/`;
-
-        // Usuwamy poprzedni listener, żeby się nie mnożył
-        audio.onended = null;
-
-        // "no" = cisza
+        // "no" = cisza - wygaszamy to co aktualnie gra i przestajemy planować pętlę.
         if (weather === 'no') {
-            $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
-                audio.pause();
+            currentWeather = 'no';
+            rainAudioPlayer.off('timeupdate.rainloop');
+            tempRainAudioPlayer.off('timeupdate.rainloop');
+            currentRainPlayer.stop(true).animate({ volume: 0 }, rainfadeDelay, function () {
+                currentRainPlayer[0].pause();
             });
             $('#songName').text('');
             return;
-        } else {
-            $audio.volume = globalVolume;
         }
 
-        const url = `${base}${weather}/${weather}.mp3`;
-
-        $audio.stop(true).animate({ volume: 0 }, fadeDelay, function () {
-            audio.pause();
-            audio.src = url;
-            audio.load();
-            audio.volume = 0;
-
-            // Ustawiamy co zrobić po zakończeniu utworu
-            audio.onended = function () {
-                playWeather(weather); // wywołaj ponownie
-            };
-
-            audio.play();
-            $audio.animate({ volume: globalVolume }, fadeDelay);
-        });
+        startRainCrossfade(weather);
     }
 
     var rainHolder = $('<div>', { id: 'rainHolder' });
@@ -227,26 +257,23 @@ $(document).ready(function () {
         id: 'brightnessSlider', // using same css as brightnessSlider
         min: 0,
         max: 100,
-        value: 33,
+        value: 10,
         step: 1
     });
 
     $rainVolumeSlider.on('input', function () {
         const newVol = $(this).val() / 100;
         rainAudioPlayer[0].volume = newVol;
-        globalVolume = newVol;
+        tempRainAudioPlayer[0].volume = newVol;
+        rainVolume = newVol;
     });
 
-    // Dodajemy do panelu efektów
     $effectsPanel.append($('<div>').text('Rain volume').css('textAlign', 'center').append($rainVolumeSlider));
 
-    //Some features make sense only while using the ESP32 miniserver, for example controlling the led strip
     if (ESP32_VERSION) {
-        // Model
-        let selectedHue = 0;          // 0..360 w UI
-        let selectedBrightness = 255; // 0..255 dla FastLED
+        let selectedHue = 0;
+        let selectedBrightness = 255;
 
-        // UI suwaków
         const $hueWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
         const $briWrap = $('<div>').css({ textAlign: 'center', width: '100%' });
 
@@ -268,8 +295,7 @@ $(document).ready(function () {
 
         $effectsPanel.append($hueWrap, $briWrap, $preview);
 
-        // Konwersje i podgląd
-        function hsvToRgb(h, s, v) { // h:0..360, s/v:0..1
+        function hsvToRgb(h, s, v) {
             const c = v * s;
             const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
             const m = v - c;
@@ -289,11 +315,10 @@ $(document).ready(function () {
         function rgbToHex(r, g, b) { return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join(''); }
 
         function updatePreviewFromHSV() {
-            const rgb = hsvToRgb(selectedHue, 1, 1); // pełne S i V dla czystego koloru
+            const rgb = hsvToRgb(selectedHue, 1, 1);
             $preview.css('background', rgbToHex(rgb.r, rgb.g, rgb.b));
         }
 
-        // Hue gradient (1:1)
         (function setHueSliderGradient(el) {
             const stops = [];
             for (let h = 0; h <= 360; h += 10) {
@@ -303,13 +328,11 @@ $(document).ready(function () {
             el.style.background = `linear-gradient(to right, ${stops.join(',')})`;
         })($hueSlider[0]);
 
-        // Wysyłka do ESP32 (dopiero po puszczeniu)
         function sendToEsp32() {
-            const h8 = Math.round((selectedHue % 360) * 255 / 360); // 0..255 dla CHSV
+            const h8 = Math.round((selectedHue % 360) * 255 / 360);
             fetch(`/api/set?h=${h8}&br=${selectedBrightness}`).catch(e => console.warn(e));
         }
 
-        // input → tylko podgląd, change → wysyłka
         $hueSlider.on('input', function () {
             selectedHue = +this.value;
             updatePreviewFromHSV();
@@ -318,11 +341,9 @@ $(document).ready(function () {
 
         $briSlider.on('input', function () {
             selectedBrightness = +this.value;
-            // jasność nie zmienia podglądu koloru (robi to taśma)
         });
         $briSlider.on('change', sendToEsp32);
 
-        // init
         updatePreviewFromHSV();
     }
 
@@ -337,6 +358,14 @@ $(document).ready(function () {
     tempMusicAudioPlayer[0].volume = 1;
 
     rainAudioPlayer = $("#rainAudioPlayer");
+    tempRainAudioPlayer = $("#tempRainAudioPlayer");
+    currentRainPlayer = rainAudioPlayer;
+
+    // Slider deszczu ma HTML "value" ustawiony domyślnie, ale to nie zmienia realnej
+    // głośności audio - trzeba ją ustawić ręcznie na starcie, na OBU playerach deszczu.
+    rainVolume = $rainVolumeSlider.val() / 100;
+    rainAudioPlayer[0].volume = rainVolume;
+    tempRainAudioPlayer[0].volume = rainVolume;
 
     currentMusicPlayer = musicAudioPlayer;
     volumeSlider.on("input", function () {
@@ -374,10 +403,10 @@ $(document).ready(function () {
             $("#stopButton").prop("disabled", false);
         });
     });
-    musicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
+    musicAudioPlayer.on('ended', function () {
         playRandomSong(currentCategory, musicAudioPlayer);
     });
-    tempMusicAudioPlayer.on('ended', function () { //po zakończeniu utworu zrób...
+    tempMusicAudioPlayer.on('ended', function () {
         playRandomSong(currentCategory, tempMusicAudioPlayer);
     });
 });
